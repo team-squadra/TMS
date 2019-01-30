@@ -26,7 +26,7 @@ include 'resources/php/php_adminhome.php';
       <div class="logo">
             <table>
                 <tr>
-                  <td><img src="resources/assests/tms_logo.png" style="width: 30px;height: 30px;"></td>
+                  <td><img src="resources/assests/tms.png" style="width: 30px;height: 30px;"></td>
                 </tr>
             </table>
       </div>

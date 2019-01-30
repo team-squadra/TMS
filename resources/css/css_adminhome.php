@@ -7,7 +7,7 @@
 header
 {
 	height: 45px;
-	background-color: #282923;
+  background-color: #282923;
 }
 .main-nav
 {

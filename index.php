@@ -92,7 +92,7 @@ include 'resources/php/php_index.php';
   <div class="main">
     <div id="head">
       <a href="login.php" style="text-decoration: none; color: white;">
-        <img src="resources/assests/tms_logo.png" id="ico" style="margin-bottom: 20px;">
+        <img src="resources/assests/tms.png" id="ico" style="margin-bottom: 20px;">
         <br>Timetable Management<br> System
 			</a>
 		</div>
