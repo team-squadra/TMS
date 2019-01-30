@@ -2,7 +2,6 @@
 session_start();
 include 'db_details.php';
 $LOGINERR=NULL;
-$_SESSION['getadminname'] =NULL;
 if (isset($_POST['login'])) {
 
 $user= $_POST["user"];

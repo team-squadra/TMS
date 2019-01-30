@@ -15,9 +15,7 @@ body {
   font-family: "Century Gothic";
   margin-bottom: 50px;
   width: auto;
-}
-#head a:hover{
-  color: red;
+  border: none;
 }
 .btn
 {
@@ -43,6 +41,12 @@ body {
   height: 200px;
   margin-top: 100px;
   border-radius: 50%;
+  background-image: url(resources/assests/tms.png);
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline:none;
 }
 #ico:hover{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);

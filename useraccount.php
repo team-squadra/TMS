@@ -1,7 +1,9 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
-include 'resources/css/css_useraccount.php';
+include 'resources/css/css_all_public.php';
 include 'resources/php/php_useraccount.php';
+include 'resources/css/css_useraccount.php';
+
 ?>
 <!--------------> 
 
@@ -59,7 +61,12 @@ include 'resources/php/php_useraccount.php';
                     <hr>
                     <a href="useraccount.php">My Profile</a>
                     <a href="#">Settings</a>
-                    <a href="login.php">Sign out</a>
+                    <form action="" method="post">
+                      <button name="signout" id="signout" 
+                      style="">
+                      Sign out
+                      </button>
+                    </form>
                   
                   </div><!--dropdown-content-->
             </div><!--dropdown-->

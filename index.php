@@ -91,10 +91,10 @@ include 'resources/php/php_index.php';
   <!--main-->
   <div class="main">
     <div id="head">
-      <a href="login.php" style="text-decoration: none; color: white;">
-        <img src="resources/assests/tms.png" id="ico" style="margin-bottom: 20px;">
-        <br>Timetable Management<br> System
-			</a>
+      <form action="" method="post">
+        <button id="ico" name="ico"></button>
+      </form>
+      Timetable Management<br> System
 		</div>
 	</div>
 
