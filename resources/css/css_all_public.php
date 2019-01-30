@@ -36,17 +36,23 @@ body
     display: flex;
     flex-wrap: wrap;
 }
-.side {
+.sideleft {
     
     width: 18%;
     min-width: 200px;
     height: auto;
     background-color: transparent;
     padding: 10px;
-    float: right;
-    min-height: 615px;
 }
 
+.sideright {
+    
+    width: 18%;
+    min-width: 200px;
+    height: auto;
+    background-color: transparent;
+    padding: 10px;
+}
 @media screen and (max-width: 100px) {
     .row {   
         flex-direction: column;
@@ -65,6 +71,8 @@ body
   background-color: transparent;
   float: right;
   outline: none;
+  position: absolute;
+  right: 0px;
 }
 .user_table
 {

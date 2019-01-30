@@ -30,20 +30,12 @@ $row = mysqli_fetch_array($result);
 if ($row['statues']=="admin") 
 {
     $_SESSION['getadminname']=$user;
-    $_SESSION['getadminfname']=$row['firstname'];
-    $_SESSION['getadminlname']=$row['lastname'];
-    $_SESSION['getadminemail']=$row['email'];
-    $_SESSION['getadminnimage']=$row['image'];
     header('location: adminhome.php');
 
 }
 else if($row['statues']=="user") 
 {
     $_SESSION['getusername']=$user;
-    $_SESSION['getuserfname']=$row['firstname'];
-    $_SESSION['getuserlname']=$row['lastname'];
-    $_SESSION['getuseremail']=$row['email'];
-    $_SESSION['getuserimage']=$row['image'];
     header('location: userhome.php');
 }  
 else

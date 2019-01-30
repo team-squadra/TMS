@@ -84,7 +84,7 @@ include 'resources/css/css_adminaccount.php';
   <div class="row">
 
     <!--side 1-->
-    <div class="side">
+    <div class="sideleft">
       <div style="  background-color: white;width: auto;height: 500px;margin: 20px 20px 20px 20px;">
         <a href="adminhome.php">home</a>
       </div>
@@ -141,7 +141,7 @@ include 'resources/css/css_adminaccount.php';
                     <td><input class="input" type="text" name="e_mail" value="<?php echo $get_admin_email; ?>"></td>
                   </tr>
                 </table>
-                <input id="sub" type="submit" name="save" value="Save" ></td>
+                <input id="sub" type="submit" name="save" value="Update Profile" ></td>
               </form>
             </div>
           </center>
@@ -151,7 +151,7 @@ include 'resources/css/css_adminaccount.php';
 
 
     <!--side 2-->
-    <div class="side">
+    <div class="sideright">
       <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;"></div>
       <div style="  background-color: white;width: auto;height: 400px;margin: 20px 20px 20px 20px;"></div>
     </div>

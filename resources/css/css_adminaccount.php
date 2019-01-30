@@ -29,7 +29,7 @@
 #child2 {
   position: absolute;
   left:5px;
-  bottom:10px;
+  bottom:5px;
 }
 #account_table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -63,7 +63,7 @@
     margin: 20px;
     font-family: "Century Gothic";
     font-size: 12px;
-    border: 2px solid MediumSeaGreen;
+    border:none;
     color: white;
     border-radius: 20px;
     padding: 10px;
@@ -72,7 +72,6 @@
 #sub:hover
 {
     color: white;
-    border: 5px solid #67b12f;
     background-color: #67b12f;
     cursor: pointer;
 }
