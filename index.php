@@ -1,11 +1,26 @@
-<!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
-include 'resources/css/css_index.php';
-include 'resources/php/php_index.php';
+session_start();
+if (isset($_POST['ico']))
+{
+  if (isset($_SESSION['getadminname'])  )
+  {
+    header('location: admin/adminhome.php');
+  }
+  else if (isset($_SESSION['getusername'])) 
+  {
+    header('location: user/userhome.php');
+  }
+  else
+  {
+    header('location: login/login.php');
+  }
+}
+else
+{
+
+}
+
 ?>
-<!--------------> 
-
-
 <!DOCTYPE html>
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +28,163 @@ include 'resources/php/php_index.php';
 <head>
 <!--------------------------------------------------------------------------------------TITLE-START--> 
 <title>Timetable Management System</title>
-<link rel="icon" type="image/icon" href="resources/assests/yy.ico">
+<link rel="icon" type="image/icon" href="resources/yy.ico">
 <!--------------------------------------------------------------------------------------TITLE-END--> 
 </head>
+<!--------------------------------------------------------------------------------------STYLE-CSS-START--> 
+<style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("resources/ll.jpg");
+    background-size: cover;
+    font-family: sans-serif;
+}
+#head {
+  color: white;
+  font-size: 40px;
+  font-family: "Century Gothic";
+  margin-bottom: 50px;
+  width: auto;
+  border: none;
+}
+.btn
+{
+    text-decoration: none;
+    font-family: "Century Gothic";
+    font-size: 30px;
+    border: 2px solid white;
+    color: white;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.btn:hover
+{
+    color: white;
+    border: 5px solid #39b54a;
+    cursor: pointer;
+}
+#ico{
+  width: 200px;
+  height: 200px;
+  margin-top: 100px;
+  border-radius: 50%;
+  background-image: url(resources/tms.png);
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline:none;
+}
+#ico:hover{
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+}
+#nsbm{
+  background-image:url("resources/bw.png");
+  background-size:100% 100%;
+  background-position: center;
+  width: 250px;
+  height: 100px;
+  position: fixed;
+  bottom: 10px;
+  right:10px;
+  padding: 15px;
+}
+#nsbm:hover{
+background-image:url("resources/nsbm.png");
+}
+.main {   
+    flex: 30%;
+    padding: 20px;
+    width: auto;
+}
+.row {  
+    display: flex;
+    flex-wrap: wrap;
+}
+.side {
+    
+    width: 35%;
+    height: auto;
+    padding: 10px;
+    float: right;
+    min-height: 500px;
+}
+@media screen and (max-width: 100px) {
+    .row {   
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width:100%;
+    }
+}
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
+.slideshow-container {
+  width: 500px;
+  height: 500px;
+}
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom:0px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+}
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  top: 0;
+}
+.dot {
+  height: 5px;
+  width: 5px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+#active {
+  background-color: orange;
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+<!--------------------------------------------------------------------------------------STYLE-CSS-END--> 
+
 
 <!--------------------------------------------------------------------------------------BODY-START--> 
 <body>
@@ -29,7 +198,7 @@ include 'resources/php/php_index.php';
   <div class="side">
     <div class="slideshow-container" style="background-color: white; float: right;">
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/assests/s1.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
+      <div class="mySlides fade" style="background-image:url('resources/s1.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
         <div class="text">
           <h1>Tip 1</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
@@ -43,7 +212,7 @@ include 'resources/php/php_index.php';
       </div>
 <!---------------------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/assests/s3.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
+      <div class="mySlides fade" style="background-image:url('resources/s3.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
         <div class="text">
           <h1>Tip 3</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
@@ -57,7 +226,7 @@ include 'resources/php/php_index.php';
       </div>
 <!---------------------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/assests/s5.jpg');background-size: 100% 100%;width: 100%;height: 100%;position: relative;">
+      <div class="mySlides fade" style="background-image:url('resources/s5.jpg');background-size: 100% 100%;width: 100%;height: 100%;position: relative;">
         <div class="text">
           <h1>Tip 5</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
@@ -71,7 +240,7 @@ include 'resources/php/php_index.php';
       </div>
 <!---------------------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/assests/s7.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
+      <div class="mySlides fade" style="background-image:url('resources/s7.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
         <div class="text">
           <h1>Tip 7</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
@@ -103,7 +272,7 @@ include 'resources/php/php_index.php';
     <div class="slideshow-container" style="background-color: white; float: left;">
 
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/assests/s2.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
+      <div class="mySlides2 fade" style="background-image:url('resources/s2.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
         <div class="text">
           <h1>Tip 2</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
@@ -117,7 +286,7 @@ include 'resources/php/php_index.php';
       </div>
 <!---------------------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/assests/s4.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
+      <div class="mySlides2 fade" style="background-image:url('resources/s4.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
         <div class="text">
           <h1>Tip 4</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
@@ -131,7 +300,7 @@ include 'resources/php/php_index.php';
       </div>
 <!---------------------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/assests/s6.1.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
+      <div class="mySlides2 fade" style="background-image:url('resources/s6.1.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
         <div class="text">
           <h1>Tip 6</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
@@ -145,7 +314,7 @@ include 'resources/php/php_index.php';
       </div>
 <!---------------------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/assests/s8.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
+      <div class="mySlides2 fade" style="background-image:url('resources/s8.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
         <div class="text">
           <h1>Tip 8</h1>
           <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
