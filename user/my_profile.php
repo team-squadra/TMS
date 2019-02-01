@@ -1,8 +1,9 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
-include '/../all/css_all_public.php';
-include 'rs/php/php_adminaccount.php';
-include 'rs/css/css_adminaccount.php';
+include 'rs/all/css_all_public.php';
+include 'rs/php/php_my_profile.php';
+include 'rs/css/css_my_profile.php';
+
 ?>
 <!--------------> 
 
@@ -27,7 +28,7 @@ include 'rs/css/css_adminaccount.php';
       <div class="logo">
             <table>
                 <tr>
-                    <td><img src="../resources/tms.png" style="width: 30px;height: 30px;"></td>
+                  <td><img src="../resources/tms.png" style="width: 30px;height: 30px;"></td>
                 </tr>
             </table>
       </div>
@@ -38,13 +39,13 @@ include 'rs/css/css_adminaccount.php';
             <tr>
               <td>
                 <?php
-                    if ($get_admin_image!=null) 
+                    if ($get_user_image!=null) 
                     {
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode($get_admin_image).'"style="width:30px;height:30px;border-radius: 5px;" />';
+                        echo '<img src="data:image/jpeg;base64,'.base64_encode($get_user_image).'"style="width:30px;height:30px;border-radius: 5px;" />';
                     }
                     else
                     {
-                        echo '<img  src="../resources/admin.png" style="width:30px;height:30px;">';
+                        echo '<img  src="../resources/user.png" style="width:30px;height:30px;">';
                     }
                 ?>     
               </td>
@@ -57,10 +58,10 @@ include 'rs/css/css_adminaccount.php';
                   <div class="dropdown-content"><!--dropdown-content-->
                     <div style="padding:10px;">
                     <p>Signed in as</p>
-                    <p><b><?php echo $get_admin_name;?></b></p>
+                    <p><b><?php echo $get_user_name;?></b></p>
                     </div>
                     <hr>
-                    <a href="adminaccount.php">My Profile</a>
+                    <a href="my_profile.php">My Profile</a>
                     <a href="#">Settings</a>
                     <form action="" method="post">
                       <button name="signout" id="signout" 
@@ -86,7 +87,7 @@ include 'rs/css/css_adminaccount.php';
 
   <!-- hoverable side nav bar -->
           <div id="mySidenav" class="sidenav">
-              <a href="adminhome.php" id="lec_schedule">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
+              <a href="home.php" id="home">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
               <a href="hall_details.php" id="hall_details">Hall Details<i class='fas fa-chalkboard-teacher'style='font-size:25px;margin-left: 42px;'></i></a>
                <a href="batch_details.php" id="batch_details">Batch Details<i class='far fa-address-card'style='font-size:28px;margin-left: 30px;'></i> </a>
                <a href="timetables.php" id="timetables">TimeTables<i class='fas fa-fax'style='font-size:29px;margin-left: 45px;'></i> </a>
@@ -99,25 +100,23 @@ include 'rs/css/css_adminaccount.php';
     <!--side 1-->
     <div class="sideleft">
       <div style="  background-color: white;width: auto;height: 500px;margin: 20px 20px 20px 20px;">
-        
       </div>
     </div>
 
     <!--main-->
     <div class="main">
-      
       <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;">
         <center><br><br><br>
 
           <div class="pro_pic"><!--PROFILE PICTURE-->
             <div id="parent2">
                 <?php
-                  if ($get_admin_image!=null) {
-                    echo '<img src="data:image/jpeg;base64,'.base64_encode($get_admin_image).'"/>';
+                  if ($get_user_image!=null) {
+                    echo '<img src="data:image/jpeg;base64,'.base64_encode($get_user_image).'"/>';
                   }
                   else
                   {
-                    echo '<img  src="../resources/yyy.png">';
+                    echo '<img  src="../resources/pro_pic_user.png">';
                   }
                 ?>    
                 <div id="child2">
@@ -126,7 +125,7 @@ include 'rs/css/css_adminaccount.php';
             </div>
           </div><br>
 
-          <p style="color: gray; font-size: 20px;"> <?php echo $get_admin_name; ?></p><br><!--USERNAME-->
+          <p style="color: gray; font-size: 20px;"> <?php echo $get_user_name; ?></p><br><!--USERNAME-->
 
           <center>
             <div style="width: 500px;margin-top: 25px;">
@@ -135,7 +134,7 @@ include 'rs/css/css_adminaccount.php';
                 <table id="account_table">
                   <tr>
                     <th>Firstname</th>
-                    <td><input class="input" type="text" name="f_name" value="<?php echo $get_admin_fname; ?>"></td>
+                    <td><input class="input" type="text" name="f_name" value="<?php echo $get_user_fname; ?>"></td>
                   </tr>
                   <tr>
                     <td></td>
@@ -143,7 +142,7 @@ include 'rs/css/css_adminaccount.php';
                   </tr>
                   <tr>
                     <th>Lastname</th>
-                    <td><input  class="input" type="text" name="l_name" value="<?php echo $get_admin_lname; ?>"></td>
+                    <td><input  class="input" type="text" name="l_name" value="<?php echo $get_user_lname; ?>"></td>
                   </tr>
                   <tr>
                     <td></td>
@@ -151,7 +150,7 @@ include 'rs/css/css_adminaccount.php';
                   </tr>
                   <tr>
                     <th>Email</th>
-                    <td><input class="input" type="text" name="e_mail" value="<?php echo $get_admin_email; ?>"></td>
+                    <td><input class="input" type="text" name="e_mail" value="<?php echo $get_user_email; ?>"></td>
                   </tr>
                 </table>
                 <input id="sub" type="submit" name="save" value="Update Profile" ></td>

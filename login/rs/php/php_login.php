@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include('/../../../all/db_details.php');
+include('rs/all/db_details.php');
 $LOGINERR=NULL;
 if (isset($_POST['login'])) {
 
@@ -29,13 +29,13 @@ $row = mysqli_fetch_array($result);
 if ($row['statues']=="admin") 
 {
     $_SESSION['getadminname']=$user;
-    header('location: ../admin/adminhome.php');
+    header('location: ../admin/home.php');
 
 }
 else if($row['statues']=="user") 
 {
     $_SESSION['getusername']=$user;
-    header('location: ../user/userhome.php');
+    header('location: ../user/home.php');
 }  
 else
 {

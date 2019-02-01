@@ -1,5 +1,5 @@
 <?php
-include('/../../../all/db_details.php');
+include('rs/all/db_details.php');
 // define variables and set to empty values
 $newFirstNameErr = $newLastNameErr  = $newusernameErr =$newpasswordErr = $newemailErr = NULL;
 $newFirstName = $newLastName = $newusername = $newpassword = $newemail = NULL;

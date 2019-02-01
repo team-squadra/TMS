@@ -1,9 +1,8 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
-include '/../all/css_all_public.php';
-include 'rs/php/php_useraccount.php';
-include 'rs/css/css_useraccount.php';
-
+include 'rs/all/css_all_public.php';
+include 'rs/php/php_home.php';
+include 'rs/css/css_home.php';
 ?>
 <!--------------> 
 
@@ -61,7 +60,7 @@ include 'rs/css/css_useraccount.php';
                     <p><b><?php echo $get_user_name;?></b></p>
                     </div>
                     <hr>
-                    <a href="useraccount.php">My Profile</a>
+                    <a href="my_profile.php">My Profile</a>
                     <a href="#">Settings</a>
                     <form action="" method="post">
                       <button name="signout" id="signout" 
@@ -78,16 +77,16 @@ include 'rs/css/css_useraccount.php';
 
   </div>
 </header>
-<!--------------------------------------------------------------------------------------HEADER-END--> 
+<!--------------------------------------------------------------------------------------HEADER-END-->
 
 
 
 <!--------------------------------------------------------------------------------------BODY-START-->
 <body>
 
-  <!-- hoverable side nav bar -->
+   <!-- hoverable side nav bar -->
           <div id="mySidenav" class="sidenav">
-              <a href="userhome.php" id="lec_schedule">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
+              <a href="home.php" id="home">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
               <a href="hall_details.php" id="hall_details">Hall Details<i class='fas fa-chalkboard-teacher'style='font-size:25px;margin-left: 42px;'></i></a>
                <a href="batch_details.php" id="batch_details">Batch Details<i class='far fa-address-card'style='font-size:28px;margin-left: 30px;'></i> </a>
                <a href="timetables.php" id="timetables">TimeTables<i class='fas fa-fax'style='font-size:29px;margin-left: 45px;'></i> </a>
@@ -97,81 +96,24 @@ include 'rs/css/css_useraccount.php';
 
   <div class="row">
 
-    <!--side 1-->
-    <div class="sideleft">
-      <div style="  background-color: white;width: auto;height: 500px;margin: 20px 20px 20px 20px;">
-      </div>
-    </div>
-
     <!--main-->
     <div class="main">
       <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;">
-        <center><br><br><br>
-
-          <div class="pro_pic"><!--PROFILE PICTURE-->
-            <div id="parent2">
-                <?php
-                  if ($get_user_image!=null) {
-                    echo '<img src="data:image/jpeg;base64,'.base64_encode($get_user_image).'"/>';
-                  }
-                  else
-                  {
-                    echo '<img  src="../resources/pro_pic_user.png">';
-                  }
-                ?>    
-                <div id="child2">
-                  <input type="submit" name="edit" value="&#9998Edit" >
-                </div>
-            </div>
-          </div><br>
-
-          <p style="color: gray; font-size: 20px;"> <?php echo $get_user_name; ?></p><br><!--USERNAME-->
-
-          <center>
-            <div style="width: 500px;margin-top: 25px;">
-
-              <form action="" method="POST">
-                <table id="account_table">
-                  <tr>
-                    <th>Firstname</th>
-                    <td><input class="input" type="text" name="f_name" value="<?php echo $get_user_fname; ?>"></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Lastname</th>
-                    <td><input  class="input" type="text" name="l_name" value="<?php echo $get_user_lname; ?>"></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Email</th>
-                    <td><input class="input" type="text" name="e_mail" value="<?php echo $get_user_email; ?>"></td>
-                  </tr>
-                </table>
-                <input id="sub" type="submit" name="save" value="Update Profile" ></td>
-              </form>
-            </div>
-          </center>
-        </center>               
       </div>
     </div>
 
-
-    <!--side 2-->
+    <!--side-->
     <div class="sideright">
       <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;"></div>
       <div style="  background-color: white;width: auto;height: 400px;margin: 20px 20px 20px 20px;"></div>
     </div>
-    
+
   </div>
+
 </body>
 <!--------------------------------------------------------------------------------------BODY-END-->
 
 </html>
+
 
 

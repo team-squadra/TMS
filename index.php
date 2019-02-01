@@ -4,11 +4,11 @@ if (isset($_POST['ico']))
 {
   if (isset($_SESSION['getadminname'])  )
   {
-    header('location: admin/adminhome.php');
+    header('location: admin/home.php');
   }
   else if (isset($_SESSION['getusername'])) 
   {
-    header('location: user/userhome.php');
+    header('location: user/home.php');
   }
   else
   {

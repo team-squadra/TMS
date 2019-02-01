@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('/../../../all/db_details.php');
+include('rs/all/db_details.php');
 
 if (isset($_SESSION['getadminname']))
 {

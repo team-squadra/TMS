@@ -1,8 +1,9 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
-include '/../all/css_all_public.php';
-include 'rs/php/php_userhome.php';
-include 'rs/css/css_userhome.php';
+include 'rs/all/css_all_public.php';
+include 'rs/php/php_home.php';
+include 'rs/css/css_home.php';
+
 ?>
 <!--------------> 
 
@@ -12,6 +13,8 @@ include 'rs/css/css_userhome.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+
 
 <head>
 <!--------------------------------------------------------------------------------------TITLE-START-->
@@ -38,13 +41,13 @@ include 'rs/css/css_userhome.php';
             <tr>
               <td>
                 <?php
-                    if ($get_user_image!=null) 
+                    if ($get_admin_image!=null) 
                     {
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode($get_user_image).'"style="width:30px;height:30px;border-radius: 5px;" />';
+                        echo '<img src="data:image/jpeg;base64,'.base64_encode($get_admin_image).'"style="width:30px;height:30px;border-radius: 5px;" />';
                     }
                     else
                     {
-                        echo '<img  src="../resources/user.png" style="width:30px;height:30px;">';
+                        echo '<img  src="../resources/admin.png" style="width:30px;height:30px;">';
                     }
                 ?>     
               </td>
@@ -57,10 +60,10 @@ include 'rs/css/css_userhome.php';
                   <div class="dropdown-content"><!--dropdown-content-->
                     <div style="padding:10px;">
                     <p>Signed in as</p>
-                    <p><b><?php echo $get_user_name;?></b></p>
+                    <p><b><?php echo $get_admin_name;?></b></p>
                     </div>
                     <hr>
-                    <a href="useraccount.php">My Profile</a>
+                    <a href="my_profile.php">My Profile</a>
                     <a href="#">Settings</a>
                     <form action="" method="post">
                       <button name="signout" id="signout" 
@@ -86,7 +89,7 @@ include 'rs/css/css_userhome.php';
 
    <!-- hoverable side nav bar -->
           <div id="mySidenav" class="sidenav">
-              <a href="userhome.php" id="lec_schedule">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
+              <a href="home.php" id="home">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
               <a href="hall_details.php" id="hall_details">Hall Details<i class='fas fa-chalkboard-teacher'style='font-size:25px;margin-left: 42px;'></i></a>
                <a href="batch_details.php" id="batch_details">Batch Details<i class='far fa-address-card'style='font-size:28px;margin-left: 30px;'></i> </a>
                <a href="timetables.php" id="timetables">TimeTables<i class='fas fa-fax'style='font-size:29px;margin-left: 45px;'></i> </a>

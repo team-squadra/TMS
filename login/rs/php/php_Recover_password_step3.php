@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('/../../../all/db_details.php');
+include('rs/all/db_details.php');
  $user_namestep2=$_SESSION['usernamestep2'];
  if ($user_namestep2==null) {
  	header('location: login.php');

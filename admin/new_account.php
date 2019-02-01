@@ -1,8 +1,8 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
-include '/../all/css_all_public.php';
+include 'rs/all/css_all_public.php';
 include 'rs/php/php_new_account.php';
-include 'rs/css/css_adminhome.php';
+include 'rs/css/css_new_account.php';
 
 ?>
 <!--------------> 
@@ -63,7 +63,7 @@ include 'rs/css/css_adminhome.php';
                     <p><b><?php echo $get_admin_name;?></b></p>
                     </div>
                     <hr>
-                    <a href="adminaccount.php">My Profile</a>
+                    <a href="my_profile.php">My Profile</a>
                     <a href="#">Settings</a>
                     <form action="" method="post">
                       <button name="signout" id="signout" 
@@ -89,7 +89,7 @@ include 'rs/css/css_adminhome.php';
 
    <!-- hoverable side nav bar -->
           <div id="mySidenav" class="sidenav">
-              <a href="adminhome.php" id="lec_schedule">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
+              <a href="home.php" id="home">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
               <a href="hall_details.php" id="hall_details">Hall Details<i class='fas fa-chalkboard-teacher'style='font-size:25px;margin-left: 42px;'></i></a>
                <a href="batch_details.php" id="batch_details">Batch Details<i class='far fa-address-card'style='font-size:28px;margin-left: 30px;'></i> </a>
                <a href="timetables.php" id="timetables">TimeTables<i class='fas fa-fax'style='font-size:29px;margin-left: 45px;'></i> </a>

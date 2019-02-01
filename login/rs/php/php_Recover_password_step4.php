@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('/../../../all/db_details.php');
+include('rs/all/db_details.php');
 
  $user_namestep3=$_SESSION['usernamestep3'];
  echo "$user_namestep3";
