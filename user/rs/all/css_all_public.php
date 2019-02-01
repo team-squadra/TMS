@@ -30,7 +30,9 @@ body
 .main {   
     flex: 40%;
     background-color: transparent;
-    padding: 20px;
+    margin-left: 60px;
+    margin-top: 20px;
+    padding: 10px;
 }
 .row {  
     display: flex;

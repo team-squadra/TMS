@@ -96,13 +96,6 @@ include 'rs/css/css_my_profile.php';
 
   <div class="row">
 
-    <!--side 1-->
-    <div class="sideleft">
-      <div style="  background-color: white;width: auto;height: 500px;margin: 20px 20px 20px 20px;">
-        
-      </div>
-    </div>
-
     <!--main-->
     <div class="main">
       
