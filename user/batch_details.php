@@ -110,6 +110,12 @@ include 'rs/css/css_batch_details.php';
 </body>
 <!--------------------------------------------------------------------------------------BODY-END-->
 
+<!--------------------------------------------------------------------------------------FOOTER-START--> 
+<footer>
+  <a href="https://lmsnew.nsbm.lk/" target="blank"><div id="lms" title="Learning Management System" ></div></a>
+</footer>
+<!--------------------------------------------------------------------------------------FOOTER-END-->
+
 </html>
 
 

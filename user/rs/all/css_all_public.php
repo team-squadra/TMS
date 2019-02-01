@@ -38,15 +38,6 @@ body
     display: flex;
     flex-wrap: wrap;
 }
-.sideleft {
-    
-    width: 18%;
-    min-width: 200px;
-    height: auto;
-    background-color: transparent;
-    padding: 10px;
-}
-
 .sideright {
     
     width: 18%;
@@ -193,6 +184,7 @@ top: 360px;
   top: 440px;
   background-color: #2196F3; /* Blue */
 }
+
 
 /*-------------------------------------------------insidepages----------------------------------------------------*/
 </style>
