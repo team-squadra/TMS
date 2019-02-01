@@ -22,7 +22,7 @@ h2{
 }
 .loginbox{
     width: 320px;
-    height: 420px;
+    height: 400px;
     background: rgba(0,0,0,0.5);
     color: #fff;
     top: 50%;

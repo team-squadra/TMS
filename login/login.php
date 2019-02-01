@@ -40,7 +40,6 @@ include 'rs/php/php_login.php';
             <input type="password" name="pass" placeholder="Enter Your Password" required>
             <span class="error"><?php echo $LOGINERR;?></span><br><br>
             <input type="submit"name="login" value="Login">
-            <a href="Recover_password_step1.php">Forgot password?</a><br>
             <a href="signup.php">Don't have an account?</a>
         </form>
 
