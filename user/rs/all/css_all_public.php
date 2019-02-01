@@ -180,34 +180,18 @@ body
 }
 
 #home {
-  top: 180px;
+  top: 280px;
   background-color: #4CAF50; /* green */
 }
 
-#hall_details {
-  top: 260px;
-  background-color: #f44336;/* Red */
-  
-}
-
-#batch_details{
-  top: 340px;
-  background-color: #2196F3; /* Blue */
-}
-
 #timetables {
-  top: 420px;
-  background-color: #555 /* Light black */
-}
-
-#new_account {
-  top: 500px;
-  background-color: orange; 
+top: 360px;
+  background-color: #f44336;  /* Red */
 }
 
 #about {
-  top: 580px;
-  background-color: slateblue;
+  top: 440px;
+  background-color: #2196F3; /* Blue */
 }
 
 /*-------------------------------------------------insidepages----------------------------------------------------*/
