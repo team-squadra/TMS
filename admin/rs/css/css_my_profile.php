@@ -5,50 +5,14 @@
   height: 150px;
   background-color: transparent;/*#e5e5e7;*/
   border: 5px solid gray;
+  border-radius: 50%;
   padding: 0px 0px 0px 0px;
 }
 .pro_pic img {
   width: 100%;
   height: 100%;
 }
-.pro_pic input {  
-  background-color: black;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  cursor: pointer;
-}
-#parent2 {
-  position: relative;
-}
-#child2 {
-  position: absolute;
-  left:5px;
-  bottom:5px;
-}
-#account_table {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  text-align: center;
-  border-collapse: collapse;
-  width: 100%;
-}
-#account_table td, #account_table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-#account_table tr:nth-child(even){background-color: #f2f2f2;}
 
-#account_table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: MediumSeaGreen;
-  color: white;
-}
 .input
 {
   width: 100%; 
@@ -57,22 +21,72 @@
   font-size: 15px; 
   border : none;
 }
+
 #sub
 {
     float: right;
-    margin: 20px;
-    font-family: "Century Gothic";
-    font-size: 12px;
     border:none;
     color: white;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: MediumSeaGreen;
+    border-radius: 50%;
+    padding:10px;
 }
 #sub:hover
 {
-    color: white;
-    background-color: #67b12f;
     cursor: pointer;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+
+#profile img
+{
+  width: 30px;
+  height: 30px;
+}
+
+#profile td{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px; 
+}
+
+#profile input[type="text"]
+{
+    border: none;
+    border-bottom:  1px solid grey;
+    background: transparent;
+    border-radius: 10px;
+    outline: none;
+    height: 30px;
+    color: dimgrey;
+    font-size: 16px;
+    width: 300px;
+    text-align: center;
+}
+#image{
+  color: transparent;
+}
+#image::-webkit-file-upload-button
+{
+  font-size: 12px;
+  border: 1px solid MediumSeaGreen;
+  border-radius: 10px;
+  background-color: MediumSeaGreen;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  margin-left: 90px;
+  padding: 5px;
+}
+#image::-webkit-file-upload-button:hover
+{
+    background: #ffc107;
+    color: #000;
+    border: 1px solid #ffc107;
+}
+#profile input[type="text"]:hover
+{
+    border-bottom:  3px solid MediumSeaGreen;
+    color: MediumSeaGreen;
+    font-weight: bold;
+
 }
 </style>

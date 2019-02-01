@@ -17,6 +17,8 @@ include 'rs/css/css_my_profile.php';
 <!--------------------------------------------------------------------------------------TITLE-START-->
 <title>Timetable Management System</title>
 <link rel="icon" type="image/png" href="../resources/yy.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
 <!--------------------------------------------------------------------------------------TITLE-START-->
 </head>
 
@@ -103,31 +105,26 @@ include 'rs/css/css_my_profile.php';
         <center><br><br><br>
 
           <div class="pro_pic"><!--PROFILE PICTURE-->
-            <div id="parent2">
                 <?php
                   if ($get_admin_image!=null) {
-                    echo '<img src="data:image/jpeg;base64,'.base64_encode($get_admin_image).'"/>';
+                    echo '<img src="data:image/jpeg;base64,'.base64_encode($get_admin_image).'" style="border-radius:50%;"/>';
                   }
                   else
                   {
                     echo '<img  src="../resources/yyy.png">';
                   }
                 ?>    
-                <div id="child2">
-                  <input type="submit" name="edit" value="&#9998Edit" >
-                </div>
-            </div>
           </div><br>
 
-          <p style="color: gray; font-size: 20px;"> <?php echo $get_admin_name; ?></p><br><!--USERNAME-->
+          <p style="color: gray; font-size: 25px;"> <?php echo $get_admin_name; ?></p><br><!--USERNAME-->
 
           <center>
             <div style="width: 500px;margin-top: 25px;">
 
-              <form action="" method="POST">
-                <table id="account_table">
+              <form method="post" enctype="multipart/form-data" id="profile">
+                <table>
                   <tr>
-                    <th>Firstname</th>
+                    <td><img src="../resources/f.png"></td>
                     <td><input class="input" type="text" name="f_name" value="<?php echo $get_admin_fname; ?>"></td>
                   </tr>
                   <tr>
@@ -135,7 +132,7 @@ include 'rs/css/css_my_profile.php';
                     <td></td>
                   </tr>
                   <tr>
-                    <th>Lastname</th>
+                    <td><img src="../resources/l.png"></td>
                     <td><input  class="input" type="text" name="l_name" value="<?php echo $get_admin_lname; ?>"></td>
                   </tr>
                   <tr>
@@ -143,11 +140,34 @@ include 'rs/css/css_my_profile.php';
                     <td></td>
                   </tr>
                   <tr>
-                    <th>Email</th>
-                    <td><input class="input" type="text" name="e_mail" value="<?php echo $get_admin_email; ?>"></td>
+                    <td><img src="../resources/mo.png"></td>
+                    <td><input  class="input" type="text"  name="phone_no" value="<?php echo $get_admin_phone_no; ?>"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../resources/gm.png"></td>
+                    <td><input class="input"  type="text" name="e_mail" value="<?php echo $get_admin_email; ?>" ></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../resources/pf.png"></td>
+                    <td><center><input type="file" name="image" id="image" /></center></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><button id="sub" name="save"><img src="../resources/up.png"></button></td>
                   </tr>
                 </table>
-                <input id="sub" type="submit" name="save" value="Update Profile" ></td>
               </form>
             </div>
           </center>
