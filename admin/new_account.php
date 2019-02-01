@@ -107,7 +107,76 @@ include 'rs/css/css_new_account.php';
 
     <!--main-->
     <div class="main">
-      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;">
+      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;" class="Create_account">
+
+        <div style=" width: 100%;">
+          
+          <table style="color: dimgray; padding:20px;font-size: 30px;">
+            <tr>
+              <td style="padding: 10px;"><img src="../resources/op.png" class="avatar"> </td>
+              <td style="padding: 10px;">Create Account</td>
+            </tr>
+          </table>
+        </div>
+
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
+          <center>
+
+          <table style="width: 100%; padding: 20px;">
+            <tr>
+              <td><p>First Name</p></td>
+              <td><p>Email</p></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="new_First_Name" placeholder="Enter Your First Name"></td>
+              <td><input type="text" name="new_email" placeholder="Enter Your Email"></td>
+            </tr>
+            <tr>
+              <td><span class="error">*<?php echo $newFirstNameErr;?></span><br><br></td>
+              <td><span class="error">* <?php echo $newemailErr;?></span><br><br></td>
+            </tr>
+            <tr>
+              <td><p>Last Name</p></td>
+              <td><p>Statues</p></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="new_Last_Name" placeholder="Enter Your Last Name"></td>
+              <td>
+                <select name="new_statues">
+                  <option value="user" style="color: black; background-color: #ddd;">User</option>
+                  <option value="admin" style="color: black; background-color: #ddd;">Admin</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="error">*<?php echo $newLastNameErr;?></span><br><br></td>
+            </tr>
+            <tr>
+              <td><p>Username</p></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="new_username" placeholder="Enter Your Username"></td>
+            </tr>
+            <tr>
+              <td><span class="error">*<?php echo $newusernameErr;?></span><br><br></td>
+            </tr>
+            <tr>
+              <td><p>New Password</p></td>
+            </tr>
+            <tr>
+              <td><input type="password" name="new_password" placeholder="Enter Your New Password"></td>
+            </tr>
+            <tr>
+              <td><span class="error">*<?php echo $newpasswordErr;?></span><br><br></td>
+            </tr>
+            <tr>
+              <td><input type="submit" name="SIGNUP" value="Create account"></td>
+            </tr>            
+          </table>
+
+        </center>
+        </form>
+
       </div>
     </div>
 

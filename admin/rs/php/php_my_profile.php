@@ -24,6 +24,7 @@ if ($result->num_rows > 0) {
 		$get_admin_lname=$row["lastname"];
 		$get_admin_email=$row["email"];
 		$get_admin_image=$row["image"];
+    $get_admin_phone_no=$row["phone_no"];
     }
 } else {
     echo "0 results";
@@ -49,29 +50,58 @@ if (isset($_POST['save']))
   $fname= $_POST["f_name"];
   $lname= $_POST["l_name"];
   $e__mail= $_POST["e_mail"];
+  $phone_no= $_POST["phone_no"];
+
+  $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+  
   if ($fname==='' or $lname==='' or $e__mail==='') 
   {
 
   }
   else
   {
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-
-    $sql = "UPDATE signup SET  firstname='$fname',lastname ='$lname',email ='$e__mail' WHERE username='$get_admin_name'";
-
-    if ($conn->query($sql) === TRUE) {
-      echo "<script>window.location.replace(location);</script>";
-    } 
-    else 
+    if ($file!=NULL) 
     {
-        echo "Error updating record: " . $conn->error;
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+
+        $sql = "UPDATE signup SET  firstname='$fname',lastname ='$lname',email ='$e__mail',phone_no ='$phone_no',image='$file' 
+        WHERE username='$get_admin_name'";
+
+        if ($conn->query($sql) === TRUE) {
+          echo "<script>window.location.replace(location);</script>";
+        } 
+        else 
+        {
+            echo "Error updating record: " . $conn->error;
+        }
+        $conn->close();
     }
-    $conn->close();
+    else
+    {
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        } 
+
+        $sql = "UPDATE signup SET  firstname='$fname',lastname ='$lname',email ='$e__mail',phone_no ='$phone_no'
+        WHERE username='$get_admin_name'";
+
+        if ($conn->query($sql) === TRUE) {
+          echo "<script>window.location.replace(location);</script>";
+        } 
+        else 
+        {
+            echo "Error updating record: " . $conn->error;
+        }
+        $conn->close();
+    }
   }
 }
 else
@@ -79,5 +109,28 @@ else
 
 }
 
-
 ?>
+
+
+<script>  
+ $(document).ready(function(){  
+      $('#save').click(function(){  
+           var image_name = $('#image').val();  
+           if(image_name == '')  
+           {  
+                alert("Please Select Image");  
+                return false;  
+           }  
+           else  
+           {  
+                var extension = $('#image').val().split('.').pop().toLowerCase();  
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+                {  
+                     alert('Invalid Image File');  
+                     $('#image').val('');  
+                     return false;  
+                }  
+           }  
+      });  
+ });  
+ </script> 
