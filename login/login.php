@@ -16,6 +16,8 @@ include 'rs/php/php_login.php';
 <title>Timetable Management System</title>
 <link rel="icon" type="image/png" href="../resources/yy.ico">
 <!--------------------------------------------------------------------------------------TITLE-END--> 
+
+
 </head>
 
 
@@ -28,7 +30,7 @@ include 'rs/php/php_login.php';
 
 
 <!--------------------------------------------------------------------------------------BODY-START--> 
-<body>     
+<body>    
     <div class="loginbox">
     <img src="../resources/op.png" class="avatar">
         <h1>Login</h1>
@@ -44,6 +46,8 @@ include 'rs/php/php_login.php';
         </form>
 
     </div>
+
+
 </body>
 <!--------------------------------------------------------------------------------------BODY-END--> 
 

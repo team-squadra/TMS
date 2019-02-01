@@ -13,4 +13,20 @@
 #lms:hover{
 background-image:url("../resources/yellow_lms.png");
 }
+
+/* page loading progress bar start*/
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 5px;
+  background-color: #f44336;
+}
+
+/* page loading progress bar end*/
+
 </style>

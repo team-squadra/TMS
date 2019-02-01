@@ -1,6 +1,7 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
 include 'rs/all/css_all_public.php';
+include 'rs/all/js_all_public.php';
 include 'rs/php/php_my_profile.php';
 include 'rs/css/css_my_profile.php';
 
@@ -83,7 +84,14 @@ include 'rs/css/css_my_profile.php';
 
 
 <!--------------------------------------------------------------------------------------BODY-START-->
-<body>
+<body onload="move()">
+
+   <!-- page loader progress bar div start -->
+     <div id="myProgress">
+     <div id="myBar"></div>
+     </div>
+     <!-- page loader progress bar div end -->
+
 
   <!-- hoverable side nav bar -->
           <div id="mySidenav" class="sidenav">

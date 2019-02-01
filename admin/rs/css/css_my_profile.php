@@ -75,4 +75,19 @@
     background-color: #67b12f;
     cursor: pointer;
 }
+
+/* page loading progress bar start*/
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 5px;
+  background-color:  black;
+}
+
+/* page loading progress bar end*/
 </style>

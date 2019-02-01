@@ -85,7 +85,13 @@ include 'rs/css/css_batch_details.php';
 
 
 <!--------------------------------------------------------------------------------------BODY-START-->
-<body>
+<body onload="move()">
+
+  <!-- page loader progress bar div start -->
+     <div id="myProgress">
+     <div id="myBar"></div>
+     </div>
+     <!-- page loader progress bar div end -->
 
    <!-- hoverable side nav bar -->
           <div id="mySidenav" class="sidenav">
@@ -112,6 +118,27 @@ include 'rs/css/css_batch_details.php';
     </div>
 
   </div>
+
+   <script>
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    }
+     else 
+     {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
+     if(width==100){
+      elem.style.width = 0;
+    }
+  }
+}
+</script>
 
 </body>
 <!--------------------------------------------------------------------------------------BODY-END-->
