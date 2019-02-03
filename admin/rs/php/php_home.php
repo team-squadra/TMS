@@ -2,7 +2,6 @@
 session_start();
 include('rs/all/db_details.php');
 
-
 if (isset($_SESSION['getadminname']))
 {
 $get_admin_name=$_SESSION['getadminname'];

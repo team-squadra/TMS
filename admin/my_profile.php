@@ -30,6 +30,7 @@ include 'rs/css/css_my_profile.php';
             <table>
                 <tr>
                     <td><img src="../resources/tms.png" style="width: 30px;height: 30px;"></td>
+                    <td><div id="clock"></div></td>
                 </tr>
             </table>
       </div>
@@ -185,7 +186,8 @@ include 'rs/css/css_my_profile.php';
 
     <!--side 2-->
     <div class="sideright">
-      <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;"></div>
+      <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;">
+      </div>
       <div style="  background-color: white;width: auto;height: 400px;margin: 20px 20px 20px 20px;"></div>
     </div>
     
@@ -215,5 +217,10 @@ function move() {
 <!--------------------------------------------------------------------------------------BODY-END-->
 
 </html>
+
+
+<!--------------------------------------------------------------------------------------JS-START-->
+<script  type="text/javascript" src="rs/all/js_all.js"></script>
+<!--------------------------------------------------------------------------------------JS-END-->
 
 

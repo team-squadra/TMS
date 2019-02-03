@@ -143,6 +143,5 @@ h2{
     font-size: 12px;
    text-align: center;
 }
->>>>>>> 89e511c97c1d9a253381ec98a18ef7599c27865e
 
 </style>

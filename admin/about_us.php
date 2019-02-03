@@ -31,6 +31,7 @@ include 'rs/css/css_about_us.php';
             <table>
                 <tr>
                   <td><img src="../resources/tms.png" style="width: 30px;height: 30px;"></td>
+                  <td><div id="clock"></div></td>
                 </tr>
             </table>
       </div>
@@ -114,34 +115,18 @@ include 'rs/css/css_about_us.php';
 
     <!--side-->
     <div class="sideright">
-      <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;"></div>
+      <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;">
+      </div>
       <div style="  background-color: white;width: auto;height: 400px;margin: 20px 20px 20px 20px;"></div>
     </div>
 
   </div>
 
-    <script>
-function move() {
-  var elem = document.getElementById("myBar");   
-  var width = 0;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-    }
-     else 
-     {
-      width++; 
-      elem.style.width = width + '%'; 
-    }
-     if(width==100){
-      elem.style.width = 0;
-    }
-  }
-}
-</script>
-
 </body>
 <!--------------------------------------------------------------------------------------BODY-END-->
-
 </html>
+
+
+<!--------------------------------------------------------------------------------------JS-START-->
+<script  type="text/javascript" src="rs/all/js_all.js"></script>
+<!--------------------------------------------------------------------------------------JS-END-->

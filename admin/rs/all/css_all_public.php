@@ -38,15 +38,6 @@ body
     display: flex;
     flex-wrap: wrap;
 }
-.sideleft {
-    
-    width: 18%;
-    min-width: 200px;
-    height: auto;
-    background-color: transparent;
-    padding: 10px;
-}
-
 .sideright {
     
     width: 18%;
@@ -209,6 +200,15 @@ body
   top: 580px;
   background-color: slateblue;
 }
-
+  #clock
+  {
+      color: dimgray;
+      font-size: 20px;
+      font-family: Century Gothic;
+      text-align: right;
+      padding-left: 10px;
+  }
+  #clock:hover
+  {color: white;cursor: context-menu;}
 /*-------------------------------------------------insidepages----------------------------------------------------*/
 </style>

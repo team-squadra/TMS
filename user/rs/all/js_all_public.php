@@ -7,10 +7,6 @@ function move() {
     if (width >= 100) {
       clearInterval(id);
     }
-    else if(width==80){
-      setInterval(frame,15);
-
-    }
      else {
       width++; 
       elem.style.width = width + '%'; 
