@@ -50,7 +50,6 @@ include 'rs/css/css_home.php';
                     }
                 ?>     
               </td>
-              <td style="color: white;font-size: 12px;"><i class="fa fa-caret-down"></i></td>
             </tr>
           </table>
           <div id="user_child"><!--user_child-->
@@ -106,11 +105,12 @@ include 'rs/css/css_home.php';
 
     <!--main-->
     <div class="main">
-      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;">
-        <div style="width: auto;height: 90px;">
+      <div style="  background-color: white;width: auto;height: auto;margin: 20px 20px 20px 20px;
+      padding: 0px 20px 20px 20px;">
+              <div style="width: auto;height: 90px;">
 
 <!--------------------------------------------------------------------------------------DAY-->
-            <table id="controler_table" style="margin-top:35px; ">
+            <table id="controler_table" style="margin-top:35px;margin-right: 50px; ">
               <tr>
                 <td><b>Day</b></td>
                 <td style="border:  1px solid darkgrey; border-radius: 20px;">
@@ -245,337 +245,397 @@ include 'rs/css/css_home.php';
                 </td>
               </tr>
             </table>
+<!--------------------------------------------------------------------------------------PAGE-NAME-->
+    <table style="padding-top: 20px;">
+      <tr>
+        <td><img src="../resources/lec_schedule.png" style="width: 30px;height: 30px;"></td>
+        <td style="font-size: 25px; color: dimgray;padding-left: 10px; font-family: Century Gothic;">Lecture Schedule</td>
+      </tr>
+    </table>
+
 <!---------------------------------------------------------------------------------------->
         </div>
-        <hr>
+        <!-----------------------------------------------------------------BATCH SECTER 01-->
+        <div id="secter_01" style="padding: 0px 40px 40px 40px; position: relative;">
+
+          <button style="position: absolute;bottom: 330px; right: 10px; background-color: transparent; border: none; cursor: pointer;"
+              onclick="secter_02_show_func()" onmouseover="sec01_to_sec02_func_in()" onmouseout="sec01_to_sec02_func_out()">
+            <img id="sec01_to_sec02" src="../resources/right_lite.png" style="width: 25px;height: 25px;border: none;" >
+          </button>
+
+          <table id="lec_schedule">
+          <tr>
+            <th style="width: 400px;">Batch</th>
+            <th style="width: 500px;">Hall/Lab</th>
+            <th style="width: 500px;">ModuleName/Code</th>
+            <th style="width: 500px;">lecturer</th>
+            <th style="width: 300px;">Time</th>
+          </tr>
+          <!----------------------------------------BATCH 01-->
+          <tr bgcolor="#ffeoco">
+            <td rowspan="4">batch 01</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 02-->
+          <tr bgcolor="#ffco8o">
+            <td rowspan="4">batch 02</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 03-->
+          <tr bgcolor="#ffffco">
+            <td rowspan="4">batch 03</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 04-->
+          <tr bgcolor="#coffco">
+            <td rowspan="4">batch 04</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+        </table>
+        </div>
+        <!-----------------------------------------------------------------BATCH SECTER 02-->
+        <div id="secter_02" style="padding: 0px 40px 40px 40px; position: relative; display: none;">
+
+          <button style="position: absolute;bottom: 330px; left: 10px; background-color: transparent; border: none; cursor: pointer;"
+             onclick="secter_01_show_func()" onmouseover="sec02_to_sec01_func_in()" onmouseout="sec02_to_sec01_func_out()">
+            <img  id="sec02_to_sec01" src="../resources/left_lite.png" style="width: 25px;height: 25px;border: none;" >
+          </button>
+          <button style="position: absolute;bottom: 330px; right: 10px; background-color: transparent; border: none; cursor: pointer;"
+            onclick="secter_03_show_func()" onmouseover="sec02_to_sec03_func_in()" onmouseout="sec02_to_sec03_func_out()">
+            <img  id="sec02_to_sec03"  src="../resources/right_lite.png" style="width: 25px;height: 25px;border: none;" >
+          </button>
+
+          <table id="lec_schedule">
+          <tr>
+            <th style="width: 400px;">Batch</th>
+            <th style="width: 500px;">Hall/Lab</th>
+            <th style="width: 500px;">ModuleName/Code</th>
+            <th style="width: 500px;">lecturer</th>
+            <th style="width: 300px;">Time</th>
+          </tr>
+          <!----------------------------------------BATCH 05-->
+          <tr bgcolor="#ffeoco">
+            <td rowspan="4">batch 05</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 06-->
+          <tr bgcolor="#ffco8o">
+            <td rowspan="4">batch 06</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 07-->
+          <tr bgcolor="#ffffco">
+            <td rowspan="4">batch 07</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 08-->
+          <tr bgcolor="#coffco">
+            <td rowspan="4">batch 08</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+        </table>
+        </div>
+        <!-----------------------------------------------------------------BATCH SECTER 03-->
+        <div id="secter_03" style="padding: 0px 40px 40px 40px; position: relative; display: none;">
+
+          <button style="position: absolute;bottom: 330px; left: 10px; background-color: transparent; border: none; cursor: pointer;"
+             onclick="secter_02_show_func()" onmouseover="sec03_to_sec02_func_in()" onmouseout="sec03_to_sec02_func_out()">
+            <img id="sec03_to_sec02"  src="../resources/left_lite.png" style="width: 25px;height: 25px;border: none;" >
+          </button>
+
+          <table id="lec_schedule">
+          <tr>
+            <th style="width: 400px;">Batch</th>
+            <th style="width: 500px;">Hall/Lab</th>
+            <th style="width: 500px;">ModuleName/Code</th>
+            <th style="width: 500px;">lecturer</th>
+            <th style="width: 300px;">Time</th>
+          </tr>
+          <!----------------------------------------BATCH 09-->
+          <tr bgcolor="#ffeoco">
+            <td rowspan="4">batch 09</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffeoco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 10-->
+          <tr bgcolor="#ffco8o">
+            <td rowspan="4">batch 10</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffco8o">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 11-->
+          <tr bgcolor="#ffffco">
+            <td rowspan="4">batch 11</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#ffffco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+          <!----------------------------------------BATCH 12-->
+          <tr bgcolor="#coffco">
+            <td rowspan="4">batch 12</td>
+            <td>adas</td>
+            <td>sdasd</td>
+            <td>dasd</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>sdas</td>
+            <td>dasd</td>
+            <td>sdsa</td>
+            <td>sdasd</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>dasd</td>
+            <td>sda</td>
+            <td>sdas</td>
+            <td>dsad</td>
+          </tr>
+          <tr bgcolor="#coffco">
+            <td>sda</td>
+            <td>sdas</td>
+            <td>asda</td>
+            <td>asd</td>
+          </tr>
+        </table>
+        </div>
       </div>
     </div>
-
-    <!--side-->
-    <div class="sideright">
-      <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;">
-        <p id="hh"></p>
-      </div>
-      <div style="  background-color: white;width: auto;height: 400px;margin: 20px 20px 20px 20px;"></div>
-    </div>
-
   </div>
 </body>
 <!--------------------------------------------------------------------------------------BODY-END-->
 </html>
 
 
-<!--------------------------------------------------------------------------------------SCRIPT-START-->
-<script>
-
-
-//////////////////////////////////////////////////////////////////////////////
-function year_up_function()
-{var year_up_data = document.getElementById("inputyear").innerHTML;
-  var year_up_data_value = +year_up_data+1;
-  document.getElementById("inputyear").innerHTML = year_up_data_value;
-}
-function year_down_function()
-{var year_down_data = document.getElementById("inputyear").innerHTML;
-  var year_down_data_value = +year_down_data-1;
-  document.getElementById("inputyear").innerHTML = year_down_data_value;
-}
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-function week_up_function()
-{var week_up_data = document.getElementById("inputweeknum").innerHTML;
-var new_week_up_data;
-  if (week_up_data=="W1")
-   {
-      new_week_up_data="W2";
-   }
-   else if(week_up_data=="W2")
-   {
-      new_week_up_data="W3";
-   }
-   else if(week_up_data=="W3")
-   {
-      new_week_up_data="W4";
-   }
-   else if(week_up_data=="W4")
-   {
-      new_week_up_data="W5";
-   }
-   else if(week_up_data=="W5")
-   {
-      new_week_up_data="W6";
-   }
-   else
-   {
-      new_week_up_data="W1";
-   }
-  document.getElementById("inputweeknum").innerHTML = new_week_up_data;
-}
-function week_down_function()
-{var week_down_data = document.getElementById("inputweeknum").innerHTML;
-var new_week_down_data;
-  if (week_down_data=="W6")
-   {
-      new_week_down_data="W5";
-   }
-   else if(week_down_data=="W5")
-   {
-      new_week_down_data="W4";
-   }
-   else if(week_down_data=="W4")
-   {
-      new_week_down_data="W3";
-   }
-   else if(week_down_data=="W3")
-   {
-      new_week_down_data="W2";
-   }
-   else if(week_down_data=="W2")
-   {
-      new_week_down_data="W1";
-   }
-   else
-   {
-      new_week_down_data="W6";
-   }
-  document.getElementById("inputweeknum").innerHTML = new_week_down_data;
-}
-//////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////
-function year_up_func_in()
-{
-  document.getElementById('yearup').src='../resources/up_full.png'
-}
-function year_up_func_out()
-{
-  document.getElementById('yearup').src='../resources/up_line.png'
-}
-///////
-function year_down_func_in()
-{
-  document.getElementById('yeardown').src='../resources/down_full.png'
-}
-function year_down_func_out()
-{
-  document.getElementById('yeardown').src='../resources/down_line.png'
-}
-///////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-function week_up_func_in()
-{
-  document.getElementById('weekup').src='../resources/up_full.png'
-}
-function week_up_func_out()
-{
-  document.getElementById('weekup').src='../resources/up_line.png'
-}
-///////
-function week_down_func_in()
-{
-  document.getElementById('weekdown').src='../resources/down_full.png'
-}
-function week_down_func_out()
-{
-  document.getElementById('weekdown').src='../resources/down_line.png'
-}
-///////////////////////////////////////////////////////////////////
-
-function find_week_number() 
-{
-  var inputyear = document.getElementById("inputyear").innerHTML;
-  var inputmonth = document.getElementById("input_fake_month").value;
-
-var dd = new Date(inputyear,inputmonth-1,1);
-var day = dd.getDay();
-
-var td_date =new Date();
-var tdd = td_date.getDate();
-
-var weeknum;
-if (day == 0)
-{
-
-    if (tdd <= 7)
-    {
-        weeknum =  "W1";
-    }
-    else if (tdd <= 14)
-    {
-      weeknum =  "W2";
-    }
-    else if (tdd <= 21)
-    {
-        weeknum =  "W3";
-    }
-    else if (tdd <= 28)
-    {
-        weeknum =  "W4";
-    }
-    else
-    {
-      weeknum =  "W5";
-    }
-
-}
-else if (day == 1)
-{
-  if (tdd <= 6)
-    {
-        weeknum =  "W1";
-    }
-    else if (tdd <= 13)
-    {
-      weeknum =  "W2";
-    }
-    else if (tdd <= 20)
-    {
-        weeknum =  "W3";
-    }
-    else if (tdd <= 27)
-    {
-        weeknum =  "W4";
-    }
-    else
-    {
-      weeknum =  "W5";
-    }
-}
-else if (day == 2)
-{
-  if (tdd <= 5)
-    {
-        weeknum =  "W1";
-    }
-    else if (tdd <= 12)
-    {
-      weeknum =  "W2";
-    }
-    else if (tdd <= 19)
-    {
-        weeknum =  "W3";
-    }
-    else if (tdd <= 26)
-    {
-        weeknum =  "W4";
-    }
-    else
-    {
-      weeknum =  "W5";
-    }
-}
-else if (day == 3)
-{
-  if (tdd <= 4)
-    {
-        weeknum =  "W1";
-    }
-    else if (tdd <= 11)
-    {
-      weeknum =  "W2";
-    }
-    else if (tdd <= 18)
-    {
-        weeknum =  "W3";
-    }
-    else if (tdd <= 25)
-    {
-        weeknum =  "W4";
-    }
-    else
-    {
-      weeknum =  "W5";
-    }
-}
-else if (day == 4)
-{
-  if (tdd <= 3)
-    {
-        weeknum =  "W1";
-    }
-    else if (tdd <= 10)
-    {
-      weeknum =  "W2";
-    }
-    else if (tdd <= 17)
-    {
-        weeknum =  "W3";
-    }
-    else if (tdd <= 24)
-    {
-        weeknum =  "W4";
-    }
-    else
-    {
-      weeknum =  "W5";
-    }
-}
-else if (day == 5)
-{
-  if (tdd <= 2)
-    {
-        weeknum =  "W1";
-    }
-    else if (tdd <= 9)
-    {
-      weeknum =  "W2";
-    }
-    else if (tdd <= 16)
-    {
-        weeknum =  "W3";
-    }
-    else if (tdd <= 23)
-    {
-        weeknum =  "W4";
-    }
-    else if (tdd  <= 30)
-    {
-        weeknum =  "W5";
-    }
-    else
-    {
-      weeknum =  "W6";
-    }
-}
-else if (day == 6)
-{
-  if (tdd <= 1)
-    {
-        weeknum =  "W1";
-    }
-    else if (tdd <= 8)
-    {
-      weeknum =  "W2";
-    }
-    else if (tdd <= 15)
-    {
-        weeknum =  "W3";
-    }
-    else if (tdd <= 22)
-    {
-        weeknum =  "W4";
-    }
-    else if (tdd  <= 29)
-    {
-        weeknum =  "W5";
-    }
-    else
-    {
-      weeknum =  "W6";
-    }
-}
-  document.getElementById("inputweeknum").innerHTML = weeknum;
-
-}
-
-
-</script>
-<!--------------------------------------------------------------------------------------SCRIPT-END-->
+<!--------------------------------------------------------------------------------------HOME-SCRIPT-START-->
+<script type="text/javascript" src="rs/js/js_home.js"></script>
+<!--------------------------------------------------------------------------------------HOME-SCRIPT-END-->
 
 
 <!--------------------------------------------------------------------------------------JS-START-->

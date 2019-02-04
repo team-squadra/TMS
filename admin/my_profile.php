@@ -51,7 +51,6 @@ include 'rs/css/css_my_profile.php';
                     }
                 ?>     
               </td>
-              <td style="color: white;font-size: 12px;"><i class="fa fa-caret-down"></i></td>
             </tr>
           </table>
           <div id="user_child"><!--user_child-->

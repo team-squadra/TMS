@@ -26,6 +26,7 @@
 	border: none;
 	outline: none;
 	width: 100%;
+  height: 100%;
 	text-align: center;
 	padding: 2px;
 	font-size: 20px;
@@ -57,4 +58,26 @@ border:  1px solid darkgrey; border-radius: 20px;
 cursor: pointer;
 background-color: red;
 }
+
+
+#lec_schedule {
+  font-family: Century Gothic;
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#lec_schedule td, #lec_schedule th {
+  border: 1px solid dimgray;
+  padding: 8px;
+}
+
+
+#lec_schedule th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #282729;
+  color: white;
+}
+
 </style>
