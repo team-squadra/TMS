@@ -164,6 +164,7 @@ body
   font-size: 20px; /* Increase the font size */
   color: white; /* White text color */
   border-radius: 0 17px 17px 0; /* Rounded corners on the top right and bottom right side */
+  z-index: 999999;
 }
 
 #mySidenav a:hover {
@@ -171,17 +172,17 @@ body
 }
 
 #home {
-  top: 280px;
+  top: 40%;
   background-color: #4CAF50; /* green */
 }
 
 #timetables {
-top: 360px;
+top: 49%;
   background-color: #f44336;  /* Red */
 }
 
 #about {
-  top: 440px;
+  top: 57.5%;
   background-color: #2196F3; /* Blue */
 }
 

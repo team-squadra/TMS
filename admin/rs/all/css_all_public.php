@@ -164,6 +164,7 @@ body
   font-size: 20px; /* Increase the font size */
   color: white; /* White text color */
   border-radius: 0 17px 17px 0; /* Rounded corners on the top right and bottom right side */
+  z-index: 999999;
 }
 
 #mySidenav a:hover {
@@ -171,35 +172,36 @@ body
 }
 
 #home {
-  top: 180px;
+  top: 25%;
   background-color: #4CAF50; /* green */
 }
 
 #hall_details {
-  top: 260px;
+  top: 34%;
   background-color: #f44336;/* Red */
   
 }
 
 #batch_details{
-  top: 340px;
+  top: 42%;
   background-color: #2196F3; /* Blue */
 }
 
 #timetables {
-  top: 420px;
+  top: 50%;
   background-color: #555 /* Light black */
 }
 
 #new_account {
-  top: 500px;
+  top: 58.5%;
   background-color: orange; 
 }
 
 #about {
-  top: 580px;
+  top: 67%;
   background-color: slateblue;
 }
+
   #clock
   {
       color: #ddd;
@@ -210,5 +212,6 @@ body
   }
   #clock:hover
   {color: white;cursor: context-menu;}
+
 /*-------------------------------------------------insidepages----------------------------------------------------*/
 </style>
