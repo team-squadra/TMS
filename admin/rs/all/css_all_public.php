@@ -202,7 +202,7 @@ body
 }
   #clock
   {
-      color: dimgray;
+      color: #ddd;
       font-size: 20px;
       font-family: Century Gothic;
       text-align: right;

@@ -112,13 +112,6 @@ include 'rs/css/css_about_us.php';
       </div>
     </div>
 
-    <!--side-->
-    <div class="sideright">
-      <div style="  background-color: white;width: auto;height: 200px; margin: 20px 20px 20px 20px;">
-      </div>
-      <div style="  background-color: white;width: auto;height: 400px;margin: 20px 20px 20px 20px;"></div>
-    </div>
-
   </div>
 
 </body>
