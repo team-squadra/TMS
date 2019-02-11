@@ -625,6 +625,7 @@ include 'rs/css/css_home.php';
           </tr>
         </table>
         </div>
+
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@
 /* page loading progress bar end*/
 
 #controler_table{
-	color: dimgray;float: right;margin-right: 30px; margin-left: 30px;margin-top: 5px;font-size: 13px;text-align: center;font-family: Century Gothic;
+	color: dimgray;float: right;margin-right: 30px; margin-left: 30px;margin-top: 5px;font-size: 13px;text-align: center;font-family: Century Gothic;font-size: 20px;
 }
 #controler_table td
 {

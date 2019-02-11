@@ -31,6 +31,7 @@ body
     flex: 40%;
     background-color: transparent;
     margin-left: 60px;
+    margin-right: 60px;
     margin-top: 20px;
     padding: 10px;
 }
