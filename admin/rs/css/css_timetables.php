@@ -20,23 +20,13 @@
 {
 	padding-left: 10px;padding-right: 10px;
 }
-#controler_table button
+#controler_table div
 {
 	border: none;
 	outline: none;
-	width: 100%;
-  height: 100%;
-	text-align: center;
-	padding: 2px;
-	font-size: 20px;
-	color: MediumSeaGreen;
 	background-color: transparent;
 	cursor: pointer;
 	border-radius: 50%;
-}
-#controler_table button:hover
-{
-color: orange;
 }
 #controler_table select
 {
@@ -111,5 +101,63 @@ background-color: red;
   background-color: #ddd;
   color: black;
   cursor: pointer;
+}
+#insert_update
+{
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 15px;
+}
+#insert_update:hover{
+  background-color: #ffc107;
+  color: black;
+  cursor: pointer;
+}
+#inseted_updated_data
+{
+  background-color: #4CAF50;
+  color: white;
+  width: 200px;
+  height: 50px;
+  position: fixed;
+  bottom: 10px;
+  right:10px;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+  position: fixed;
+  bottom: 10px;
+  right:10px;
+  padding: 15px;
+}
+
+#insert_alert {background-color: #4CAF50;}
+#update_alert {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
 </style>

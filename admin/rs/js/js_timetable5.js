@@ -20,7 +20,7 @@ function year_and_month_change()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W1';
+    document.getElementById("inputweeknum").value = 'W1';
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -250,7 +250,7 @@ else if (day == 6)
       weeknum =  "W6";
     }
 }
-  document.getElementById("inputweeknum").innerHTML = weeknum;
+  document.getElementById("inputweeknum").value = weeknum;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -679,7 +679,7 @@ document.getElementById("w6_tuesday_4").style.display = "none";
 
 function display_correct_week()
 {
-    var today_week = document.getElementById("inputweeknum").innerHTML;
+    var today_week = document.getElementById("inputweeknum").value;
     if (today_week == 'W1') {
         document.getElementById("week_1").style.display = "";
         document.getElementById("week_2").style.display = "none";
@@ -782,7 +782,7 @@ function w1_to_w2_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W2';
+    document.getElementById("inputweeknum").value = 'W2';
 }
 
 function w2_to_w1_btn()
@@ -793,7 +793,7 @@ function w2_to_w1_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W1';
+    document.getElementById("inputweeknum").value = 'W1';
 }
 function w2_to_w3_btn()
 {
@@ -803,7 +803,7 @@ function w2_to_w3_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W3';
+    document.getElementById("inputweeknum").value = 'W3';
 }
 function w3_to_w2_btn()
 {
@@ -813,7 +813,7 @@ function w3_to_w2_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W2';
+    document.getElementById("inputweeknum").value = 'W2';
 }
 function w3_to_w4_btn()
 {
@@ -823,7 +823,7 @@ function w3_to_w4_btn()
     document.getElementById("week_4").style.display = "";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W4';
+    document.getElementById("inputweeknum").value = 'W4';
 }
 function w4_to_w3_btn()
 {
@@ -833,7 +833,7 @@ function w4_to_w3_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W3';
+    document.getElementById("inputweeknum").value = 'W3';
 }
 function w4_to_w5_btn()
 {
@@ -843,7 +843,7 @@ function w4_to_w5_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W5';
+    document.getElementById("inputweeknum").value = 'W5';
 }
 
 function w5_to_w4_btn()
@@ -854,7 +854,7 @@ function w5_to_w4_btn()
     document.getElementById("week_4").style.display = "";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W4';
+    document.getElementById("inputweeknum").value = 'W4';
 }
 function w5_to_w6_btn()
 {
@@ -864,7 +864,7 @@ function w5_to_w6_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "none";
     document.getElementById("week_6").style.display = "";
-    document.getElementById("inputweeknum").innerHTML = 'W6';
+    document.getElementById("inputweeknum").value = 'W6';
 }
 function w6_to_w5_btn()
 {
@@ -874,6 +874,297 @@ function w6_to_w5_btn()
     document.getElementById("week_4").style.display = "none";
     document.getElementById("week_5").style.display = "";
     document.getElementById("week_6").style.display = "none";
-    document.getElementById("inputweeknum").innerHTML = 'W5';
+    document.getElementById("inputweeknum").value = 'W5';
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//---------------------------year-----------------------------------
+ $(document).ready(function(){  
+      $('#year_up').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch}, 
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+ $(document).ready(function(){  
+      $('#inputyear').change(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+ $(document).ready(function(){  
+      $('#year_down').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch}, 
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+ //--------------------------------------------------------------
+
+ //---------------------------month-----------------------------------
+  $(document).ready(function(){  
+      $('#input_fake_month').change(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},  
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+  //--------------------------------------------------------------
+
+  //---------------------------week-----------------------------------
+   $(document).ready(function(){  
+      $('#inputweeknum').change(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w1_to_w2_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val(); 
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w2_to_w3_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val(); 
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w2_to_w1_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w3_to_w4_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();  
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w3_to_w2_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w4_to_w5_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},  
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w4_to_w3_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();  
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w5_to_w6_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w5_to_w4_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val(); 
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   $(document).ready(function(){  
+      $('#w6_to_w5_btn').click(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+   //--------------------------------------------------------------
+
+   //---------------------------batch-----------------------------------
+    $(document).ready(function(){  
+      $('#inputbatch').change(function(){  
+           var inputyear = $('#inputyear').val();
+           var input_fake_month = $('#input_fake_month').val();
+           var inputweeknum = $('#inputweeknum').val();
+           var inputbatch = $('#inputbatch').val();  
+           $.ajax({  
+                url:"rs/php/php_timetables.php",  
+                method:"POST",  
+                data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},   
+                success:function(data){  
+                     $('#div_result').html(data);  
+                }  
+           });  
+      });  
+ });
+    //--------------------------------------------------------------
+
+
+
+    //---------------------------body-----------------------------------
+$(document).ready(function(){ 
+    find_week_number();         
+    var inputyear = $('#inputyear').val();
+    var input_fake_month = $('#input_fake_month').val();
+    var inputweeknum = $('#inputweeknum').val();
+    var inputbatch = $('#inputbatch').val();  
+    $.ajax({  
+            url:"rs/php/php_timetables.php",  
+            method:"POST",  
+            data:{inputyear:inputyear,input_fake_month:input_fake_month,inputweeknum:inputweeknum,inputbatch:inputbatch},  
+            success:function(data){  
+            $('#div_result').html(data);  
+            }  
+          });  
+ });
+//--------------------------------------------------------------

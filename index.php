@@ -26,6 +26,9 @@ else
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
+	<script type="text/javascript">
+		if (window.ytcsi) {window.ytcsi.tick("bs", null, '');}ytcfg.set('initialBodyClientWidth', document.body.clientWidth);window.ytcfg.set('SERVICE_WORKER_KILLSWITCH', false);
+	</script>
 <!--------------------------------------------------------------------------------------TITLE-START--> 
 <title>Timetable Management System</title>
 <link rel="icon" type="image/icon" href="resources/yy.ico">
