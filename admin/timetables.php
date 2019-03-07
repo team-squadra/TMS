@@ -181,7 +181,6 @@ include 'rs/css/css_timetables.php';
               </tr>
               <tr>
                 <td><b>Week</b></td>
-                
                 <td style="border:  1px solid darkgrey; border-radius: 20px;"  >
                   <input type="text" name="week"  id="inputweeknum"
                   style="border: none; text-align: center; width: 100px;"

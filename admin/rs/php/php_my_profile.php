@@ -39,11 +39,67 @@ else
 
 if (isset($_POST['signout']))
 {
-	$_SESSION =array();
-	session_destroy();
-	header('location: ../login/login.php');
-}
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
 
+    $sql = "UPDATE signup SET activity='inactive' WHERE username='$get_admin_name'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {echo "Error updating record: " . $conn->error;}
+
+$conn->close();
+  $_SESSION =array();
+  session_destroy();
+  header('location: ../login/login.php');
+}
+else
+{}
+
+function show_online_users($servername,$username,$password,$dbname,$get_admin_name)
+{
+   // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+    $sql = "SELECT * FROM signup WHERE activity ='active' && username !='$get_admin_name' ";
+    $result = $conn->query($sql);
+    echo '<table>
+          <tr>
+            <td><center><img src="../resources/online_users.png" style="width:30px;height:30px;"></center></td>
+            <td>Online Users</td>
+          </tr>
+          <tr>
+            <td colspan="3"><hr></td>
+          </tr>
+          ';
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo '
+                    <tr>
+                        <td><img src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"
+                        style="width:25px;height:25px;border-radius:50%;border: 1px solid black;;margin:5px;margin-right:10px;"/></td>
+                        <td><lable style="margin-right:10px;">'. $row["firstname"].' '. $row["lastname"].'</lable></td>
+                        <td><div style="background-color: LimeGreen;width:10px;height:10px;border-radius:50%;"></div></td>
+                    </tr>
+                ';
+        }
+    } else {
+        echo "
+        <tr>
+            <td colspan='3'><center><b>Just you</b></center></td>
+          </tr>
+        ";
+    }
+    echo "</table>";
+    $conn->close();
+}
 
 if (isset($_POST['save']))
 {

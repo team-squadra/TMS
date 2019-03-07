@@ -79,5 +79,19 @@ background-color: red;
   background-color: #282729;
   color: white;
 }
-
+#try_to_add_data
+{
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: transparent;
+  color: gray;
+  border: 2px solid DodgerBlue;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+#try_to_add_data:hover{
+  background-color: DodgerBlue;
+  color: white;
+}
 </style>

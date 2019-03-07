@@ -29,12 +29,22 @@ $row = mysqli_fetch_array($result);
 if ($row['statues']=="admin") 
 {
     $_SESSION['getadminname']=$user;
+
+    $sql = "UPDATE signup SET activity='active' WHERE username='$user'";
+	if ($conn->query($sql) === TRUE) {
+    	echo "Record updated successfully";
+	} else {echo "Error updating record: " . $conn->error;}
+
     header('location: ../admin/home.php');
 
 }
 else if($row['statues']=="user") 
 {
     $_SESSION['getusername']=$user;
+    $sql = "UPDATE signup SET activity='active' WHERE username='$user'";
+	if ($conn->query($sql) === TRUE) {
+    	echo "Record updated successfully";
+	} else {echo "Error updating record: " . $conn->error;}
     header('location: ../user/home.php');
 }  
 else

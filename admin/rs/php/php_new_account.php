@@ -37,9 +37,22 @@ else
 
 if (isset($_POST['signout']))
 {
-	$_SESSION =array();
-	session_destroy();
-	header('location: ../login/login.php');
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+    $sql = "UPDATE signup SET activity='inactive' WHERE username='$get_admin_name'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {echo "Error updating record: " . $conn->error;}
+
+$conn->close();
+  $_SESSION =array();
+  session_destroy();
+  header('location: ../login/login.php');
 }
 else
 {}
@@ -199,37 +212,23 @@ $newstatues= $_POST["new_statues"];
 
 if ($newFirstName!=NULL||$newLastName!=NULL||$newusername!=NULL||$newpassword!=NULL||$newemail!=NULL) 
 {
-//echo "working";
-//echo "<br>";
-// Create connection
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "INSERT INTO `signup` (`id`, `username`, `firstname`, `lastname`, `password`, `email`, `statues`, `mac_address`, `activity`) 
-VALUES (NULL, '$newusername', '$newFirstName', '$newLastName', '$crypt', '$newemail', '$newstatues', NULL, NULL);";
+$sql = "INSERT INTO `signup` (`id`, `username`, `firstname`, `lastname`, `password`, `email`, `statues`, `mac_address`, `activity`, `recover_code`, `image`, `phone_no`)
+VALUES (NULL, '$newusername', '$newFirstName', '$newLastName', '$crypt', '$newemail', '$newstatues', '', '', '', '', '');";
+
 
 if ($conn->query($sql) === TRUE) {
 echo "<script>alert('Your Account has been Created Successfully !');</script>";
-echo "
-<script>
-if (confirm('Back to Login ?')) 
-{
-    window.location.href = 'login.php';
 } 
 else 
 {
-    window.location.href = 'signup.php';
-}
-</script>";
-
-
-} 
-else 
-{
-    echo "<script>alert('Error : Mysql server Connection Error ');</script>";
+    echo "<script>alert('Error : ".$conn->error." ');</script>";
     //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 

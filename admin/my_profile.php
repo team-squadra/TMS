@@ -176,6 +176,11 @@ include 'rs/css/css_my_profile.php';
                   </tr>
                 </table>
               </form>
+<!-----------------------------------------------------------------onlineusers-->
+<div id="show_online_users">
+  <?php show_online_users($servername,$username,$password,$dbname,$get_admin_name); ?>
+</div>
+<!-----------------------------------------------------------------onlineusers-->
             </div>
           </center>
         </center>               

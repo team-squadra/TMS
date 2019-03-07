@@ -39,25 +39,6 @@ body
     display: flex;
     flex-wrap: wrap;
 }
-.sideright {
-    
-    width: 18%;
-    min-width: 200px;
-    height: auto;
-    background-color: transparent;
-    padding: 10px;
-}
-@media screen and (max-width: 100px) {
-    .row {   
-        flex-direction: column;
-    }
-}
-@media screen and (max-width: 400px) {
-    .navbar a {
-        float: none;
-        width:100%;
-    }
-}
 .user
 {
   width: 50px;
@@ -135,7 +116,6 @@ body
 }
 .dropdown-content a:hover {background-color: #67b12f;color: white;}
 .dropdown:hover .dropdown-content {display: block;}
-
 #signout
 {
   color: dimgray;
@@ -151,9 +131,6 @@ body
   color: white;
   background-color: tomato; 
 }
-
-/* HOverable side nav bar*/
-
 #mySidenav a {
   position: fixed; 
   left: -160px; /* Position them outside of the screen */
@@ -167,42 +144,34 @@ body
   border-radius: 0 17px 17px 0; /* Rounded corners on the top right and bottom right side */
   z-index: 999999;
 }
-
 #mySidenav a:hover {
   left: 0; /* On mouse-over, make the elements appear as they should */
 }
-
 #home {
   top: 25%;
   background-color: #4CAF50; /* green */
 }
-
 #hall_details {
   top: 34%;
   background-color: #f44336;/* Red */
   
 }
-
 #batch_details{
   top: 42%;
   background-color: #2196F3; /* Blue */
 }
-
 #timetables {
   top: 50%;
   background-color: #555 /* Light black */
 }
-
 #new_account {
   top: 58.5%;
   background-color: orange; 
 }
-
 #about {
   top: 67%;
   background-color: slateblue;
 }
-
   #clock
   {
       color: #ddd;
@@ -213,6 +182,14 @@ body
   }
   #clock:hover
   {color: white;cursor: context-menu;}
-
+#show_online_users{
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
+  right:10px;
+  padding: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius:  10px;
+}
 /*-------------------------------------------------insidepages----------------------------------------------------*/
 </style>

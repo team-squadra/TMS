@@ -160,4 +160,17 @@ background-color: red;
 .closebtn:hover {
   color: black;
 }
+#try_to_add_data
+{
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 15px;
+}
 </style>
