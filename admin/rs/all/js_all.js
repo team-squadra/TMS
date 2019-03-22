@@ -39,7 +39,6 @@ function move() {
   }
 
   var clockStr = hours + ' : ' + minutes + ' : ' + seconds;
-  var hexColorStr = '#' + hours + minutes + seconds;
 
   clock.textContent = clockStr;
 
@@ -48,5 +47,11 @@ function move() {
 hexClock();
 setInterval(hexClock, 1000);
 
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
 
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 

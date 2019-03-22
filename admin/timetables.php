@@ -1,6 +1,7 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
 include 'rs/all/css_all_public.php';
+include 'rs/all/all_php.php';
 include 'rs/php/php_timetables.php';
 include 'rs/css/css_timetables.php';
 
@@ -104,18 +105,22 @@ include 'rs/css/css_timetables.php';
                <a href="new_account.php" id="new_account">New Account<i class='far fa-address-book'style='font-size:30px;margin-left:32px;'></i> </a>
                <a href="about_us.php" id="about">About Us<i class='far fa-comment-dots'style='font-size:32px;margin-left:65px;'></i></a>
          </div>
+<!-----------------------------------------------------------------BATCH-->
+<div style="background-color: transparent;margin-left: 80px;margin-right: 80px;margin-top: 10px;padding: 10px;">
+  <label style='color: white;padding-left: 10px; font-size: 50px;font-weight: 100;line-height: 1.2;'>Timetable</label>
+</div>
+<!-----------------------------------------------------------------BATCH-->
   <div class="row">
 <form method="post" action="" >
     <!--main-->
     <div class="main" id="main_div">
       <div style="  background-color: white;width: auto;height: auto;margin: 20px 20px 20px 20px;position: relative;padding: 0px 20px 20px 20px;">
               <div style="width: auto;height: 90px;">
-
 <!--------------------------------------------------------------------------------------BATCHNAME-->
             <table id="controler_table" style="margin-top:35px;margin-right: 50px; ">
               <tr>
                 <td><b>Batch</b></td>
-                <td style="border:  1px solid darkgrey; border-radius: 20px;">
+                <td style="border:  2px solid darkgrey; border-radius: 20px;">
                   <select name="batch" id="inputbatch">
                     <?php 
                     // Create connection
@@ -181,7 +186,7 @@ include 'rs/css/css_timetables.php';
               </tr>
               <tr>
                 <td><b>Week</b></td>
-                <td style="border:  1px solid darkgrey; border-radius: 20px;"  >
+                <td style="border:  2px solid darkgrey; border-radius: 20px;"  >
                   <input type="text" name="week"  id="inputweeknum"
                   style="border: none; text-align: center; width: 100px;"
                   >
@@ -240,7 +245,7 @@ include 'rs/css/css_timetables.php';
             <table id="controler_table" style="margin-top:35px; ">
               <tr>
                 <td><b>Month</b></td>
-                <td style="border:  1px solid darkgrey; border-radius: 20px;">
+                <td style="border:  2px solid darkgrey; border-radius: 20px;">
 
                   <select name="month"  id="input_fake_month" 
                   onchange="year_and_month_change()">
@@ -266,49 +271,37 @@ include 'rs/css/css_timetables.php';
               </tr>
             </table>
 <!--------------------------------------------------------------------------------------YEAR-->
-            <table id="controler_table" >
-              <tr>
-                <td></td>
-                <td>
-                  <div onclick="year_up_function()" id="year_up">
-                    <img  id="yearup" src="../resources/up_line.png" style="width: 25px;height: 25px;border: none;" 
-                        onmouseover="year_up_func_in()" onmouseout="year_up_func_out()">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><b>Year</b></td>
-                <td style="border:  1px solid darkgrey; border-radius: 20px;"  >
-                  <input type="text" name="year"  id="inputyear" onchange="year_and_month_change()"
-                  style="border: none; text-align: center; width: 100px;"
-                  value="<?php echo date("Y");?>"/>
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>
-                  <div onclick="year_down_function()" id="year_down">
-                    <img  id="yeardown" src="../resources/down_line.png" style="width: 25px;height: 25px;border: none;" 
-                        onmouseover="year_down_func_in()" onmouseout="year_down_func_out()">
-                  </div>
-                </td>
-              </tr>
-            </table>
-
+        <table id="controler_table" >
+          <tr>
+            <td></td>
+            <td style="padding: 10px;">
+              <a onclick="year_up_function()" id="year_up_btn">&#10096;</a>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Year</b></td>
+            <td style="border:  2px solid darkgrey; border-radius: 20px;">
+              <input type="text" name="year"  id="inputyear"style="border: none; text-align: center; width: 100px;"value="<?php echo date("Y");?>"/>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="padding: 10px;">
+              <a onclick="year_down_function()" id="year_down_btn">&#10097;</a>
+            </td>
+          </tr>
+        </table>
+<!--------------------------------------------------------------------------------------YEAR-->
 
 
 <!--------------------------------------------------------------------------------------INSERT/BUTTON-->
   <input type="submit" value="insert/update"  name="insert_or_update"    id="insert_update"  /> 
-<!--------------------------------------------------------------------------------------PAGE-NAME-->
-    <table style="padding-top: 20px;">
-      <tr>
-        <td><img src="../resources/lec_schedule.png" style="width: 30px;height: 30px;"></td>
-        <td style="font-size: 25px; color: dimgray;padding-left: 10px; font-family: Century Gothic;">Timetable</td>
-      </tr>
-    </table>
+<!--------------------------------------------------------------------------------------INSERT/BUTTON-->
 
-    
 <!---------------------------------------------------------------------------------------->
+<datalist id="halllist">
+<?php halldetails($conn); ?>
+</datalist>
         </div>
         <!-----------------------------------------------------------------week_1-->
         <div id="week_1" style="padding: 0px 40px 40px 40px; position: relative;">
@@ -330,25 +323,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w1_sunday_1">
             <td rowspan="4" id="w1_0"></td>
             <td rowspan="4">Sunday</td>
-            <td><input type="text" name="w1_sun_h_1" id="w1_sun_h_1"></td>
+            <td><input type="text" name="w1_sun_h_1" id="w1_sun_h_1" list="halllist"></td>
             <td><input type="text" name="w1_sun_m_1" id="w1_sun_m_1"></td>
             <td><input type="text" name="w1_sun_l_1" id="w1_sun_l_1"></td>
             <td><input type="text" name="w1_sun_t_1" id="w1_sun_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_sunday_2">
-            <td><input type="text" name="w1_sun_h_2" id="w1_sun_h_2"></td>
+            <td><input type="text" name="w1_sun_h_2" id="w1_sun_h_2" list="halllist"></td>
             <td><input type="text" name="w1_sun_m_2" id="w1_sun_m_2"></td>
             <td><input type="text" name="w1_sun_l_2" id="w1_sun_l_2"></td>
             <td><input type="text" name="w1_sun_t_2" id="w1_sun_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_sunday_3">
-            <td><input type="text" name="w1_sun_h_3" id="w1_sun_h_3"></td>
+            <td><input type="text" name="w1_sun_h_3" id="w1_sun_h_3" list="halllist"></td>
             <td><input type="text" name="w1_sun_m_3" id="w1_sun_m_3"></td>
             <td><input type="text" name="w1_sun_l_3" id="w1_sun_l_3"></td>
             <td><input type="text" name="w1_sun_t_3" id="w1_sun_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_sunday_4">
-            <td><input type="text" name="w1_sun_h_4" id="w1_sun_h_4"></td>
+            <td><input type="text" name="w1_sun_h_4" id="w1_sun_h_4" list="halllist"></td>
             <td><input type="text" name="w1_sun_m_4" id="w1_sun_m_4"></td>
             <td><input type="text" name="w1_sun_l_4" id="w1_sun_l_4"></td>
             <td><input type="text" name="w1_sun_t_4" id="w1_sun_t_4"></td>
@@ -357,25 +350,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w1_monday_1">
             <td rowspan="4" id="w1_1"></td>
             <td rowspan="4">Monday</td>
-            <td><input type="text" name="w1_mon_h_1" id="w1_mon_h_1"></td>
+            <td><input type="text" name="w1_mon_h_1" id="w1_mon_h_1" list="halllist"></td>
             <td><input type="text" name="w1_mon_m_1" id="w1_mon_m_1"></td>
             <td><input type="text" name="w1_mon_l_1" id="w1_mon_l_1"></td>
             <td><input type="text" name="w1_mon_t_1" id="w1_mon_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_monday_2">
-            <td><input type="text" name="w1_mon_h_2" id="w1_mon_h_2"></td>
+            <td><input type="text" name="w1_mon_h_2" id="w1_mon_h_2" list="halllist"></td>
             <td><input type="text" name="w1_mon_m_2" id="w1_mon_m_2"></td>
             <td><input type="text" name="w1_mon_l_2" id="w1_mon_l_2"></td>
             <td><input type="text" name="w1_mon_t_2" id="w1_mon_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_monday_3">
-            <td><input type="text" name="w1_mon_h_3" id="w1_mon_h_3"></td>
+            <td><input type="text" name="w1_mon_h_3" id="w1_mon_h_3" list="halllist"></td>
             <td><input type="text" name="w1_mon_m_3" id="w1_mon_m_3"></td>
             <td><input type="text" name="w1_mon_l_3" id="w1_mon_l_3"></td>
             <td><input type="text" name="w1_mon_t_3" id="w1_mon_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_monday_4">
-            <td><input type="text" name="w1_mon_h_4" id="w1_mon_h_4"></td>
+            <td><input type="text" name="w1_mon_h_4" id="w1_mon_h_4" list="halllist"></td>
             <td><input type="text" name="w1_mon_m_4" id="w1_mon_m_4"></td>
             <td><input type="text" name="w1_mon_l_4" id="w1_mon_l_4"></td>
             <td><input type="text" name="w1_mon_t_4" id="w1_mon_t_4"></td>
@@ -384,25 +377,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w1_tuesday_1">
             <td rowspan="4" id="w1_2"></td>
             <td rowspan="4">Tuesday</td>
-            <td><input type="text" name="w1_tue_h_1" id="w1_tue_h_1"></td>
+            <td><input type="text" name="w1_tue_h_1" id="w1_tue_h_1" list="halllist"></td>
             <td><input type="text" name="w1_tue_m_1" id="w1_tue_m_1"></td>
             <td><input type="text" name="w1_tue_l_1" id="w1_tue_l_1"></td>
             <td><input type="text" name="w1_tue_t_1" id="w1_tue_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_tuesday_2">
-            <td><input type="text" name="w1_tue_h_2" id="w1_tue_h_2"></td>
+            <td><input type="text" name="w1_tue_h_2" id="w1_tue_h_2" list="halllist"></td>
             <td><input type="text" name="w1_tue_m_2" id="w1_tue_m_2"></td>
             <td><input type="text" name="w1_tue_l_2" id="w1_tue_l_2"></td>
             <td><input type="text" name="w1_tue_t_2" id="w1_tue_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_tuesday_3">
-            <td><input type="text" name="w1_tue_h_3" id="w1_tue_h_3"></td>
+            <td><input type="text" name="w1_tue_h_3" id="w1_tue_h_3" list="halllist"></td>
             <td><input type="text" name="w1_tue_m_3" id="w1_tue_m_3"></td>
             <td><input type="text" name="w1_tue_l_3" id="w1_tue_l_3"></td>
             <td><input type="text" name="w1_tue_t_3" id="w1_tue_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_tuesday_4">
-            <td><input type="text" name="w1_tue_h_4" id="w1_tue_h_4"></td>
+            <td><input type="text" name="w1_tue_h_4" id="w1_tue_h_4" list="halllist"></td>
             <td><input type="text" name="w1_tue_m_4" id="w1_tue_m_4"></td>
             <td><input type="text" name="w1_tue_l_4" id="w1_tue_l_4"></td>
             <td><input type="text" name="w1_tue_t_4" id="w1_tue_t_4"></td>
@@ -411,25 +404,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w1_wednesday_1">
             <td rowspan="4" id="w1_3"></td>
             <td rowspan="4">Wednesday</td>
-            <td><input type="text" name="w1_wed_h_1" id="w1_wed_h_1"></td>
+            <td><input type="text" name="w1_wed_h_1" id="w1_wed_h_1" list="halllist"></td>
             <td><input type="text" name="w1_wed_m_1" id="w1_wed_m_1"></td>
             <td><input type="text" name="w1_wed_l_1" id="w1_wed_l_1"></td>
             <td><input type="text" name="w1_wed_t_1" id="w1_wed_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_wednesday_2">
-            <td><input type="text" name="w1_wed_h_2" id="w1_wed_h_2"></td>
+            <td><input type="text" name="w1_wed_h_2" id="w1_wed_h_2" list="halllist"></td>
             <td><input type="text" name="w1_wed_m_2" id="w1_wed_m_2"></td>
             <td><input type="text" name="w1_wed_l_2" id="w1_wed_l_2"></td>
             <td><input type="text" name="w1_wed_t_2" id="w1_wed_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_wednesday_3">
-            <td><input type="text" name="w1_wed_h_3" id="w1_wed_h_3"></td>
+            <td><input type="text" name="w1_wed_h_3" id="w1_wed_h_3" list="halllist"></td>
             <td><input type="text" name="w1_wed_m_3" id="w1_wed_m_3"></td>
             <td><input type="text" name="w1_wed_l_3" id="w1_wed_l_3"></td>
             <td><input type="text" name="w1_wed_t_3" id="w1_wed_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_wednesday_4">
-            <td><input type="text" name="w1_wed_h_4" id="w1_wed_h_4"></td>
+            <td><input type="text" name="w1_wed_h_4" id="w1_wed_h_4" list="halllist"></td>
             <td><input type="text" name="w1_wed_m_4" id="w1_wed_m_4"></td>
             <td><input type="text" name="w1_wed_l_4" id="w1_wed_l_4"></td>
             <td><input type="text" name="w1_wed_t_4" id="w1_wed_t_4"></td>
@@ -438,25 +431,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w1_thursday_1">
             <td rowspan="4" id="w1_4"></td>
             <td rowspan="4">Thursday</td>
-            <td><input type="text" name="w1_thu_h_1" id="w1_thu_h_1"></td>
+            <td><input type="text" name="w1_thu_h_1" id="w1_thu_h_1" list="halllist"></td>
             <td><input type="text" name="w1_thu_m_1" id="w1_thu_m_1"></td>
             <td><input type="text" name="w1_thu_l_1" id="w1_thu_l_1"></td>
             <td><input type="text" name="w1_thu_t_1" id="w1_thu_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_thursday_2">
-            <td><input type="text" name="w1_thu_h_2" id="w1_thu_h_2"></td>
+            <td><input type="text" name="w1_thu_h_2" id="w1_thu_h_2" list="halllist"></td>
             <td><input type="text" name="w1_thu_m_2" id="w1_thu_m_2"></td>
             <td><input type="text" name="w1_thu_l_2" id="w1_thu_l_2"></td>
             <td><input type="text" name="w1_thu_t_2" id="w1_thu_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_thursday_3">
-            <td><input type="text" name="w1_thu_h_3" id="w1_thu_h_3"></td>
+            <td><input type="text" name="w1_thu_h_3" id="w1_thu_h_3" list="halllist"></td>
             <td><input type="text" name="w1_thu_m_3" id="w1_thu_m_3"></td>
             <td><input type="text" name="w1_thu_l_3" id="w1_thu_l_3"></td>
             <td><input type="text" name="w1_thu_t_3" id="w1_thu_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_thursday_4">
-            <td><input type="text" name="w1_thu_h_4" id="w1_thu_h_4"></td>
+            <td><input type="text" name="w1_thu_h_4" id="w1_thu_h_4" list="halllist"></td>
             <td><input type="text" name="w1_thu_m_4" id="w1_thu_m_4"></td>
             <td><input type="text" name="w1_thu_l_4" id="w1_thu_l_4"></td>
             <td><input type="text" name="w1_thu_t_4" id="w1_thu_t_4"></td>
@@ -465,25 +458,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w1_friday_1">
             <td rowspan="4" id="w1_5"></td>
             <td rowspan="4">Friday</td>
-            <td><input type="text" name="w1_fri_h_1" id="w1_fri_h_1"></td>
+            <td><input type="text" name="w1_fri_h_1" id="w1_fri_h_1" list="halllist"></td>
             <td><input type="text" name="w1_fri_m_1" id="w1_fri_m_1"></td>
             <td><input type="text" name="w1_fri_l_1" id="w1_fri_l_1"></td>
             <td><input type="text" name="w1_fri_t_1" id="w1_fri_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_friday_2">
-            <td><input type="text" name="w1_fri_h_2" id="w1_fri_h_2"></td>
+            <td><input type="text" name="w1_fri_h_2" id="w1_fri_h_2" list="halllist"></td>
             <td><input type="text" name="w1_fri_m_2" id="w1_fri_m_2"></td>
             <td><input type="text" name="w1_fri_l_2" id="w1_fri_l_2"></td>
             <td><input type="text" name="w1_fri_t_2" id="w1_fri_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_friday_3">
-            <td><input type="text" name="w1_fri_h_3" id="w1_fri_h_3"></td>
+            <td><input type="text" name="w1_fri_h_3" id="w1_fri_h_3" list="halllist"></td>
             <td><input type="text" name="w1_fri_m_3" id="w1_fri_m_3"></td>
             <td><input type="text" name="w1_fri_l_3" id="w1_fri_l_3"></td>
             <td><input type="text" name="w1_fri_t_3" id="w1_fri_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w1_friday_4">
-            <td><input type="text" name="w1_fri_h_4" id="w1_fri_h_4"></td>
+            <td><input type="text" name="w1_fri_h_4" id="w1_fri_h_4" list="halllist"></td>
             <td><input type="text" name="w1_fri_m_4" id="w1_fri_m_4"></td>
             <td><input type="text" name="w1_fri_l_4" id="w1_fri_l_4"></td>
             <td><input type="text" name="w1_fri_t_4" id="w1_fri_t_4"></td>
@@ -492,25 +485,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w1_saturday_1">
             <td rowspan="4" id="w1_6"></td>
             <td rowspan="4">Saturday</td>
-            <td><input type="text" name="w1_sat_h_1" id="w1_sat_h_1"></td>
+            <td><input type="text" name="w1_sat_h_1" id="w1_sat_h_1" list="halllist"></td>
             <td><input type="text" name="w1_sat_m_1" id="w1_sat_m_1"></td>
             <td><input type="text" name="w1_sat_l_1" id="w1_sat_l_1"></td>
             <td><input type="text" name="w1_sat_t_1" id="w1_sat_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_saturday_2"> 
-            <td><input type="text" name="w1_sat_h_2" id="w1_sat_h_2"></td>
+            <td><input type="text" name="w1_sat_h_2" id="w1_sat_h_2" list="halllist"></td>
             <td><input type="text" name="w1_sat_m_2" id="w1_sat_m_2"></td>
             <td><input type="text" name="w1_sat_l_2" id="w1_sat_l_2"></td>
             <td><input type="text" name="w1_sat_t_2" id="w1_sat_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_saturday_3">
-            <td><input type="text" name="w1_sat_h_3" id="w1_sat_h_3"></td>
+            <td><input type="text" name="w1_sat_h_3" id="w1_sat_h_3" list="halllist"></td>
             <td><input type="text" name="w1_sat_m_3" id="w1_sat_m_3"></td>
             <td><input type="text" name="w1_sat_l_3" id="w1_sat_l_3"></td>
             <td><input type="text" name="w1_sat_t_3" id="w1_sat_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w1_saturday_4">
-            <td><input type="text" name="w1_sat_h_4" id="w1_sat_h_4"></td>
+            <td><input type="text" name="w1_sat_h_4" id="w1_sat_h_4" list="halllist"></td>
             <td><input type="text" name="w1_sat_m_4" id="w1_sat_m_4"></td>
             <td><input type="text" name="w1_sat_l_4" id="w1_sat_l_4"></td>
             <td><input type="text" name="w1_sat_t_4" id="w1_sat_t_4"></td>
@@ -534,29 +527,31 @@ include 'rs/css/css_timetables.php';
             <th style="width: 400px;">lecturer</th>
             <th style="width: 200px;">Time</th>
           </tr>
+              
           <!----------------------------------------Sunday-->
           <tr bgcolor="#ddd" id="w2_sunday_1">
             <td rowspan="4" id="w2_0"></td>
             <td rowspan="4">Sunday</td>
-            <td><input type="text" name="w2_sun_h_1" id="w2_sun_h_1"></td>
+            <td><input type="text" name="w2_sun_h_1" id="w2_sun_h_1" list="halllist">
+            </td>
             <td><input type="text" name="w2_sun_m_1" id="w2_sun_m_1"></td>
             <td><input type="text" name="w2_sun_l_1" id="w2_sun_l_1"></td>
             <td><input type="text" name="w2_sun_t_1" id="w2_sun_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_sunday_2">
-            <td><input type="text" name="w2_sun_h_2" id="w2_sun_h_2"></td>
+            <td><input type="text" name="w2_sun_h_2" id="w2_sun_h_2" list="halllist"></td>
             <td><input type="text" name="w2_sun_m_2" id="w2_sun_m_2"></td>
             <td><input type="text" name="w2_sun_l_2" id="w2_sun_l_2"></td>
             <td><input type="text" name="w2_sun_t_2" id="w2_sun_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_sunday_3">
-            <td><input type="text" name="w2_sun_h_3" id="w2_sun_h_3"></td>
+            <td><input type="text" name="w2_sun_h_3" id="w2_sun_h_3" list="halllist"></td>
             <td><input type="text" name="w2_sun_m_3" id="w2_sun_m_3"></td>
             <td><input type="text" name="w2_sun_l_3" id="w2_sun_l_3"></td>
             <td><input type="text" name="w2_sun_t_3" id="w2_sun_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_sunday_4">
-            <td><input type="text" name="w2_sun_h_4" id="w2_sun_h_4"></td>
+            <td><input type="text" name="w2_sun_h_4" id="w2_sun_h_4" list="halllist"></td>
             <td><input type="text" name="w2_sun_m_4" id="w2_sun_m_4"></td>
             <td><input type="text" name="w2_sun_l_4" id="w2_sun_l_4"></td>
             <td><input type="text" name="w2_sun_t_4" id="w2_sun_t_4"></td>
@@ -565,25 +560,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w2_monday_1">
             <td rowspan="4" id="w2_1"></td>
             <td rowspan="4">Monday</td>
-            <td><input type="text" name="w2_mon_h_1" id="w2_mon_h_1"></td>
+            <td><input type="text" name="w2_mon_h_1" id="w2_mon_h_1" list="halllist"></td>
             <td><input type="text" name="w2_mon_m_1" id="w2_mon_m_1"></td>
             <td><input type="text" name="w2_mon_l_1" id="w2_mon_l_1"></td>
             <td><input type="text" name="w2_mon_t_1" id="w2_mon_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_monday_2">
-            <td><input type="text" name="w2_mon_h_2" id="w2_mon_h_2"></td>
+            <td><input type="text" name="w2_mon_h_2" id="w2_mon_h_2" ></td>
             <td><input type="text" name="w2_mon_m_2" id="w2_mon_m_2"></td>
             <td><input type="text" name="w2_mon_l_2" id="w2_mon_l_2"></td>
             <td><input type="text" name="w2_mon_t_2" id="w2_mon_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_monday_3">
-            <td><input type="text" name="w2_mon_h_3" id="w2_mon_h_3"></td>
+            <td><input type="text" name="w2_mon_h_3" id="w2_mon_h_3" list="halllist"></td>
             <td><input type="text" name="w2_mon_m_3" id="w2_mon_m_3"></td>
             <td><input type="text" name="w2_mon_l_3" id="w2_mon_l_3"></td>
             <td><input type="text" name="w2_mon_t_3" id="w2_mon_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_monday_4">
-            <td><input type="text" name="w2_mon_h_4" id="w2_mon_h_4"></td>
+            <td><input type="text" name="w2_mon_h_4" id="w2_mon_h_4" list="halllist"></td>
             <td><input type="text" name="w2_mon_m_4" id="w2_mon_m_4"></td>
             <td><input type="text" name="w2_mon_l_4" id="w2_mon_l_4"></td>
             <td><input type="text" name="w2_mon_t_4" id="w2_mon_t_4"></td>
@@ -592,25 +587,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w2_tuesday_1">
             <td rowspan="4" id="w2_2"></td>
             <td rowspan="4">Tuesday</td>
-            <td><input type="text" name="w2_tue_h_1" id="w2_tue_h_1"></td>
+            <td><input type="text" name="w2_tue_h_1" id="w2_tue_h_1" list="halllist"></td>
             <td><input type="text" name="w2_tue_m_1" id="w2_tue_m_1"></td>
             <td><input type="text" name="w2_tue_l_1" id="w2_tue_l_1"></td>
             <td><input type="text" name="w2_tue_t_1" id="w2_tue_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_tuesday_2">
-            <td><input type="text" name="w2_tue_h_2" id="w2_tue_h_2"></td>
+            <td><input type="text" name="w2_tue_h_2" id="w2_tue_h_2" list="halllist"></td>
             <td><input type="text" name="w2_tue_m_2" id="w2_tue_m_2"></td>
             <td><input type="text" name="w2_tue_l_2" id="w2_tue_l_2"></td>
             <td><input type="text" name="w2_tue_t_2" id="w2_tue_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_tuesday_3">
-            <td><input type="text" name="w2_tue_h_3" id="w2_tue_h_3"></td>
+            <td><input type="text" name="w2_tue_h_3" id="w2_tue_h_3" list="halllist"></td>
             <td><input type="text" name="w2_tue_m_3" id="w2_tue_m_3"></td>
             <td><input type="text" name="w2_tue_l_3" id="w2_tue_l_3"></td>
             <td><input type="text" name="w2_tue_t_3" id="w2_tue_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_tuesday_4">
-            <td><input type="text" name="w2_tue_h_4" id="w2_tue_h_4"></td>
+            <td><input type="text" name="w2_tue_h_4" id="w2_tue_h_4" list="halllist"></td>
             <td><input type="text" name="w2_tue_m_4" id="w2_tue_m_4"></td>
             <td><input type="text" name="w2_tue_l_4" id="w2_tue_l_4"></td>
             <td><input type="text" name="w2_tue_t_4" id="w2_tue_t_4"></td>
@@ -619,25 +614,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w2_wednesday_1">
             <td rowspan="4" id="w2_3"></td>
             <td rowspan="4">Wednesday</td>
-            <td><input type="text" name="w2_wed_h_1" id="w2_wed_h_1"></td>
+            <td><input type="text" name="w2_wed_h_1" id="w2_wed_h_1" list="halllist"></td>
             <td><input type="text" name="w2_wed_m_1" id="w2_wed_m_1"></td>
             <td><input type="text" name="w2_wed_l_1" id="w2_wed_l_1"></td>
             <td><input type="text" name="w2_wed_t_1" id="w2_wed_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_wednesday_2">
-            <td><input type="text" name="w2_wed_h_2" id="w2_wed_h_2"></td>
+            <td><input type="text" name="w2_wed_h_2" id="w2_wed_h_2" ></td>
             <td><input type="text" name="w2_wed_m_2" id="w2_wed_m_2"></td>
             <td><input type="text" name="w2_wed_l_2" id="w2_wed_l_2"></td>
             <td><input type="text" name="w2_wed_t_2" id="w2_wed_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_wednesday_3">
-            <td><input type="text" name="w2_wed_h_3" id="w2_wed_h_3"></td>
+            <td><input type="text" name="w2_wed_h_3" id="w2_wed_h_3" list="halllist"></td>
             <td><input type="text" name="w2_wed_m_3" id="w2_wed_m_3"></td>
             <td><input type="text" name="w2_wed_l_3" id="w2_wed_l_3"></td>
             <td><input type="text" name="w2_wed_t_3" id="w2_wed_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_wednesday_4">
-            <td><input type="text" name="w2_wed_h_4" id="w2_wed_h_4"></td>
+            <td><input type="text" name="w2_wed_h_4" id="w2_wed_h_4" list="halllist"></td>
             <td><input type="text" name="w2_wed_m_4" id="w2_wed_m_4"></td>
             <td><input type="text" name="w2_wed_l_4" id="w2_wed_l_4"></td>
             <td><input type="text" name="w2_wed_t_4" id="w2_wed_t_4"></td>
@@ -646,25 +641,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w2_thursday_1">
             <td rowspan="4" id="w2_4"></td>
             <td rowspan="4">Thursday</td>
-            <td><input type="text" name="w2_thu_h_1" id="w2_thu_h_1"></td>
+            <td><input type="text" name="w2_thu_h_1" id="w2_thu_h_1" list="halllist"></td>
             <td><input type="text" name="w2_thu_m_1" id="w2_thu_m_1"></td>
             <td><input type="text" name="w2_thu_l_1" id="w2_thu_l_1"></td>
             <td><input type="text" name="w2_thu_t_1" id="w2_thu_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_thursday_2">
-            <td><input type="text" name="w2_thu_h_2" id="w2_thu_h_2"></td>
+            <td><input type="text" name="w2_thu_h_2" id="w2_thu_h_2" list="halllist"></td>
             <td><input type="text" name="w2_thu_m_2" id="w2_thu_m_2"></td>
             <td><input type="text" name="w2_thu_l_2" id="w2_thu_l_2"></td>
             <td><input type="text" name="w2_thu_t_2" id="w2_thu_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_thursday_3">
-            <td><input type="text" name="w2_thu_h_3" id="w2_thu_h_3"></td>
+            <td><input type="text" name="w2_thu_h_3" id="w2_thu_h_3" list="halllist"></td>
             <td><input type="text" name="w2_thu_m_3" id="w2_thu_m_3"></td>
             <td><input type="text" name="w2_thu_l_3" id="w2_thu_l_3"></td>
             <td><input type="text" name="w2_thu_t_3" id="w2_thu_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_thursday_4">
-            <td><input type="text" name="w2_thu_h_4" id="w2_thu_h_4"></td>
+            <td><input type="text" name="w2_thu_h_4" id="w2_thu_h_4" list="halllist"></td>
             <td><input type="text" name="w2_thu_m_4" id="w2_thu_m_4"></td>
             <td><input type="text" name="w2_thu_l_4" id="w2_thu_l_4"></td>
             <td><input type="text" name="w2_thu_t_4" id="w2_thu_t_4"></td>
@@ -673,25 +668,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w2_friday_1">
             <td rowspan="4" id="w2_5"></td>
             <td rowspan="4">Friday</td>
-            <td><input type="text" name="w2_fri_h_1" id="w2_fri_h_1"></td>
+            <td><input type="text" name="w2_fri_h_1" id="w2_fri_h_1" list="halllist"></td>
             <td><input type="text" name="w2_fri_m_1" id="w2_fri_m_1"></td>
             <td><input type="text" name="w2_fri_l_1" id="w2_fri_l_1"></td>
             <td><input type="text" name="w2_fri_t_1" id="w2_fri_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_friday_2">
-            <td><input type="text" name="w2_fri_h_2" id="w2_fri_h_2"></td>
+            <td><input type="text" name="w2_fri_h_2" id="w2_fri_h_2" list="halllist"></td>
             <td><input type="text" name="w2_fri_m_2" id="w2_fri_m_2"></td>
             <td><input type="text" name="w2_fri_l_2" id="w2_fri_l_2"></td>
             <td><input type="text" name="w2_fri_t_2" id="w2_fri_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_friday_3">
-            <td><input type="text" name="w2_fri_h_3" id="w2_fri_h_3"></td>
+            <td><input type="text" name="w2_fri_h_3" id="w2_fri_h_3" list="halllist"></td>
             <td><input type="text" name="w2_fri_m_3" id="w2_fri_m_3"></td>
             <td><input type="text" name="w2_fri_l_3" id="w2_fri_l_3"></td>
             <td><input type="text" name="w2_fri_t_3" id="w2_fri_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w2_friday_4">
-            <td><input type="text" name="w2_fri_h_4" id="w2_fri_h_4"></td>
+            <td><input type="text" name="w2_fri_h_4" id="w2_fri_h_4" list="halllist"></td>
             <td><input type="text" name="w2_fri_m_4" id="w2_fri_m_4"></td>
             <td><input type="text" name="w2_fri_l_4" id="w2_fri_l_4"></td>
             <td><input type="text" name="w2_fri_t_4" id="w2_fri_t_4"></td>
@@ -700,25 +695,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w2_saturday_1">
             <td rowspan="4" id="w2_6"></td>
             <td rowspan="4">Saturday</td>
-            <td><input type="text" name="w2_sat_h_1" id="w2_sat_h_1"></td>
+            <td><input type="text" name="w2_sat_h_1" id="w2_sat_h_1" list="halllist"></td>
             <td><input type="text" name="w2_sat_m_1" id="w2_sat_m_1"></td>
             <td><input type="text" name="w2_sat_l_1" id="w2_sat_l_1"></td>
             <td><input type="text" name="w2_sat_t_1" id="w2_sat_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_saturday_2"> 
-            <td><input type="text" name="w2_sat_h_2" id="w2_sat_h_2"></td>
+            <td><input type="text" name="w2_sat_h_2" id="w2_sat_h_2" list="halllist"></td>
             <td><input type="text" name="w2_sat_m_2" id="w2_sat_m_2"></td>
             <td><input type="text" name="w2_sat_l_2" id="w2_sat_l_2"></td>
             <td><input type="text" name="w2_sat_t_2" id="w2_sat_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_saturday_3">
-            <td><input type="text" name="w2_sat_h_3" id="w2_sat_h_3"></td>
+            <td><input type="text" name="w2_sat_h_3" id="w2_sat_h_3" list="halllist"></td>
             <td><input type="text" name="w2_sat_m_3" id="w2_sat_m_3"></td>
             <td><input type="text" name="w2_sat_l_3" id="w2_sat_l_3"></td>
             <td><input type="text" name="w2_sat_t_3" id="w2_sat_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w2_saturday_4">
-            <td><input type="text" name="w2_sat_h_4" id="w2_sat_h_4"></td>
+            <td><input type="text" name="w2_sat_h_4" id="w2_sat_h_4" list="halllist"></td>
             <td><input type="text" name="w2_sat_m_4" id="w2_sat_m_4"></td>
             <td><input type="text" name="w2_sat_l_4" id="w2_sat_l_4"></td>
             <td><input type="text" name="w2_sat_t_4" id="w2_sat_t_4"></td>
@@ -746,25 +741,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w3_sunday_1">
             <td rowspan="4" id="w3_0"></td>
             <td rowspan="4">Sunday</td>
-            <td><input type="text" name="w3_sun_h_1" id="w3_sun_h_1"></td>
+            <td><input type="text" name="w3_sun_h_1" id="w3_sun_h_1" list="halllist"></td>
             <td><input type="text" name="w3_sun_m_1" id="w3_sun_m_1"></td>
             <td><input type="text" name="w3_sun_l_1" id="w3_sun_l_1"></td>
             <td><input type="text" name="w3_sun_t_1" id="w3_sun_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_sunday_2">
-            <td><input type="text" name="w3_sun_h_2" id="w3_sun_h_2"></td>
+            <td><input type="text" name="w3_sun_h_2" id="w3_sun_h_2" list="halllist"></td>
             <td><input type="text" name="w3_sun_m_2" id="w3_sun_m_2"></td>
             <td><input type="text" name="w3_sun_l_2" id="w3_sun_l_2"></td>
             <td><input type="text" name="w3_sun_t_2" id="w3_sun_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_sunday_3">
-            <td><input type="text" name="w3_sun_h_3" id="w3_sun_h_3"></td>
+            <td><input type="text" name="w3_sun_h_3" id="w3_sun_h_3" list="halllist"></td>
             <td><input type="text" name="w3_sun_m_3" id="w3_sun_m_3"></td>
             <td><input type="text" name="w3_sun_l_3" id="w3_sun_l_3"></td>
             <td><input type="text" name="w3_sun_t_3" id="w3_sun_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_sunday_4">
-            <td><input type="text" name="w3_sun_h_4" id="w3_sun_h_4"></td>
+            <td><input type="text" name="w3_sun_h_4" id="w3_sun_h_4" list="halllist"></td>
             <td><input type="text" name="w3_sun_m_4" id="w3_sun_m_4"></td>
             <td><input type="text" name="w3_sun_l_4" id="w3_sun_l_4"></td>
             <td><input type="text" name="w3_sun_t_4" id="w3_sun_t_4"></td>
@@ -773,25 +768,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w3_monday_1">
             <td rowspan="4" id="w3_1"></td>
             <td rowspan="4">Monday</td>
-            <td><input type="text" name="w3_mon_h_1" id="w3_mon_h_1"></td>
+            <td><input type="text" name="w3_mon_h_1" id="w3_mon_h_1" list="halllist"></td>
             <td><input type="text" name="w3_mon_m_1" id="w3_mon_m_1"></td>
             <td><input type="text" name="w3_mon_l_1" id="w3_mon_l_1"></td>
             <td><input type="text" name="w3_mon_t_1" id="w3_mon_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_monday_2">
-            <td><input type="text" name="w3_mon_h_2" id="w3_mon_h_2"></td>
+            <td><input type="text" name="w3_mon_h_2" id="w3_mon_h_2" list="halllist"></td>
             <td><input type="text" name="w3_mon_m_2" id="w3_mon_m_2"></td>
             <td><input type="text" name="w3_mon_l_2" id="w3_mon_l_2"></td>
             <td><input type="text" name="w3_mon_t_2" id="w3_mon_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_monday_3">
-            <td><input type="text" name="w3_mon_h_3" id="w3_mon_h_3"></td>
+            <td><input type="text" name="w3_mon_h_3" id="w3_mon_h_3" list="halllist"></td>
             <td><input type="text" name="w3_mon_m_3" id="w3_mon_m_3"></td>
             <td><input type="text" name="w3_mon_l_3" id="w3_mon_l_3"></td>
             <td><input type="text" name="w3_mon_t_3" id="w3_mon_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_monday_4">
-            <td><input type="text" name="w3_mon_h_4" id="w3_mon_h_4"></td>
+            <td><input type="text" name="w3_mon_h_4" id="w3_mon_h_4" list="halllist"></td>
             <td><input type="text" name="w3_mon_m_4" id="w3_mon_m_4"></td>
             <td><input type="text" name="w3_mon_l_4" id="w3_mon_l_4"></td>
             <td><input type="text" name="w3_mon_t_4" id="w3_mon_t_4"></td>
@@ -800,25 +795,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w3_tuesday_1">
             <td rowspan="4" id="w3_2"></td>
             <td rowspan="4">Tuesday</td>
-            <td><input type="text" name="w3_tue_h_1" id="w3_tue_h_1"></td>
+            <td><input type="text" name="w3_tue_h_1" id="w3_tue_h_1" list="halllist"></td>
             <td><input type="text" name="w3_tue_m_1" id="w3_tue_m_1"></td>
             <td><input type="text" name="w3_tue_l_1" id="w3_tue_l_1"></td>
             <td><input type="text" name="w3_tue_t_1" id="w3_tue_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_tuesday_2">
-            <td><input type="text" name="w3_tue_h_2" id="w3_tue_h_2"></td>
+            <td><input type="text" name="w3_tue_h_2" id="w3_tue_h_2" list="halllist"></td>
             <td><input type="text" name="w3_tue_m_2" id="w3_tue_m_2"></td>
             <td><input type="text" name="w3_tue_l_2" id="w3_tue_l_2"></td>
             <td><input type="text" name="w3_tue_t_2" id="w3_tue_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_tuesday_3">
-            <td><input type="text" name="w3_tue_h_3" id="w3_tue_h_3"></td>
+            <td><input type="text" name="w3_tue_h_3" id="w3_tue_h_3" list="halllist"></td>
             <td><input type="text" name="w3_tue_m_3" id="w3_tue_m_3"></td>
             <td><input type="text" name="w3_tue_l_3" id="w3_tue_l_3"></td>
             <td><input type="text" name="w3_tue_t_3" id="w3_tue_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_tuesday_4">
-            <td><input type="text" name="w3_tue_h_4" id="w3_tue_h_4"></td>
+            <td><input type="text" name="w3_tue_h_4" id="w3_tue_h_4" list="halllist"></td>
             <td><input type="text" name="w3_tue_m_4" id="w3_tue_m_4"></td>
             <td><input type="text" name="w3_tue_l_4" id="w3_tue_l_4"></td>
             <td><input type="text" name="w3_tue_t_4" id="w3_tue_t_4"></td>
@@ -827,25 +822,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w3_wednesday_1">
             <td rowspan="4" id="w3_3"></td>
             <td rowspan="4">Wednesday</td>
-            <td><input type="text" name="w3_wed_h_1" id="w3_wed_h_1"></td>
+            <td><input type="text" name="w3_wed_h_1" id="w3_wed_h_1" list="halllist"></td>
             <td><input type="text" name="w3_wed_m_1" id="w3_wed_m_1"></td>
             <td><input type="text" name="w3_wed_l_1" id="w3_wed_l_1"></td>
             <td><input type="text" name="w3_wed_t_1" id="w3_wed_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_wednesday_2">
-            <td><input type="text" name="w3_wed_h_2" id="w3_wed_h_2"></td>
+            <td><input type="text" name="w3_wed_h_2" id="w3_wed_h_2" list="halllist"></td>
             <td><input type="text" name="w3_wed_m_2" id="w3_wed_m_2"></td>
             <td><input type="text" name="w3_wed_l_2" id="w3_wed_l_2"></td>
             <td><input type="text" name="w3_wed_t_2" id="w3_wed_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_wednesday_3">
-            <td><input type="text" name="w3_wed_h_3" id="w3_wed_h_3"></td>
+            <td><input type="text" name="w3_wed_h_3" id="w3_wed_h_3" list="halllist"></td>
             <td><input type="text" name="w3_wed_m_3" id="w3_wed_m_3"></td>
             <td><input type="text" name="w3_wed_l_3" id="w3_wed_l_3"></td>
             <td><input type="text" name="w3_wed_t_3" id="w3_wed_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_wednesday_4">
-            <td><input type="text" name="w3_wed_h_4" id="w3_wed_h_4"></td>
+            <td><input type="text" name="w3_wed_h_4" id="w3_wed_h_4" list="halllist"></td>
             <td><input type="text" name="w3_wed_m_4" id="w3_wed_m_4"></td>
             <td><input type="text" name="w3_wed_l_4" id="w3_wed_l_4"></td>
             <td><input type="text" name="w3_wed_t_4" id="w3_wed_t_4"></td>
@@ -854,25 +849,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w3_thursday_1">
             <td rowspan="4" id="w3_4"></td>
             <td rowspan="4">Thursday</td>
-            <td><input type="text" name="w3_thu_h_1" id="w3_thu_h_1"></td>
+            <td><input type="text" name="w3_thu_h_1" id="w3_thu_h_1" list="halllist"></td>
             <td><input type="text" name="w3_thu_m_1" id="w3_thu_m_1"></td>
             <td><input type="text" name="w3_thu_l_1" id="w3_thu_l_1"></td>
             <td><input type="text" name="w3_thu_t_1" id="w3_thu_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_thursday_2">
-            <td><input type="text" name="w3_thu_h_2" id="w3_thu_h_2"></td>
+            <td><input type="text" name="w3_thu_h_2" id="w3_thu_h_2" list="halllist"></td>
             <td><input type="text" name="w3_thu_m_2" id="w3_thu_m_2"></td>
             <td><input type="text" name="w3_thu_l_2" id="w3_thu_l_2"></td>
             <td><input type="text" name="w3_thu_t_2" id="w3_thu_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_thursday_3">
-            <td><input type="text" name="w3_thu_h_3" id="w3_thu_h_3"></td>
+            <td><input type="text" name="w3_thu_h_3" id="w3_thu_h_3" list="halllist"></td>
             <td><input type="text" name="w3_thu_m_3" id="w3_thu_m_3"></td>
             <td><input type="text" name="w3_thu_l_3" id="w3_thu_l_3"></td>
             <td><input type="text" name="w3_thu_t_3" id="w3_thu_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_thursday_4">
-            <td><input type="text" name="w3_thu_h_4" id="w3_thu_h_4"></td>
+            <td><input type="text" name="w3_thu_h_4" id="w3_thu_h_4" list="halllist"></td>
             <td><input type="text" name="w3_thu_m_4" id="w3_thu_m_4"></td>
             <td><input type="text" name="w3_thu_l_4" id="w3_thu_l_4"></td>
             <td><input type="text" name="w3_thu_t_4" id="w3_thu_t_4"></td>
@@ -881,25 +876,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w3_friday_1">
             <td rowspan="4" id="w3_5"></td>
             <td rowspan="4">Friday</td>
-            <td><input type="text" name="w3_fri_h_1" id="w3_fri_h_1"></td>
+            <td><input type="text" name="w3_fri_h_1" id="w3_fri_h_1" list="halllist"></td>
             <td><input type="text" name="w3_fri_m_1" id="w3_fri_m_1"></td>
             <td><input type="text" name="w3_fri_l_1" id="w3_fri_l_1"></td>
             <td><input type="text" name="w3_fri_t_1" id="w3_fri_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_friday_2">
-            <td><input type="text" name="w3_fri_h_2" id="w3_fri_h_2"></td>
+            <td><input type="text" name="w3_fri_h_2" id="w3_fri_h_2" list="halllist"></td>
             <td><input type="text" name="w3_fri_m_2" id="w3_fri_m_2"></td>
             <td><input type="text" name="w3_fri_l_2" id="w3_fri_l_2"></td>
             <td><input type="text" name="w3_fri_t_2" id="w3_fri_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_friday_3">
-            <td><input type="text" name="w3_fri_h_3" id="w3_fri_h_3"></td>
+            <td><input type="text" name="w3_fri_h_3" id="w3_fri_h_3" list="halllist"></td>
             <td><input type="text" name="w3_fri_m_3" id="w3_fri_m_3"></td>
             <td><input type="text" name="w3_fri_l_3" id="w3_fri_l_3"></td>
             <td><input type="text" name="w3_fri_t_3" id="w3_fri_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w3_friday_4">
-            <td><input type="text" name="w3_fri_h_4" id="w3_fri_h_4"></td>
+            <td><input type="text" name="w3_fri_h_4" id="w3_fri_h_4" list="halllist"></td>
             <td><input type="text" name="w3_fri_m_4" id="w3_fri_m_4"></td>
             <td><input type="text" name="w3_fri_l_4" id="w3_fri_l_4"></td>
             <td><input type="text" name="w3_fri_t_4" id="w3_fri_t_4"></td>
@@ -908,25 +903,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w3_saturday_1">
             <td rowspan="4" id="w3_6"></td>
             <td rowspan="4">Saturday</td>
-            <td><input type="text" name="w3_sat_h_1" id="w3_sat_h_1"></td>
+            <td><input type="text" name="w3_sat_h_1" id="w3_sat_h_1" list="halllist"></td>
             <td><input type="text" name="w3_sat_m_1" id="w3_sat_m_1"></td>
             <td><input type="text" name="w3_sat_l_1" id="w3_sat_l_1"></td>
             <td><input type="text" name="w3_sat_t_1" id="w3_sat_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_saturday_2"> 
-            <td><input type="text" name="w3_sat_h_2" id="w3_sat_h_2"></td>
+            <td><input type="text" name="w3_sat_h_2" id="w3_sat_h_2" list="halllist"></td>
             <td><input type="text" name="w3_sat_m_2" id="w3_sat_m_2"></td>
             <td><input type="text" name="w3_sat_l_2" id="w3_sat_l_2"></td>
             <td><input type="text" name="w3_sat_t_2" id="w3_sat_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_saturday_3">
-            <td><input type="text" name="w3_sat_h_3" id="w3_sat_h_3"></td>
+            <td><input type="text" name="w3_sat_h_3" id="w3_sat_h_3" list="halllist"></td>
             <td><input type="text" name="w3_sat_m_3" id="w3_sat_m_3"></td>
             <td><input type="text" name="w3_sat_l_3" id="w3_sat_l_3"></td>
             <td><input type="text" name="w3_sat_t_3" id="w3_sat_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w3_saturday_4">
-            <td><input type="text" name="w3_sat_h_4" id="w3_sat_h_4"></td>
+            <td><input type="text" name="w3_sat_h_4" id="w3_sat_h_4" list="halllist"></td>
             <td><input type="text" name="w3_sat_m_4" id="w3_sat_m_4"></td>
             <td><input type="text" name="w3_sat_l_4" id="w3_sat_l_4"></td>
             <td><input type="text" name="w3_sat_t_4" id="w3_sat_t_4"></td>
@@ -954,25 +949,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w4_sunday_1">
             <td rowspan="4" id="w4_0"></td>
             <td rowspan="4">Sunday</td>
-            <td><input type="text" name="w4_sun_h_1" id="w4_sun_h_1"></td>
+            <td><input type="text" name="w4_sun_h_1" id="w4_sun_h_1" list="halllist"></td>
             <td><input type="text" name="w4_sun_m_1" id="w4_sun_m_1"></td>
             <td><input type="text" name="w4_sun_l_1" id="w4_sun_l_1"></td>
             <td><input type="text" name="w4_sun_t_1" id="w4_sun_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_sunday_2">
-            <td><input type="text" name="w4_sun_h_2" id="w4_sun_h_2"></td>
+            <td><input type="text" name="w4_sun_h_2" id="w4_sun_h_2" list="halllist"></td>
             <td><input type="text" name="w4_sun_m_2" id="w4_sun_m_2"></td>
             <td><input type="text" name="w4_sun_l_2" id="w4_sun_l_2"></td>
             <td><input type="text" name="w4_sun_t_2" id="w4_sun_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_sunday_3">
-            <td><input type="text" name="w4_sun_h_3" id="w4_sun_h_3"></td>
+            <td><input type="text" name="w4_sun_h_3" id="w4_sun_h_3" list="halllist"></td>
             <td><input type="text" name="w4_sun_m_3" id="w4_sun_m_3"></td>
             <td><input type="text" name="w4_sun_l_3" id="w4_sun_l_3"></td>
             <td><input type="text" name="w4_sun_t_3" id="w4_sun_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_sunday_4">
-            <td><input type="text" name="w4_sun_h_4" id="w4_sun_h_4"></td>
+            <td><input type="text" name="w4_sun_h_4" id="w4_sun_h_4" list="halllist"></td>
             <td><input type="text" name="w4_sun_m_4" id="w4_sun_m_4"></td>
             <td><input type="text" name="w4_sun_l_4" id="w4_sun_l_4"></td>
             <td><input type="text" name="w4_sun_t_4" id="w4_sun_t_4"></td>
@@ -981,25 +976,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w4_monday_1">
             <td rowspan="4" id="w4_1"></td>
             <td rowspan="4">Monday</td>
-            <td><input type="text" name="w4_mon_h_1" id="w4_mon_h_1"></td>
+            <td><input type="text" name="w4_mon_h_1" id="w4_mon_h_1" list="halllist"></td>
             <td><input type="text" name="w4_mon_m_1" id="w4_mon_m_1"></td>
             <td><input type="text" name="w4_mon_l_1" id="w4_mon_l_1"></td>
             <td><input type="text" name="w4_mon_t_1" id="w4_mon_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_monday_2">
-            <td><input type="text" name="w4_mon_h_2" id="w4_mon_h_2"></td>
+            <td><input type="text" name="w4_mon_h_2" id="w4_mon_h_2" list="halllist"></td>
             <td><input type="text" name="w4_mon_m_2" id="w4_mon_m_2"></td>
             <td><input type="text" name="w4_mon_l_2" id="w4_mon_l_2"></td>
             <td><input type="text" name="w4_mon_t_2" id="w4_mon_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_monday_3">
-            <td><input type="text" name="w4_mon_h_3" id="w4_mon_h_3"></td>
+            <td><input type="text" name="w4_mon_h_3" id="w4_mon_h_3" list="halllist"></td>
             <td><input type="text" name="w4_mon_m_3" id="w4_mon_m_3"></td>
             <td><input type="text" name="w4_mon_l_3" id="w4_mon_l_3"></td>
             <td><input type="text" name="w4_mon_t_3" id="w4_mon_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_monday_4">
-            <td><input type="text" name="w4_mon_h_4" id="w4_mon_h_4"></td>
+            <td><input type="text" name="w4_mon_h_4" id="w4_mon_h_4" list="halllist"></td>
             <td><input type="text" name="w4_mon_m_4" id="w4_mon_m_4"></td>
             <td><input type="text" name="w4_mon_l_4" id="w4_mon_l_4"></td>
             <td><input type="text" name="w4_mon_t_4" id="w4_mon_t_4"></td>
@@ -1008,25 +1003,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w4_tuesday_1">
             <td rowspan="4" id="w4_2"></td>
             <td rowspan="4">Tuesday</td>
-            <td><input type="text" name="w4_tue_h_1" id="w4_tue_h_1"></td>
+            <td><input type="text" name="w4_tue_h_1" id="w4_tue_h_1" list="halllist"></td>
             <td><input type="text" name="w4_tue_m_1" id="w4_tue_m_1"></td>
             <td><input type="text" name="w4_tue_l_1" id="w4_tue_l_1"></td>
             <td><input type="text" name="w4_tue_t_1" id="w4_tue_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_tuesday_2">
-            <td><input type="text" name="w4_tue_h_2" id="w4_tue_h_2"></td>
+            <td><input type="text" name="w4_tue_h_2" id="w4_tue_h_2" list="halllist"></td>
             <td><input type="text" name="w4_tue_m_2" id="w4_tue_m_2"></td>
             <td><input type="text" name="w4_tue_l_2" id="w4_tue_l_2"></td>
             <td><input type="text" name="w4_tue_t_2" id="w4_tue_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_tuesday_3">
-            <td><input type="text" name="w4_tue_h_3" id="w4_tue_h_3"></td>
+            <td><input type="text" name="w4_tue_h_3" id="w4_tue_h_3" list="halllist"></td>
             <td><input type="text" name="w4_tue_m_3" id="w4_tue_m_3"></td>
             <td><input type="text" name="w4_tue_l_3" id="w4_tue_l_3"></td>
             <td><input type="text" name="w4_tue_t_3" id="w4_tue_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_tuesday_4">
-            <td><input type="text" name="w4_tue_h_4" id="w4_tue_h_4"></td>
+            <td><input type="text" name="w4_tue_h_4" id="w4_tue_h_4" list="halllist"></td>
             <td><input type="text" name="w4_tue_m_4" id="w4_tue_m_4"></td>
             <td><input type="text" name="w4_tue_l_4" id="w4_tue_l_4"></td>
             <td><input type="text" name="w4_tue_t_4" id="w4_tue_t_4"></td>
@@ -1035,25 +1030,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w4_wednesday_1">
             <td rowspan="4" id="w4_3"></td>
             <td rowspan="4">Wednesday</td>
-            <td><input type="text" name="w4_wed_h_1" id="w4_wed_h_1"></td>
+            <td><input type="text" name="w4_wed_h_1" id="w4_wed_h_1" list="halllist"></td>
             <td><input type="text" name="w4_wed_m_1" id="w4_wed_m_1"></td>
             <td><input type="text" name="w4_wed_l_1" id="w4_wed_l_1"></td>
             <td><input type="text" name="w4_wed_t_1" id="w4_wed_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_wednesday_2">
-            <td><input type="text" name="w4_wed_h_2" id="w4_wed_h_2"></td>
+            <td><input type="text" name="w4_wed_h_2" id="w4_wed_h_2" list="halllist"></td>
             <td><input type="text" name="w4_wed_m_2" id="w4_wed_m_2"></td>
             <td><input type="text" name="w4_wed_l_2" id="w4_wed_l_2"></td>
             <td><input type="text" name="w4_wed_t_2" id="w4_wed_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_wednesday_3">
-            <td><input type="text" name="w4_wed_h_3" id="w4_wed_h_3"></td>
+            <td><input type="text" name="w4_wed_h_3" id="w4_wed_h_3" list="halllist"></td>
             <td><input type="text" name="w4_wed_m_3" id="w4_wed_m_3"></td>
             <td><input type="text" name="w4_wed_l_3" id="w4_wed_l_3"></td>
             <td><input type="text" name="w4_wed_t_3" id="w4_wed_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_wednesday_4">
-            <td><input type="text" name="w4_wed_h_4" id="w4_wed_h_4"></td>
+            <td><input type="text" name="w4_wed_h_4" id="w4_wed_h_4" list="halllist"></td>
             <td><input type="text" name="w4_wed_m_4" id="w4_wed_m_4"></td>
             <td><input type="text" name="w4_wed_l_4" id="w4_wed_l_4"></td>
             <td><input type="text" name="w4_wed_t_4" id="w4_wed_t_4"></td>
@@ -1062,25 +1057,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w4_thursday_1">
             <td rowspan="4" id="w4_4"></td>
             <td rowspan="4">Thursday</td>
-            <td><input type="text" name="w4_thu_h_1" id="w4_thu_h_1"></td>
+            <td><input type="text" name="w4_thu_h_1" id="w4_thu_h_1" list="halllist"></td>
             <td><input type="text" name="w4_thu_m_1" id="w4_thu_m_1"></td>
             <td><input type="text" name="w4_thu_l_1" id="w4_thu_l_1"></td>
             <td><input type="text" name="w4_thu_t_1" id="w4_thu_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_thursday_2">
-            <td><input type="text" name="w4_thu_h_2" id="w4_thu_h_2"></td>
+            <td><input type="text" name="w4_thu_h_2" id="w4_thu_h_2" list="halllist"></td>
             <td><input type="text" name="w4_thu_m_2" id="w4_thu_m_2"></td>
             <td><input type="text" name="w4_thu_l_2" id="w4_thu_l_2"></td>
             <td><input type="text" name="w4_thu_t_2" id="w4_thu_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_thursday_3">
-            <td><input type="text" name="w4_thu_h_3" id="w4_thu_h_3"></td>
+            <td><input type="text" name="w4_thu_h_3" id="w4_thu_h_3" list="halllist"></td>
             <td><input type="text" name="w4_thu_m_3" id="w4_thu_m_3"></td>
             <td><input type="text" name="w4_thu_l_3" id="w4_thu_l_3"></td>
             <td><input type="text" name="w4_thu_t_3" id="w4_thu_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_thursday_4">
-            <td><input type="text" name="w4_thu_h_4" id="w4_thu_h_4"></td>
+            <td><input type="text" name="w4_thu_h_4" id="w4_thu_h_4" list="halllist"></td>
             <td><input type="text" name="w4_thu_m_4" id="w4_thu_m_4"></td>
             <td><input type="text" name="w4_thu_l_4" id="w4_thu_l_4"></td>
             <td><input type="text" name="w4_thu_t_4" id="w4_thu_t_4"></td>
@@ -1089,25 +1084,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w4_friday_1">
             <td rowspan="4" id="w4_5"></td>
             <td rowspan="4">Friday</td>
-            <td><input type="text" name="w4_fri_h_1" id="w4_fri_h_1"></td>
+            <td><input type="text" name="w4_fri_h_1" id="w4_fri_h_1" list="halllist"></td>
             <td><input type="text" name="w4_fri_m_1" id="w4_fri_m_1"></td>
             <td><input type="text" name="w4_fri_l_1" id="w4_fri_l_1"></td>
             <td><input type="text" name="w4_fri_t_1" id="w4_fri_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_friday_2">
-            <td><input type="text" name="w4_fri_h_2" id="w4_fri_h_2"></td>
+            <td><input type="text" name="w4_fri_h_2" id="w4_fri_h_2" list="halllist"></td>
             <td><input type="text" name="w4_fri_m_2" id="w4_fri_m_2"></td>
             <td><input type="text" name="w4_fri_l_2" id="w4_fri_l_2"></td>
             <td><input type="text" name="w4_fri_t_2" id="w4_fri_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_friday_3">
-            <td><input type="text" name="w4_fri_h_3" id="w4_fri_h_3"></td>
+            <td><input type="text" name="w4_fri_h_3" id="w4_fri_h_3" list="halllist"></td>
             <td><input type="text" name="w4_fri_m_3" id="w4_fri_m_3"></td>
             <td><input type="text" name="w4_fri_l_3" id="w4_fri_l_3"></td>
             <td><input type="text" name="w4_fri_t_3" id="w4_fri_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w4_friday_4">
-            <td><input type="text" name="w4_fri_h_4" id="w4_fri_h_4"></td>
+            <td><input type="text" name="w4_fri_h_4" id="w4_fri_h_4" list="halllist"></td>
             <td><input type="text" name="w4_fri_m_4" id="w4_fri_m_4"></td>
             <td><input type="text" name="w4_fri_l_4" id="w4_fri_l_4"></td>
             <td><input type="text" name="w4_fri_t_4" id="w4_fri_t_4"></td>
@@ -1116,25 +1111,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w4_saturday_1">
             <td rowspan="4" id="w4_6"></td>
             <td rowspan="4">Saturday</td>
-            <td><input type="text" name="w4_sat_h_1" id="w4_sat_h_1"></td>
+            <td><input type="text" name="w4_sat_h_1" id="w4_sat_h_1" list="halllist"></td>
             <td><input type="text" name="w4_sat_m_1" id="w4_sat_m_1"></td>
             <td><input type="text" name="w4_sat_l_1" id="w4_sat_l_1"></td>
             <td><input type="text" name="w4_sat_t_1" id="w4_sat_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_saturday_2"> 
-            <td><input type="text" name="w4_sat_h_2" id="w4_sat_h_2"></td>
+            <td><input type="text" name="w4_sat_h_2" id="w4_sat_h_2" list="halllist"></td>
             <td><input type="text" name="w4_sat_m_2" id="w4_sat_m_2"></td>
             <td><input type="text" name="w4_sat_l_2" id="w4_sat_l_2"></td>
             <td><input type="text" name="w4_sat_t_2" id="w4_sat_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_saturday_3">
-            <td><input type="text" name="w4_sat_h_3" id="w4_sat_h_3"></td>
+            <td><input type="text" name="w4_sat_h_3" id="w4_sat_h_3" list="halllist"></td>
             <td><input type="text" name="w4_sat_m_3" id="w4_sat_m_3"></td>
             <td><input type="text" name="w4_sat_l_3" id="w4_sat_l_3"></td>
             <td><input type="text" name="w4_sat_t_3" id="w4_sat_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w4_saturday_4">
-            <td><input type="text" name="w4_sat_h_4" id="w4_sat_h_4"></td>
+            <td><input type="text" name="w4_sat_h_4" id="w4_sat_h_4" list="halllist"></td>
             <td><input type="text" name="w4_sat_m_4" id="w4_sat_m_4"></td>
             <td><input type="text" name="w4_sat_l_4" id="w4_sat_l_4"></td>
             <td><input type="text" name="w4_sat_t_4" id="w4_sat_t_4"></td>
@@ -1162,25 +1157,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w5_sunday_1">
             <td rowspan="4" id="w5_0"></td>
             <td rowspan="4">Sunday</td>
-            <td><input type="text" name="w5_sun_h_1" id="w5_sun_h_1"></td>
+            <td><input type="text" name="w5_sun_h_1" id="w5_sun_h_1" list="halllist"></td>
             <td><input type="text" name="w5_sun_m_1" id="w5_sun_m_1"></td>
             <td><input type="text" name="w5_sun_l_1" id="w5_sun_l_1"></td>
             <td><input type="text" name="w5_sun_t_1" id="w5_sun_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_sunday_2">
-            <td><input type="text" name="w5_sun_h_2" id="w5_sun_h_2"></td>
+            <td><input type="text" name="w5_sun_h_2" id="w5_sun_h_2" list="halllist"></td>
             <td><input type="text" name="w5_sun_m_2" id="w5_sun_m_2"></td>
             <td><input type="text" name="w5_sun_l_2" id="w5_sun_l_2"></td>
             <td><input type="text" name="w5_sun_t_2" id="w5_sun_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_sunday_3">
-            <td><input type="text" name="w5_sun_h_3" id="w5_sun_h_3"></td>
+            <td><input type="text" name="w5_sun_h_3" id="w5_sun_h_3" list="halllist"></td>
             <td><input type="text" name="w5_sun_m_3" id="w5_sun_m_3"></td>
             <td><input type="text" name="w5_sun_l_3" id="w5_sun_l_3"></td>
             <td><input type="text" name="w5_sun_t_3" id="w5_sun_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_sunday_4">
-            <td><input type="text" name="w5_sun_h_4" id="w5_sun_h_4"></td>
+            <td><input type="text" name="w5_sun_h_4" id="w5_sun_h_4" list="halllist"></td>
             <td><input type="text" name="w5_sun_m_4" id="w5_sun_m_4"></td>
             <td><input type="text" name="w5_sun_l_4" id="w5_sun_l_4"></td>
             <td><input type="text" name="w5_sun_t_4" id="w5_sun_t_4"></td>
@@ -1189,25 +1184,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w5_monday_1">
             <td rowspan="4" id="w5_1"></td>
             <td rowspan="4">Monday</td>
-            <td><input type="text" name="w5_mon_h_1" id="w5_mon_h_1"></td>
+            <td><input type="text" name="w5_mon_h_1" id="w5_mon_h_1" list="halllist"></td>
             <td><input type="text" name="w5_mon_m_1" id="w5_mon_m_1"></td>
             <td><input type="text" name="w5_mon_l_1" id="w5_mon_l_1"></td>
             <td><input type="text" name="w5_mon_t_1" id="w5_mon_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_monday_2">
-            <td><input type="text" name="w5_mon_h_2" id="w5_mon_h_2"></td>
+            <td><input type="text" name="w5_mon_h_2" id="w5_mon_h_2" list="halllist"></td>
             <td><input type="text" name="w5_mon_m_2" id="w5_mon_m_2"></td>
             <td><input type="text" name="w5_mon_l_2" id="w5_mon_l_2"></td>
             <td><input type="text" name="w5_mon_t_2" id="w5_mon_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_monday_3">
-            <td><input type="text" name="w5_mon_h_3" id="w5_mon_h_3"></td>
+            <td><input type="text" name="w5_mon_h_3" id="w5_mon_h_3" list="halllist"></td>
             <td><input type="text" name="w5_mon_m_3" id="w5_mon_m_3"></td>
             <td><input type="text" name="w5_mon_l_3" id="w5_mon_l_3"></td>
             <td><input type="text" name="w5_mon_t_3" id="w5_mon_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_monday_4">
-            <td><input type="text" name="w5_mon_h_4" id="w5_mon_h_4"></td>
+            <td><input type="text" name="w5_mon_h_4" id="w5_mon_h_4" list="halllist"></td>
             <td><input type="text" name="w5_mon_m_4" id="w5_mon_m_4"></td>
             <td><input type="text" name="w5_mon_l_4" id="w5_mon_l_4"></td>
             <td><input type="text" name="w5_mon_t_4" id="w5_mon_t_4"></td>
@@ -1216,25 +1211,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w5_tuesday_1">
             <td rowspan="4" id="w5_2"></td>
             <td rowspan="4">Tuesday</td>
-            <td><input type="text" name="w5_tue_h_1" id="w5_tue_h_1"></td>
+            <td><input type="text" name="w5_tue_h_1" id="w5_tue_h_1" list="halllist"></td>
             <td><input type="text" name="w5_tue_m_1" id="w5_tue_m_1"></td>
             <td><input type="text" name="w5_tue_l_1" id="w5_tue_l_1"></td>
             <td><input type="text" name="w5_tue_t_1" id="w5_tue_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_tuesday_2">
-            <td><input type="text" name="w5_tue_h_2" id="w5_tue_h_2"></td>
+            <td><input type="text" name="w5_tue_h_2" id="w5_tue_h_2" list="halllist"></td>
             <td><input type="text" name="w5_tue_m_2" id="w5_tue_m_2"></td>
             <td><input type="text" name="w5_tue_l_2" id="w5_tue_l_2"></td>
             <td><input type="text" name="w5_tue_t_2" id="w5_tue_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_tuesday_3">
-            <td><input type="text" name="w5_tue_h_3" id="w5_tue_h_3"></td>
+            <td><input type="text" name="w5_tue_h_3" id="w5_tue_h_3" list="halllist"></td>
             <td><input type="text" name="w5_tue_m_3" id="w5_tue_m_3"></td>
             <td><input type="text" name="w5_tue_l_3" id="w5_tue_l_3"></td>
             <td><input type="text" name="w5_tue_t_3" id="w5_tue_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_tuesday_4">
-            <td><input type="text" name="w5_tue_h_4" id="w5_tue_h_4"></td>
+            <td><input type="text" name="w5_tue_h_4" id="w5_tue_h_4" list="halllist"></td>
             <td><input type="text" name="w5_tue_m_4" id="w5_tue_m_4"></td>
             <td><input type="text" name="w5_tue_l_4" id="w5_tue_l_4"></td>
             <td><input type="text" name="w5_tue_t_4" id="w5_tue_t_4"></td>
@@ -1243,25 +1238,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w5_wednesday_1">
             <td rowspan="4" id="w5_3"></td>
             <td rowspan="4">Wednesday</td>
-            <td><input type="text" name="w5_wed_h_1" id="w5_wed_h_1"></td>
+            <td><input type="text" name="w5_wed_h_1" id="w5_wed_h_1" list="halllist"></td>
             <td><input type="text" name="w5_wed_m_1" id="w5_wed_m_1"></td>
             <td><input type="text" name="w5_wed_l_1" id="w5_wed_l_1"></td>
             <td><input type="text" name="w5_wed_t_1" id="w5_wed_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_wednesday_2">
-            <td><input type="text" name="w5_wed_h_2" id="w5_wed_h_2"></td>
+            <td><input type="text" name="w5_wed_h_2" id="w5_wed_h_2" list="halllist"></td>
             <td><input type="text" name="w5_wed_m_2" id="w5_wed_m_2"></td>
             <td><input type="text" name="w5_wed_l_2" id="w5_wed_l_2"></td>
             <td><input type="text" name="w5_wed_t_2" id="w5_wed_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_wednesday_3">
-            <td><input type="text" name="w5_wed_h_3" id="w5_wed_h_3"></td>
+            <td><input type="text" name="w5_wed_h_3" id="w5_wed_h_3" list="halllist"></td>
             <td><input type="text" name="w5_wed_m_3" id="w5_wed_m_3"></td>
             <td><input type="text" name="w5_wed_l_3" id="w5_wed_l_3"></td>
             <td><input type="text" name="w5_wed_t_3" id="w5_wed_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_wednesday_4">
-            <td><input type="text" name="w5_wed_h_4" id="w5_wed_h_4"></td>
+            <td><input type="text" name="w5_wed_h_4" id="w5_wed_h_4" list="halllist"></td>
             <td><input type="text" name="w5_wed_m_4" id="w5_wed_m_4"></td>
             <td><input type="text" name="w5_wed_l_4" id="w5_wed_l_4"></td>
             <td><input type="text" name="w5_wed_t_4" id="w5_wed_t_4"></td>
@@ -1270,25 +1265,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w5_thursday_1">
             <td rowspan="4" id="w5_4"></td>
             <td rowspan="4">Thursday</td>
-            <td><input type="text" name="w5_thu_h_1" id="w5_thu_h_1"></td>
+            <td><input type="text" name="w5_thu_h_1" id="w5_thu_h_1" list="halllist"></td>
             <td><input type="text" name="w5_thu_m_1" id="w5_thu_m_1"></td>
             <td><input type="text" name="w5_thu_l_1" id="w5_thu_l_1"></td>
             <td><input type="text" name="w5_thu_t_1" id="w5_thu_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_thursday_2">
-            <td><input type="text" name="w5_thu_h_2" id="w5_thu_h_2"></td>
+            <td><input type="text" name="w5_thu_h_2" id="w5_thu_h_2" list="halllist"></td>
             <td><input type="text" name="w5_thu_m_2" id="w5_thu_m_2"></td>
             <td><input type="text" name="w5_thu_l_2" id="w5_thu_l_2"></td>
             <td><input type="text" name="w5_thu_t_2" id="w5_thu_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_thursday_3">
-            <td><input type="text" name="w5_thu_h_3" id="w5_thu_h_3"></td>
+            <td><input type="text" name="w5_thu_h_3" id="w5_thu_h_3" list="halllist"></td>
             <td><input type="text" name="w5_thu_m_3" id="w5_thu_m_3"></td>
             <td><input type="text" name="w5_thu_l_3" id="w5_thu_l_3"></td>
             <td><input type="text" name="w5_thu_t_3" id="w5_thu_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_thursday_4">
-            <td><input type="text" name="w5_thu_h_4" id="w5_thu_h_4"></td>
+            <td><input type="text" name="w5_thu_h_4" id="w5_thu_h_4" list="halllist"></td>
             <td><input type="text" name="w5_thu_m_4" id="w5_thu_m_4"></td>
             <td><input type="text" name="w5_thu_l_4" id="w5_thu_l_4"></td>
             <td><input type="text" name="w5_thu_t_4" id="w5_thu_t_4"></td>
@@ -1297,25 +1292,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w5_friday_1">
             <td rowspan="4" id="w5_5"></td>
             <td rowspan="4">Friday</td>
-            <td><input type="text" name="w5_fri_h_1" id="w5_fri_h_1"></td>
+            <td><input type="text" name="w5_fri_h_1" id="w5_fri_h_1" list="halllist"></td>
             <td><input type="text" name="w5_fri_m_1" id="w5_fri_m_1"></td>
             <td><input type="text" name="w5_fri_l_1" id="w5_fri_l_1"></td>
             <td><input type="text" name="w5_fri_t_1" id="w5_fri_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_friday_2">
-            <td><input type="text" name="w5_fri_h_2" id="w5_fri_h_2"></td>
+            <td><input type="text" name="w5_fri_h_2" id="w5_fri_h_2" list="halllist"></td>
             <td><input type="text" name="w5_fri_m_2" id="w5_fri_m_2"></td>
             <td><input type="text" name="w5_fri_l_2" id="w5_fri_l_2"></td>
             <td><input type="text" name="w5_fri_t_2" id="w5_fri_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_friday_3">
-            <td><input type="text" name="w5_fri_h_3" id="w5_fri_h_3"></td>
+            <td><input type="text" name="w5_fri_h_3" id="w5_fri_h_3" list="halllist"></td>
             <td><input type="text" name="w5_fri_m_3" id="w5_fri_m_3"></td>
             <td><input type="text" name="w5_fri_l_3" id="w5_fri_l_3"></td>
             <td><input type="text" name="w5_fri_t_3" id="w5_fri_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w5_friday_4">
-            <td><input type="text" name="w5_fri_h_4" id="w5_fri_h_4"></td>
+            <td><input type="text" name="w5_fri_h_4" id="w5_fri_h_4" list="halllist"></td>
             <td><input type="text" name="w5_fri_m_4" id="w5_fri_m_4"></td>
             <td><input type="text" name="w5_fri_l_4" id="w5_fri_l_4"></td>
             <td><input type="text" name="w5_fri_t_4" id="w5_fri_t_4"></td>
@@ -1324,25 +1319,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w5_saturday_1">
             <td rowspan="4" id="w5_6"></td>
             <td rowspan="4">Saturday</td>
-            <td><input type="text" name="w5_sat_h_1" id="w5_sat_h_1"></td>
+            <td><input type="text" name="w5_sat_h_1" id="w5_sat_h_1" list="halllist"></td>
             <td><input type="text" name="w5_sat_m_1" id="w5_sat_m_1"></td>
             <td><input type="text" name="w5_sat_l_1" id="w5_sat_l_1"></td>
             <td><input type="text" name="w5_sat_t_1" id="w5_sat_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_saturday_2"> 
-            <td><input type="text" name="w5_sat_h_2" id="w5_sat_h_2"></td>
+            <td><input type="text" name="w5_sat_h_2" id="w5_sat_h_2" list="halllist"></td>
             <td><input type="text" name="w5_sat_m_2" id="w5_sat_m_2"></td>
             <td><input type="text" name="w5_sat_l_2" id="w5_sat_l_2"></td>
             <td><input type="text" name="w5_sat_t_2" id="w5_sat_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_saturday_3">
-            <td><input type="text" name="w5_sat_h_3" id="w5_sat_h_3"></td>
+            <td><input type="text" name="w5_sat_h_3" id="w5_sat_h_3" list="halllist"></td>
             <td><input type="text" name="w5_sat_m_3" id="w5_sat_m_3"></td>
             <td><input type="text" name="w5_sat_l_3" id="w5_sat_l_3"></td>
             <td><input type="text" name="w5_sat_t_3" id="w5_sat_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w5_saturday_4">
-            <td><input type="text" name="w5_sat_h_4" id="w5_sat_h_4"></td>
+            <td><input type="text" name="w5_sat_h_4" id="w5_sat_h_4" list="halllist"></td>
             <td><input type="text" name="w5_sat_m_4" id="w5_sat_m_4"></td>
             <td><input type="text" name="w5_sat_l_4" id="w5_sat_l_4"></td>
             <td><input type="text" name="w5_sat_t_4" id="w5_sat_t_4"></td>
@@ -1369,25 +1364,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w6_sunday_1">
             <td rowspan="4" id="w6_0"></td>
             <td rowspan="4">Sunday</td>
-            <td><input type="text" name="w6_sun_h_1" id="w6_sun_h_1"></td>
+            <td><input type="text" name="w6_sun_h_1" id="w6_sun_h_1" list="halllist"></td>
             <td><input type="text" name="w6_sun_m_1" id="w6_sun_m_1"></td>
             <td><input type="text" name="w6_sun_l_1" id="w6_sun_l_1"></td>
             <td><input type="text" name="w6_sun_t_1" id="w6_sun_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w6_sunday_2">
-            <td><input type="text" name="w6_sun_h_2" id="w6_sun_h_2"></td>
+            <td><input type="text" name="w6_sun_h_2" id="w6_sun_h_2" list="halllist"></td>
             <td><input type="text" name="w6_sun_m_2" id="w6_sun_m_2"></td>
             <td><input type="text" name="w6_sun_l_2" id="w6_sun_l_2"></td>
             <td><input type="text" name="w6_sun_t_2" id="w6_sun_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w6_sunday_3">
-            <td><input type="text" name="w6_sun_h_3" id="w6_sun_h_3"></td>
+            <td><input type="text" name="w6_sun_h_3" id="w6_sun_h_3" list="halllist"></td>
             <td><input type="text" name="w6_sun_m_3" id="w6_sun_m_3"></td>
             <td><input type="text" name="w6_sun_l_3" id="w6_sun_l_3"></td>
             <td><input type="text" name="w6_sun_t_3" id="w6_sun_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w6_sunday_4">
-            <td><input type="text" name="w6_sun_h_4" id="w6_sun_h_4"></td>
+            <td><input type="text" name="w6_sun_h_4" id="w6_sun_h_4" list="halllist"></td>
             <td><input type="text" name="w6_sun_m_4" id="w6_sun_m_4"></td>
             <td><input type="text" name="w6_sun_l_4" id="w6_sun_l_4"></td>
             <td><input type="text" name="w6_sun_t_4" id="w6_sun_t_4"></td>
@@ -1396,25 +1391,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#f2f2f2" id="w6_monday_1">
             <td rowspan="4" id="w6_1"></td>
             <td rowspan="4">Monday</td>
-            <td><input type="text" name="w6_mon_h_1" id="w6_mon_h_1"></td>
+            <td><input type="text" name="w6_mon_h_1" id="w6_mon_h_1" list="halllist"></td>
             <td><input type="text" name="w6_mon_m_1" id="w6_mon_m_1"></td>
             <td><input type="text" name="w6_mon_l_1" id="w6_mon_l_1"></td>
             <td><input type="text" name="w6_mon_t_1" id="w6_mon_t_1"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w6_monday_2">
-            <td><input type="text" name="w6_mon_h_2" id="w6_mon_h_2"></td>
+            <td><input type="text" name="w6_mon_h_2" id="w6_mon_h_2" list="halllist"></td>
             <td><input type="text" name="w6_mon_m_2" id="w6_mon_m_2"></td>
             <td><input type="text" name="w6_mon_l_2" id="w6_mon_l_2"></td>
             <td><input type="text" name="w6_mon_t_2" id="w6_mon_t_2"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w6_monday_3">
-            <td><input type="text" name="w6_mon_h_3" id="w6_mon_h_3"></td>
+            <td><input type="text" name="w6_mon_h_3" id="w6_mon_h_3" list="halllist"></td>
             <td><input type="text" name="w6_mon_m_3" id="w6_mon_m_3"></td>
             <td><input type="text" name="w6_mon_l_3" id="w6_mon_l_3"></td>
             <td><input type="text" name="w6_mon_t_3" id="w6_mon_t_3"></td>
           </tr>
           <tr bgcolor="#f2f2f2" id="w6_monday_4">
-            <td><input type="text" name="w6_mon_h_4" id="w6_mon_h_4"></td>
+            <td><input type="text" name="w6_mon_h_4" id="w6_mon_h_4" list="halllist"></td>
             <td><input type="text" name="w6_mon_m_4" id="w6_mon_m_4"></td>
             <td><input type="text" name="w6_mon_l_4" id="w6_mon_l_4"></td>
             <td><input type="text" name="w6_mon_t_4" id="w6_mon_t_4"></td>
@@ -1423,25 +1418,25 @@ include 'rs/css/css_timetables.php';
           <tr bgcolor="#ddd" id="w6_tuesday_1">
             <td rowspan="4" id="w6_2"></td>
             <td rowspan="4">Tuesday</td>
-            <td><input type="text" name="w6_tue_h_1" id="w6_tue_h_1"></td>
+            <td><input type="text" name="w6_tue_h_1" id="w6_tue_h_1" list="halllist"></td>
             <td><input type="text" name="w6_tue_m_1" id="w6_tue_m_1"></td>
             <td><input type="text" name="w6_tue_l_1" id="w6_tue_l_1"></td>
             <td><input type="text" name="w6_tue_t_1" id="w6_tue_t_1"></td>
           </tr>
           <tr bgcolor="#ddd" id="w6_tuesday_2">
-            <td><input type="text" name="w6_tue_h_2" id="w6_tue_h_2"></td>
+            <td><input type="text" name="w6_tue_h_2" id="w6_tue_h_2" list="halllist"></td>
             <td><input type="text" name="w6_tue_m_2" id="w6_tue_m_2"></td>
             <td><input type="text" name="w6_tue_l_2" id="w6_tue_l_2"></td>
             <td><input type="text" name="w6_tue_t_2" id="w6_tue_t_2"></td>
           </tr>
           <tr bgcolor="#ddd" id="w6_tuesday_3">
-            <td><input type="text" name="w6_tue_h_3" id="w6_tue_h_3"></td>
+            <td><input type="text" name="w6_tue_h_3" id="w6_tue_h_3" list="halllist"></td>
             <td><input type="text" name="w6_tue_m_3" id="w6_tue_m_3"></td>
             <td><input type="text" name="w6_tue_l_3" id="w6_tue_l_3"></td>
             <td><input type="text" name="w6_tue_t_3" id="w6_tue_t_3"></td>
           </tr>
           <tr bgcolor="#ddd" id="w6_tuesday_4">
-            <td><input type="text" name="w6_tue_h_4" id="w6_tue_h_4"></td>
+            <td><input type="text" name="w6_tue_h_4" id="w6_tue_h_4" list="halllist"></td>
             <td><input type="text" name="w6_tue_m_4" id="w6_tue_m_4"></td>
             <td><input type="text" name="w6_tue_l_4" id="w6_tue_l_4"></td>
             <td><input type="text" name="w6_tue_t_4" id="w6_tue_t_4"></td>
@@ -1456,6 +1451,61 @@ include 'rs/css/css_timetables.php';
 <!--------------------------------------------------------------------------------------div_result-->
   <div id="div_result" style="display: none;"></div>
 <!--------------------------------------------------------------------------------------div_result-->
+
+<!--------------------------------------------------------------------------------------Online_Users-->
+<?php
+  $con=mysqli_connect($servername, $username, $password, $dbname);
+  // Check connection
+  if (mysqli_connect_errno())
+  {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+  $query = "SELECT * FROM signup WHERE activity ='active' && username !='$get_admin_name' ";
+
+    if ($result=mysqli_query($con,$query))
+    {
+      $rowcount=mysqli_num_rows($result);
+      
+      mysqli_free_result($result);
+    }
+  mysqli_close($con);
+?>
+<button class="open-button" id="open_button">
+  <table style="background-color: white;padding: 5px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+    <tr>
+      <td>
+        <td><center>Online</center></td>
+        <td><center>(<?php echo "$rowcount"; ?>)</center></td>
+        <td><center>&#9650;</center></td>
+    </tr>
+  </table>
+</button>
+
+<div class="form-popup" id="online_Users_div"">
+  <?php show_online_users($servername,$username,$password,$dbname,$get_admin_name); ?>
+</div>
+
+<script>
+
+  $(document).ready(function(){  
+      $('#open_button').click(function(){  
+          document.getElementById("online_Users_div").style.display = "block";
+          document.getElementById("open_button").style.display = "none";
+      });  
+ });
+
+  $(document).ready(function(){  
+      $('#close_button').click(function(){  
+          document.getElementById("online_Users_div").style.display = "none";
+          document.getElementById("open_button").style.display = "block";
+      });  
+ });
+
+</script>
+<!--------------------------------------------------------------------------------------Online_Users-->
+
+
 </body>
 <!--------------------------------------------------------------------------------------BODY-END-->
 

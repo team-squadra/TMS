@@ -1,12 +1,6 @@
 <style>
-<<<<<<< HEAD
+
 /* page loading progress bar start*/
-
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-}
-
 #myBar {
   width: 1%;
   height: 5px;
@@ -14,7 +8,6 @@
 }
 
 /* page loading progress bar end*/
-=======
 h1{
     margin: 0;
     padding: 0 0 20px;

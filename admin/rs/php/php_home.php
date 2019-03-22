@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -68,6 +67,7 @@ $month=$_POST["input_fake_month"];
 $week=$_POST["inputweeknum"];
 $day=$_POST["inputday"];
 
+echo "<h1><center>$year $month $week $day</center></h1><br>";
 echo '<table id="lec_schedule">';
 echo '  <tr>
             <th style="width: 400px;">Batch</th>
@@ -76,7 +76,6 @@ echo '  <tr>
             <th style="width: 500px;">lecturer</th>
             <th style="width: 300px;">Time</th>
         </tr>';
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -213,6 +212,7 @@ if ($batch_array[$i] !='')
 
 
     if ($x!=0) {
+        
     {   
         $sql = "SELECT * FROM {$db_batch_array[$i]} WHERE ID= '".$year."_".$month."_".$week."_".$day."_1'";
         $result = $conn->query($sql);
@@ -220,7 +220,7 @@ if ($batch_array[$i] !='')
             if($row = $result->fetch_assoc()) {
 
                 echo '<tr bgcolor="'.$batch_clr_array[$i].'">
-                        <td rowspan="'.$x.'">'.$batch_array[$i].'</td>';
+                        <td rowspan="'.$x.'"><h3>'.$batch_array[$i].'</h3></td>';
 
                 if ($row["Hall_Lab"]!='' || $row["ModuleName_Code"]!='' || $row["Lecturer"]!='' || $row["Time"]!='' ) {
                     echo '

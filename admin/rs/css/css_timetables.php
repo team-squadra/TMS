@@ -1,11 +1,4 @@
 <style>
-/* page loading progress bar start*/
-
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-}
-
 #myBar {
   width: 1%;
   height: 5px;
@@ -20,13 +13,25 @@
 {
 	padding-left: 10px;padding-right: 10px;
 }
-#controler_table div
+#controler_table a
 {
-	border: none;
-	outline: none;
-	background-color: transparent;
-	cursor: pointer;
-	border-radius: 50%;
+  border: none;
+  outline: none;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+  font-size: 10px;
+  color: black;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 50%;
+  transform: rotate(90deg);
+}
+#controler_table a:hover
+{
+border:  2px solid #4CAF50;
 }
 #controler_table select
 {
@@ -38,7 +43,6 @@ font-family: Century Gothic;
 }
 #controler_table option::-webkit-appearance: none;
 {
-
 border: none;
 border:  1px solid darkgrey; border-radius: 20px;
 }
@@ -56,13 +60,10 @@ background-color: red;
   width: 100%;
   font-size: auto;
 }
-
 .lec_schedule td, #lec_schedule th {
   border: 1px solid dimgray;
   padding: 8px;
 }
-
-
 .lec_schedule th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -77,6 +78,19 @@ background-color: red;
 	margin: 0px;
 	background-color: transparent;
 	text-align: center;
+}
+.lec_schedule select
+{
+ width: 100%;
+outline: none;
+border: none;
+cursor: pointer;
+font-family: Century Gothic;
+}
+.lec_schedule option::-webkit-appearance: none;
+{
+border: none;
+border:  1px solid darkgrey; border-radius: 20px;
 }
 .div_btn
 {

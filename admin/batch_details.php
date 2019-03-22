@@ -1,6 +1,7 @@
 <!-------------INCLUDING CSS AND PHP CODE--> 
 <?php
 include 'rs/all/css_all_public.php';
+include 'rs/all/all_php.php';
 include 'rs/php/php_batch_details.php';
 include 'rs/css/css_batch_details.php';
 
@@ -13,7 +14,7 @@ include 'rs/css/css_batch_details.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 
 <head>
@@ -102,7 +103,11 @@ include 'rs/css/css_batch_details.php';
                <a href="new_account.php" id="new_account">New Account<i class='far fa-address-book'style='font-size:30px;margin-left:32px;'></i> </a>
                <a href="about_us.php" id="about">About Us<i class='far fa-comment-dots'style='font-size:32px;margin-left:65px;'></i></a>
          </div>
-
+<!-----------------------------------------------------------------BATCH-->
+<div style="background-color: transparent;margin-left: 80px;margin-right: 80px;margin-top: 10px;padding: 10px;">
+  <label style='color: white;padding-left: 10px; font-size: 50px;font-weight: 100;line-height: 1.2;'>Batch Details</label>
+</div>
+<!-----------------------------------------------------------------BATCH-->
   <div class="row">
 
     <!--main-->
@@ -112,6 +117,60 @@ include 'rs/css/css_batch_details.php';
     </div>
 
   </div>
+<!--------------------------------------------------------------------------------------Online_Users-->
+<?php
+  $con=mysqli_connect($servername, $username, $password, $dbname);
+  // Check connection
+  if (mysqli_connect_errno())
+  {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+  $query = "SELECT * FROM signup WHERE activity ='active' && username !='$get_admin_name' ";
+
+    if ($result=mysqli_query($con,$query))
+    {
+      $rowcount=mysqli_num_rows($result);
+      
+      mysqli_free_result($result);
+    }
+  mysqli_close($con);
+?>
+<button class="open-button" id="open_button">
+  <table style="background-color: white;padding: 5px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+    <tr>
+      <td>
+        <td><center>Online</center></td>
+        <td><center>(<?php echo "$rowcount"; ?>)</center></td>
+        <td><center>&#9650;</center></td>
+    </tr>
+  </table>
+</button>
+
+<div class="form-popup" id="online_Users_div"">
+  <?php show_online_users($servername,$username,$password,$dbname,$get_admin_name); ?>
+</div>
+
+<script>
+
+  $(document).ready(function(){  
+      $('#open_button').click(function(){  
+          document.getElementById("online_Users_div").style.display = "block";
+          document.getElementById("open_button").style.display = "none";
+      });  
+ });
+
+  $(document).ready(function(){  
+      $('#close_button').click(function(){  
+          document.getElementById("online_Users_div").style.display = "none";
+          document.getElementById("open_button").style.display = "block";
+      });  
+ });
+
+</script>
+<!--------------------------------------------------------------------------------------Online_Users-->
+
+
 </body>
 <!--------------------------------------------------------------------------------------BODY-END-->
 </html>

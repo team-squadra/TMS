@@ -67,13 +67,27 @@ function show_online_users($servername,$username,$password,$dbname,$get_admin_na
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
+    $x=0;
+    $sql1 = "SELECT * FROM signup WHERE activity ='active' && username !='$get_admin_name' ";
+    $result1 = $conn->query($sql1);
+    if ($result1->num_rows > 0) 
+    {
+        while($row1 = $result1->fetch_assoc()) 
+        {
+          $x++;
+        }
+    } else {}
 
-    $sql = "SELECT * FROM signup WHERE activity ='active' && username !='$get_admin_name' ";
+    $sql = "SELECT * FROM signup WHERE activity ='active' && username !='$get_admin_name'  ORDER BY loged_in_time DESC ";
     $result = $conn->query($sql);
     echo '<table>
           <tr>
-            <td><center><img src="../resources/online_users.png" style="width:30px;height:30px;"></center></td>
-            <td>Online Users</td>
+            <td colspan="3"><center>Online ';
+                        if ($x!=0) 
+                          {
+                            echo "$x";
+                          }else{}
+    echo                            '</center></td>
           </tr>
           <tr>
             <td colspan="3"><hr></td>
@@ -81,10 +95,19 @@ function show_online_users($servername,$username,$password,$dbname,$get_admin_na
           ';
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo '
-                    <tr>
-                        <td><img src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"
-                        style="width:25px;height:25px;border-radius:50%;border: 1px solid black;;margin:5px;margin-right:10px;"/></td>
+            echo '<tr>';
+
+                  if ($row["image"]!=null) {
+                    echo '<td><img src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"
+                        style="width:25px;height:25px;border-radius:50%;border: 1px solid black;;margin:5px;margin-right:10px;"/></td>';
+                  }
+                  else
+                  {
+                    echo '<td><img  src="../resources/admin2.png" style="width:25px;height:25px;border-radius:50%;border: 1px solid black;;margin:5px;margin-right:10px;"></td>';
+                  }
+
+
+            echo '            
                         <td><lable style="margin-right:10px;">'. $row["firstname"].' '. $row["lastname"].'</lable></td>
                         <td><div style="background-color: LimeGreen;width:10px;height:10px;border-radius:50%;"></div></td>
                     </tr>

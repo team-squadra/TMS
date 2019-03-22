@@ -1,11 +1,5 @@
 <style>
 /* page loading progress bar start*/
-
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-}
-
 #myBar {
   width: 1%;
   height: 5px;
@@ -15,7 +9,7 @@
 /* page loading progress bar end*/
 
 #controler_table{
-	color: dimgray;float: right;margin-right: 30px; margin-left: 30px;margin-top: 5px;font-size: 13px;text-align: center;font-family: Century Gothic;font-size: 20px;
+	color: dimgray;margin-left: 20px; float: right; margin-top: 5px;font-size: 25px;text-align: center;font-family: Century Gothic;
 }
 #controler_table td
 {
@@ -25,23 +19,28 @@
 {
 	border: none;
 	outline: none;
-	width: 100%;
-  height: 100%;
+	width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin: 2px;
 	text-align: center;
-	padding: 2px;
-	font-size: 20px;
-	color: MediumSeaGreen;
-	background-color: transparent;
+	font-size: 10px;
+	color: black;
+	background-color: #ddd;
 	cursor: pointer;
 	border-radius: 50%;
+  transform: rotate(90deg);
+
 }
 #controler_table button:hover
 {
-color: orange;
+border:  2px solid #4CAF50;
 }
-#controler_table select
+#controler_table select,input
 {
- width: 100%;
+font-size: 15px;
+color: DodgerBlue;
+width: 100%;
 outline: none;
 border: none;
 cursor: pointer;
@@ -59,20 +58,21 @@ cursor: pointer;
 background-color: red;
 }
 
-
 #lec_schedule {
   font-family: Century Gothic;
   text-align: center;
   border-collapse: collapse;
   width: 100%;
+  background-color: transparent;
 }
-
 #lec_schedule td, #lec_schedule th {
   border: 1px solid dimgray;
   padding: 8px;
 }
-
-
+#lec_schedule td
+{
+  color: black;
+}
 #lec_schedule th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -93,5 +93,12 @@ background-color: red;
 #try_to_add_data:hover{
   background-color: DodgerBlue;
   color: white;
+}
+#openFullscreen
+{
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ddd;
 }
 </style>

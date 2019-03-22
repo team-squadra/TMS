@@ -30,7 +30,7 @@ if ($row['statues']=="admin")
 {
     $_SESSION['getadminname']=$user;
 
-    $sql = "UPDATE signup SET activity='active' WHERE username='$user'";
+    $sql = "UPDATE signup SET activity='active',loged_in_time=CURRENT_TIMESTAMP  WHERE username='$user' ";
 	if ($conn->query($sql) === TRUE) {
     	echo "Record updated successfully";
 	} else {echo "Error updating record: " . $conn->error;}

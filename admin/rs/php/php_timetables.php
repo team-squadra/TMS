@@ -60,6 +60,25 @@ $conn->close();
 else
 {}
 
+
+function halldetails($conn)
+{
+
+$sql = "SELECT * FROM halls";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<option>".$row["Hall_name"]."</option>";
+    }
+} else {
+    echo "<option>0 results</option>";
+}
+$conn->close();
+}
+
+
 //-------------------------------------start of the showdata function
 
 if(isset($_POST["inputyear"])||isset($_POST["input_fake_month"])||isset($_POST["inputweeknum"])||isset($_POST["inputbatch"]))

@@ -117,179 +117,175 @@ include 'rs/css/css_hall_details.php';
                <a href="about_us.php" id="about">About Us<i class='far fa-comment-dots'style='font-size:32px;margin-left:65px;'></i></a>
          </div>
 
-  <div class="row" style="background-image: ">
+<!-----------------------------------------------------------------BATCH-->
+<div style="background-color: transparent;margin-left: 80px;margin-right: 80px;margin-top: 10px;padding: 10px;">
+  <label style='color: white;padding-left: 10px; font-size: 50px;font-weight: 100;line-height: 1.2;'>Hall Details</label>
+</div>
+<!-----------------------------------------------------------------BATCH-->
+
+<div class="row">
 
     <!--main-->
     <div class="main">
-      <div style="  background-color: white;width: auto;height: 85%;margin: 20px 25% 20px 50px;">
-
-         <div>
-          <table style="color: dimgray; padding:5px;font-size: 24px;">
-            <tr>
-              <td style="padding: 15px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
-              <td style="padding: 5px;"><b>Hall Details List</b></td>
-            </tr>
-          </table>
-          </div>
-          <center>
-
-            <!-- Hall details search bar -->
-            <input type="text" id="myInput" onkeyup="searchHalls()" placeholder="Search By Hall Name......">
-            <!-- Hall details search bar -->
-
-          <!-- show hall details in a table -->
-          <?php echo $A_output ?>
-          <!-- show hall details in a table -->
-
-          </center>  
-      </div>
-    </div>
-
-     <!--side-->
-    <div class="sideright">
-      <!------------------------------------------------------------INPUT HALL DETAILS FORM DIV START-------------------------->
-
-          <div style="  background-color:white;width: auto;height: 28%; margin: 36px 20px 20px -100%;" class="input_hdetails">
-         <div>
-          <table style="color: dimgray; padding:5px;font-size: 18px;">
-            <tr>
-              <td style="padding: 5px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
-              <td style="padding: 5px;"><b>Input Hall Details</b></td>
-            </tr>
-          </table>
-          </div>
-       <div id="input_form">      
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+      <div style="  background-color: white;width: auto;height:auto;margin: 20px 20px 20px 20px;">
         <center>
-          <div id="panel3">
-          <table style="width: auto;">
-                <center>
-                <tr>
-                    <div class="input-container">
-                    <td><i class="fa fa-key icon"></i>
-                      <input type="text" class="input-field" name="new_Hall_Name" placeholder="Enter Hall Name"></td>
-                      </div>
-                </tr>
-              </center>
+          <table  style="width: 100%;">
+            <tr>
+              <td>
+<!----------------------------------------------------------------------------------------VIEW HAll DETAILS DIV START-->
+<div style="  background-color: transparent;width:100%;height: 100%; max-height: 700px; overflow: auto;">
+  <center>
+    <!-- Hall details search bar -->
+    <input type="text" id="myInput" onkeyup="searchHalls()" placeholder="Search By Hall Name......" style="margin: 20px;">
+    <!-- Hall details search bar -->
+      <!-- show hall details in a table -->
+      <div><?php echo $A_output ?></div>
+      <!-- show hall details in a table -->
+      <br><br><br>
+      <!-- show a msg if no hall data is added -->
+      <?php echo $ifblank ?>
+      <!-- show a msg if no hall data is added -->
+  </center>
+</div>
+<!----------------------------------------------------------------------------------------VIEW HAll DETAILS DIV END-->
+              </td>
+              <td>
+<!------------------------------------------------------------INPUT HALL DETAILS FORM DIV START-------------------------->
+<div style="  background-color:transparent;width:100%;height: 100%;" class="input_hdetails">
 
-              <tr>
-                <td><?php echo $HallNameErr;?></td>
-              </tr>
-
-                <tr>
-                    <div class="input-container">
-                     <td><i class="fa fa-key icon"></i>
-                      <input type="text" class="input-field" name="new_Hall_Capacity" placeholder="Enter Hall capacity"></td>
-                    </div>
-                </tr>
-                <tr>
-                  <td><?php echo $HallCapacityErr;?></td>
-                </tr>
-
-                <tr>
-                      <div class="input-container">
-                      <td><i class="fa fa-key icon"></i>
-                         <select name="new_Hall_Type" class="input-field">
-                            <option value="Lecture Hall" style="color: black; background-color: #ddd;">Lecture Hall</option>
-                            <option value="Lab" style="color: black; background-color: #ddd;">Lab</option>
-                         </select>
-                     </td>
-                   </div>
-                </tr>
-    
-                <tr>
-                     <td><input type="submit" name="insert" class="btn" value="Insert"></td>
-               </tr>
-
-          </table>
-        </div>
-        </center> 
-      </form>
-    </div>
+  <div>
+    <table style="color: dimgray; padding:5px;font-size: 18px; background-color: transparent;">
+      <tr>
+        <td style="padding: 5px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
+        <td style="padding: 5px;"><b>Input Hall Details</b></td>
+      </tr>
+    </table>
   </div>
 
-  <!------------------------------------------------------------------------------------------INPUT HALL DETAILS FORM DIV END-->
-
-
-
-  <!----------------------------------------------------------------------------------------UPDATE HALL DETAILS DIV START-->
-
-
-      <div style="background-color: white;width: auto;height: 57%;margin: 20px 20px 10px -100%;">
-
-
-        
-         <div>
-          <table style="color: dimgray; padding:5px;font-size: 18px;">
-            <tr>
-              <td style="padding: 10px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
-              <td style="padding: 5px; padding-right: 60px;"><b>Update Hall Details</b></td>
-            </tr>
-          </table>
-          </div>
-
+  <div id="input_form">      
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
       <center>
-                    <div id="flip">
-                     <select name="hall" id="hall"> 
-                                <option> Select Hall Name To Update</option> 
-                                <?php echo fill_hallname($connect); ?>  
-                      </select>
-                     </div> 
+        <div id="panel3">
+          <table style="width: 100%;">
 
-                              <!--update hall details form start-->
-                              <form method="POST" enctype="multipart/form-data" id="input">
+            <tr>
+              <div id="input-container">
+                <td>
+                  <center>
+                    <i class="fa fa-key icon"></i>
+                    <input type="text" class="input-field" name="new_Hall_Name" placeholder="Enter Hall Name" required name="">
+                  </center>
+                </td>
+              </div>
+            </tr>
+              
+            <tr>
+              <td>
+                <center>
+                  <i class="fa fa-key icon"></i>
+                  <input type="text" class="input-field" name="new_Hall_Capacity" placeholder="Enter Hall capacity" required name="">
+                </center>
+              </td>
+            </tr>
 
-                                  <div id="panel">
-                                    <center>
-                                     <div id="show_halls">
-                                     <!--the div that shows the hall details when user select a hall name-->
-                                     </div>
-                                    </center>  
-                                    </div>
-            
-                              </form>
-                              <!--update hall details form end--> 
-        </center>                      
-                                  
-                               <div>
-                                 <table style="color: dimgray; padding:5px;font-size: 18px;">
-                                   <tr>
-                                     <td style="padding: 10px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
-                                     <td style="padding: 5px; padding-right: 60px;"><b>Remove a Hall</b></td>
-                                   </tr>
-                                 </table>
-                               </div>
+            <tr>
+              <td>
+                <center>
+                  <i class="fa fa-key icon"></i>
+                  <select name="new_Hall_Type" class="input-field">
+                    <option value="Lecture Hall" style="color: black; background-color: #ddd;">Lecture Hall</option>
+                    <option value="Lab" style="color: black; background-color: #ddd;">Lab</option>
+                  </select>
+                </center>
+              </td>
+            </tr>
 
-          <center>
-                              <!--REmove a hall  form start--> 
-                              <form method="POST" enctype="multipart/form-data">
-                                  
-                                  <div id="flip2">
-                                    <select name="hall_del" id="hall"> 
-                                      <option> Select Hall Name To Remove</option> 
-                                       <?php echo fill_hallname($connect); ?>  
-                                    </select> 
-                                  </div>
-                                      <div id="panel2">
-                                      <button id="removebtn" name="delete">Remove Hall</button>
-                                 </div>      
-                              </form>
-                  <!--REmove a hall form end--> 
+            <tr>
+              <td><center><input id="myBtn" type="submit" name="insert" class="btn" value="Insert"></center></td>
+            </tr>
 
+          </table>
+
+        </div><!--panel 3-->
+      </center> 
+    </form>
+  </div><!--input form-->
+
+</div><!--input_hdetails-->
+<!------------------------------------------------------------------------------------------INPUT HALL DETAILS FORM DIV END-->
+<!----------------------------------------------------------------------------------------UPDATE HALL DETAILS DIV START-->
+<div style="background-color: white;width: auto;height: 57%;margin: 20px 0% 10px;">
+  <div>
+    <table style="color: dimgray; padding:5px;font-size: 18px;">
+      <tr>
+        <td style="padding: 10px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
+        <td style="padding: 5px; padding-right: 60px;"><b>Update Hall Details</b></td>
+      </tr>
+    </table>
+  </div>
+
+  <center>
+    <div id="flip">
+      <select name="hall" id="hall"> 
+        <option> Select Hall Name To Update</option> 
+          <?php echo fill_hallname($connect); ?>  
+        </select>
+    </div> 
+
+    <!--update hall details form start-->
+    <form method="POST" enctype="multipart/form-data" id="input">
+      <div id="panel">
+        <center>
+          <div id="show_halls">
+            <!--the div that shows the hall details when user select a hall name-->
+          </div>
+        </center>  
+      </div>
+    </form>
+
+    <!--update hall details form end--> 
+    </center>                         
+      <div>
+        <table style="color: dimgray; padding:5px;font-size: 18px;">
+          <tr>
+            <td style="padding: 10px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
+            <td style="padding: 5px; padding-right: 60px;"><b>Remove a Hall</b></td>
+          </tr>
+        </table>
+      </div>
+    <center>
+
+    <!--REmove a hall  form start--> 
+    <form method="POST" enctype="multipart/form-data">
+      <div id="flip2">
+        <select name="hall_del" id="hall"> 
+          <option> Select Hall Name To Remove</option> 
+            <?php echo fill_hallname($connect); ?>  
+        </select> 
+      </div>
+
+      <div id="panel2">
+        <button id="removebtn" name="delete">Remove Hall</button>
+      </div>      
+    </form>
+
+  </center>
+</div>
+<!--------------------------------------------------------------------------------------UPDATE HALL DETAILS  DIV END-->
+              </td>
+            </tr>
           </table>
         </center>
       </div>
-        
     </div>
 
-      <!--------------------------------------------------------------------------------------UPDATE HALL DETAILS  DIV END-->
+</div>
+</body>
+<!--------------------------------------------------------------------------------------BODY-END-->
 
-    </div>
+</html>
 
-  </div>
-
-  <script>
-  
+<script>  
  $(document).ready(function(){  
       $('#hall').change(function(){  
            var Hall_name = $(this).val();  
@@ -326,20 +322,40 @@ include 'rs/css/css_hall_details.php';
   }
 }
 
-$(document).ready(function(){
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/*$(document).ready(function(){
   $("#hall").change(function(){
     $("#show_halls").css("display","block");
     $("#panel").slideDown("slow");
   });
-});
+});*/
 
  </script>
-
-</body>
-<!--------------------------------------------------------------------------------------BODY-END-->
-
-</html>
-
 
 <!--------------------------------------------------------------------------------------JS-START-->
 <script  type="text/javascript" src="rs/all/js_all.js"></script>

@@ -49,10 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 ////////////////////////////////////////////////////////////////////////////////////////required field-input hall id
 
     if (empty($_POST["new_Hall_Name"])) 
-    {
-         $HallNameErr .= '<div id="tooltip">';     
-         $HallNameErr .= 'Hall Name is required !';
-         $HallNameErr .= '</div>';
+    {     
+
+          $HallNameErr = '"Hall name is required"'; 
     }
     else 
     {
@@ -119,15 +118,15 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 } 
 //Query for insert details into halls table
-$sql = "INSERT INTO `halls` (`Hall_name`, `Capacity`, `Type`) VALUES ('$HallName', '$HallCapacity', '$HallType');";
+$sql = "INSERT INTO `halls` (`Hallid`,`Hall_name`, `Capacity`, `Type`) VALUES (NULL,'$HallName', '$HallCapacity', '$HallType');";
 
 if ($conn->query($sql) === TRUE) 
 {
-    echo "<script>alert('Data inserted!');</script>";
+   /* echo "<script>alert('Data inserted!');</script>";*/
 } 
 else 
 {
-    echo "<script>alert('Error : Mysql server Connection Error ');</script>";
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close(); 
@@ -169,7 +168,7 @@ else{
         $get_exist_capacity=$row["Capacity"];
         $get_exist_type=$row["Type"];
 
-        $output .='<table id="uHall">'; 
+        $output .='<table id="uHall" style="min-width:20%;">'; 
         
         $output .='<tr style="display:none;">';
         $output .='<td>'.'<input class="input" type="text" name="e_Hall_id" value="'.$get_exist_Hall_id.'">'.'</td>';
@@ -251,7 +250,7 @@ if(isset($_POST['update']))
 
   }
   */  
-
+///////////////////////////////////////////////////////////////////////update hall details start
   $eHall_name= '';
     $ecapacity= '';
     $etype= '';
@@ -294,8 +293,9 @@ if (isset($_POST['update']))
   {
 
   }
-    
-//delete hall details
+///////////////////////////////////////////////////////////////////////////update hall details end
+
+///////////////////////////////////////////////////////////////////////////delete hall details start
 
   if(isset($_POST['delete']))
   {
@@ -324,18 +324,21 @@ if (isset($_POST['update']))
    }
     }
 
+///////////////////////////////////////////////////////////////////////////////////show hall details list 
+
   $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $sql = "SELECT * FROM halls";
-$A_output='';
 
+$A_output='';
+$ifblank ='';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
-      $A_output .= "<table id='dHall' style='overflow-x:auto;'>";
+      $A_output .= "<table id='dHall' style='overflow:auto;'>";
 
       $A_output .= "<tr class='t_header'>"; 
       $A_output .= "<th>Hall Name</th>";
@@ -346,19 +349,33 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc())
      {
-        
+
+      $A_output .= "<tbody>"; 
       $A_output .= "<tr>";
       $A_output .= "<td>" . $row["Hall_name"]. "</td>";
       $A_output .= "<td>" . $row["Capacity"]. "</td>";
       $A_output .= "<td> " . $row["Type"]. "</td>";
       $A_output .= "</tr>";
+      $A_output .= "</tbody>"; 
      }
 
       $A_output .= "</table>";
 }
  else {
-    
-}
+
+     $ifblank .= '<table>';
+
+     $ifblank .= '<tr>';
+     $ifblank .= '<td><center><img src="../resources/nodata7.png"></center></td>';
+     $ifblank .= '</tr>';
+
+     $ifblank .= '<tr>';
+     $ifblank .= '<td><center><br><br><h1>Add Some Hall Data...</h1><img src="../resources/phand.png"></center></td>';
+     $ifblank .= '</tr>';
+
+     $ifblank .= '</table>';
+
+    }
 $conn->close();
 
 ?>

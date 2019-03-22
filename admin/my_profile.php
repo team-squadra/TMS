@@ -13,6 +13,8 @@ include 'rs/css/css_my_profile.php';
 
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
 <head>
 <!--------------------------------------------------------------------------------------TITLE-START-->
 <title>Timetable Management System</title>
@@ -102,13 +104,17 @@ include 'rs/css/css_my_profile.php';
                <a href="new_account.php" id="new_account">New Account<i class='far fa-address-book'style='font-size:30px;margin-left:32px;'></i> </a>
                <a href="about_us.php" id="about">About Us<i class='far fa-comment-dots'style='font-size:32px;margin-left:65px;'></i></a>
          </div>
-
+<!-----------------------------------------------------------------BATCH-->
+<div style="background-color: transparent;margin-left: 80px;margin-right: 80px;margin-top: 10px;padding: 10px;">
+  <label style='color: white;padding-left: 10px; font-size: 50px;font-weight: 100;line-height: 1.2;'>My Profile</label>
+</div>
+<!-----------------------------------------------------------------BATCH-->
   <div class="row">
 
     <!--main-->
     <div class="main">
       
-      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;">
+      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;position: relative;">
         <center><br><br><br>
 
           <div class="pro_pic"><!--PROFILE PICTURE-->
@@ -178,7 +184,7 @@ include 'rs/css/css_my_profile.php';
               </form>
 <!-----------------------------------------------------------------onlineusers-->
 <div id="show_online_users">
-  <?php show_online_users($servername,$username,$password,$dbname,$get_admin_name); ?>
+      <?php show_online_users($servername,$username,$password,$dbname,$get_admin_name); ?>
 </div>
 <!-----------------------------------------------------------------onlineusers-->
             </div>
