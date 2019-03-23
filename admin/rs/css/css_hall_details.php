@@ -21,10 +21,6 @@ body  {
   width: 80%;
 }
 
-#dHall tbody{
-
-  overflow: auto;
-}
 
 #dHall td, #dHall th {
   border: 1px solid #ddd;
@@ -79,25 +75,26 @@ body  {
 }
 
 /*input hall details form css start*/
-.input-container {
+/*.input-container {
   display: -ms-flexbox; 
   width: 0%;
   margin-bottom: 15px;
   background-color: black;
   position: absolute;
 }
-
+*/
 .icon {
-  padding: 6px;
+  padding: 5px;
   background: #f44336;
   color: white;
-  min-width: 50px;
+  height: 19px;
+  min-width: 60px;
   text-align: center;
   border-radius: 6px 0px 0px 6px;
 }
 
 .input-field {
-  width: 50%;
+  width: 52%;
   padding: 5px;
   outline: none;
   border-radius: 0px 6px 6px 0px;
@@ -109,13 +106,14 @@ body  {
 
 /* Set a style for the submit button */
 .btn {
+  letter-spacing: 2px;
   background-color: #f44336;
   color: white;
   margin-top: 3px;
   padding: 15px 20px;
   border: none;
   cursor: pointer;
-  width: 66%;
+  width: 68%;
   opacity: 0.9;
   font-size: 15px;
   border-radius: 6px 6px 6px 6px;
@@ -124,10 +122,12 @@ body  {
 .btn:hover {
   opacity: 2;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+  letter-spacing: 10px;
+  font-weight: bolder;
 }
 
 #panel3{
-    width: 70%;
+    width: 60%;
     height: 60%;
   padding: 15px;
   text-align: center;
@@ -139,6 +139,7 @@ body  {
 
 #uHall .edit{
    padding: 6px;
+   height: 33px;
   background: #f44336;
   color: white;
   min-width: 50px;
@@ -148,6 +149,7 @@ body  {
 
 #uHall .input{
    padding: 5px;
+   height: 33px;
   outline: none;
  border-radius: 0px 6px 6px 0px;
 }
@@ -157,11 +159,12 @@ body  {
 }
 
 #uHallupdate{
+  letter-spacing: 2px;
   background-color: #f44336;
   color: white;
   padding: 15px 20px;
   border: none;
-  width: 225%;
+  width: 229%;
   opacity: 0.9;
   font-size: 15px;
   margin-top: 3px;
@@ -172,11 +175,13 @@ body  {
 #uHallupdate:hover {
         opacity: 2;
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+        letter-spacing: 10px;
+        font-weight: bolder;
 
 }
 #panel, #flip {
-  width: 70%;
-  min-width: 70%;
+  width: 60%;
+  max-width: 60%;
   padding: 10px;
   text-align: center;
   background-color: #E09797;
@@ -187,8 +192,8 @@ body  {
 }
 
  #panel2,#flip2{
-  width: 70%;
-   min-width: 70%;
+  width: 60%;
+   min-width: 60%;
   padding: 10px;
   text-align: center;
   background-color: #E09797;
@@ -202,18 +207,22 @@ body  {
   padding-bottom: 3%;
  }
  #removebtn{
+  letter-spacing: 2px;
     background-color: #f44336;
   color: white;
   padding: 15px 20px;
   border: none;
-  width: 61%;
+  width: 68%;
   opacity: 0.9;
   font-size: 15px;
   border-radius: 6px 6px 6px 6px;
  }
+
  #removebtn:hover {
   opacity: 2;
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+        letter-spacing: 10px;
+        font-weight: bolder;
  }
 
 /*#tooltip{
@@ -226,42 +235,22 @@ body  {
   left: 50%;
 }*/
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+/*css for side row*/
+#side{
+  width:790px;  
+}
+/* form headers*/
+.form_header{
+  background-color:orange;
+  height: 50px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+.cs_header td {
+    letter-spacing: 2px;
+    font-weight: bolder;
+    padding-bottom:5px;
+    padding-left: 15px;
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 </style>

@@ -168,7 +168,7 @@ else{
         $get_exist_capacity=$row["Capacity"];
         $get_exist_type=$row["Type"];
 
-        $output .='<table id="uHall" style="min-width:20%;">'; 
+        $output .='<table id="uHall">'; 
         
         $output .='<tr style="display:none;">';
         $output .='<td>'.'<input class="input" type="text" name="e_Hall_id" value="'.$get_exist_Hall_id.'">'.'</td>';
@@ -205,7 +205,7 @@ else{
     } 
     else 
     {
-    echo "0 results";
+    echo "<b><h3>PLz select a hall_name to retrive details !</h3><b>";
     }
 $conn->close();
 }
@@ -365,9 +365,9 @@ if ($result->num_rows > 0) {
 
      $ifblank .= '<table>';
 
-     $ifblank .= '<tr>';
+     /*$ifblank .= '<tr>';
      $ifblank .= '<td><center><img src="../resources/nodata7.png"></center></td>';
-     $ifblank .= '</tr>';
+     $ifblank .= '</tr>';*/
 
      $ifblank .= '<tr>';
      $ifblank .= '<td><center><br><br><h1>Add Some Hall Data...</h1><img src="../resources/phand.png"></center></td>';

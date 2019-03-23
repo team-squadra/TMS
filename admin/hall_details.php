@@ -28,12 +28,17 @@ include 'rs/css/css_hall_details.php';
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
+
 <head>
  
 <!--------------------------------------------------------------------------------------TITLE-START-->
 <title>Timetable Management System</title>
 <link rel="icon" type="image/png" href="../resources/yy.ico">
-<!--------------------------------------------------------------------------------------TITLE-START-->  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--------------------------------------------------------------------------------------TITLE-START--> 
+<script>
+
+</script> 
 </head>
 
 
@@ -108,13 +113,46 @@ include 'rs/css/css_hall_details.php';
 
 
    <!-- hoverable side nav bar -->
-          <div id="mySidenav" class="sidenav">
-              <a href="home.php" id="home">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
-              <a href="hall_details.php" id="hall_details">Hall Details<i class='fas fa-chalkboard-teacher'style='font-size:25px;margin-left: 42px;'></i></a>
-               <a href="batch_details.php" id="batch_details">Batch Details<i class='far fa-address-card'style='font-size:28px;margin-left: 30px;'></i> </a>
-               <a href="timetables.php" id="timetables">TimeTables<i class='fas fa-fax'style='font-size:29px;margin-left: 45px;'></i> </a>
-               <a href="new_account.php" id="new_account">New Account<i class='far fa-address-book'style='font-size:30px;margin-left:32px;'></i> </a>
+<div id="mySidenav" class="sidenav">
+  <table>
+
+    <tr>
+      <td>
+         <a href="home.php" id="home">Home<i class='far fa-calendar-alt'style=" font-size:32px;margin-left:93px;"></i></a>
+      </td>
+     </tr>
+
+    <tr>
+    <td>
+      <a href="hall_details.php" id="hall_details">Hall Details<i class='fas fa-chalkboard-teacher'style='font-size:25px;margin-left: 42px;'></i></a>
+    </td>
+  </tr>
+
+    <tr>
+     <td>          
+       <a href="batch_details.php" id="batch_details">Batch Details<i class='far fa-address-card'style='font-size:28px;margin-left: 30px;'></i> </a>
+     </td>
+      </tr> 
+
+
+    <tr>
+     <td>    
+       <a href="timetables.php" id="timetables">TimeTables<i class='fas fa-fax'style='font-size:29px;margin-left: 45px;'></i> </a>
+    </td>
+   </tr> 
+   
+   <tr>
+    <td> 
+      <a href="new_account.php" id="new_account">New Account<i class='far fa-address-book'style='font-size:30px;margin-left:32px;'></i> </a>
+      </td>
+   </tr> 
+ 
+   <tr>
+    <td>
                <a href="about_us.php" id="about">About Us<i class='far fa-comment-dots'style='font-size:32px;margin-left:65px;'></i></a>
+      </td>
+   </tr> 
+  </table>        
          </div>
 
 <!-----------------------------------------------------------------BATCH-->
@@ -126,22 +164,24 @@ include 'rs/css/css_hall_details.php';
 <div class="row">
 
     <!--main-->
-    <div class="main">
-      <div style="  background-color: white;width: auto;height:auto;margin: 20px 20px 20px 20px;">
+    <div class="main" style=" background-color: black;">
+      <div style="  background-color: white;width: auto;height:750px;margin: 20px 20px 20px 20px;">
         <center>
+
           <table  style="width: 100%;">
             <tr>
               <td>
 <!----------------------------------------------------------------------------------------VIEW HAll DETAILS DIV START-->
-<div style="  background-color: transparent;width:100%;height: 100%; max-height: 700px; overflow: auto;">
+<div style="  background-color: transparent;width:100%;height: 100%; max-height: 700px;overflow: auto; ">
   <center>
     <!-- Hall details search bar -->
     <input type="text" id="myInput" onkeyup="searchHalls()" placeholder="Search By Hall Name......" style="margin: 20px;">
     <!-- Hall details search bar -->
+
       <!-- show hall details in a table -->
       <div><?php echo $A_output ?></div>
       <!-- show hall details in a table -->
-      <br><br><br>
+  
       <!-- show a msg if no hall data is added -->
       <?php echo $ifblank ?>
       <!-- show a msg if no hall data is added -->
@@ -149,18 +189,23 @@ include 'rs/css/css_hall_details.php';
 </div>
 <!----------------------------------------------------------------------------------------VIEW HAll DETAILS DIV END-->
               </td>
-              <td>
-<!------------------------------------------------------------INPUT HALL DETAILS FORM DIV START-------------------------->
-<div style="  background-color:transparent;width:100%;height: 100%;" class="input_hdetails">
 
-  <div>
+              <td id="side" style="max-width:800px;">
+ <div style="  background-color: transparent; max-height: 700px;overflow: auto; ">  
+              
+<!------------------------------------------------------------INPUT HALL DETAILS FORM DIV START-------------------------->
+<div style="background-color:transparent;width:100%;height: 100%;" class="input_hdetails">
+
+  <div class="form_header">
     <table style="color: dimgray; padding:5px;font-size: 18px; background-color: transparent;">
-      <tr>
-        <td style="padding: 5px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
-        <td style="padding: 5px;"><b>Input Hall Details</b></td>
+      <tr class="cs_header">
+        <td><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
+        <td><b>Input Hall Details</b></td>
       </tr>
     </table>
   </div>
+
+  <br>
 
   <div id="input_form">      
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
@@ -169,14 +214,12 @@ include 'rs/css/css_hall_details.php';
           <table style="width: 100%;">
 
             <tr>
-              <div id="input-container">
                 <td>
                   <center>
                     <i class="fa fa-key icon"></i>
                     <input type="text" class="input-field" name="new_Hall_Name" placeholder="Enter Hall Name" required name="">
                   </center>
                 </td>
-              </div>
             </tr>
               
             <tr>
@@ -213,17 +256,20 @@ include 'rs/css/css_hall_details.php';
 
 </div><!--input_hdetails-->
 <!------------------------------------------------------------------------------------------INPUT HALL DETAILS FORM DIV END-->
+
 <!----------------------------------------------------------------------------------------UPDATE HALL DETAILS DIV START-->
-<div style="background-color: white;width: auto;height: 57%;margin: 20px 0% 10px;">
-  <div>
+<div style="background-color:transparent;width: auto;height: 57%;margin: 20px 0% 10px;">
+
+  <div class="form_header">
     <table style="color: dimgray; padding:5px;font-size: 18px;">
-      <tr>
-        <td style="padding: 10px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
-        <td style="padding: 5px; padding-right: 60px;"><b>Update Hall Details</b></td>
+      <tr class="cs_header">
+        <td><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
+        <td><b>Update Hall Details</b></td>
       </tr>
     </table>
   </div>
 
+  <br>
   <center>
     <div id="flip">
       <select name="hall" id="hall"> 
@@ -243,19 +289,21 @@ include 'rs/css/css_hall_details.php';
       </div>
     </form>
 
-    <!--update hall details form end--> 
+    <!--update hall details form end-->
+
+   <br>
+    <!-- remove hall  div start --> 
     </center>                         
-      <div>
+      <div class="form_header">
         <table style="color: dimgray; padding:5px;font-size: 18px;">
-          <tr>
-            <td style="padding: 10px;"><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
-            <td style="padding: 5px; padding-right: 60px;"><b>Remove a Hall</b></td>
+          <tr class="cs_header">
+            <td><img src="../resources/ih.png" style="width: 30px;height: 30px;"></td>
+            <td><b>Remove a Hall</b></td>
           </tr>
         </table>
       </div>
     <center>
-
-    <!--REmove a hall  form start--> 
+  <br>
     <form method="POST" enctype="multipart/form-data">
       <div id="flip2">
         <select name="hall_del" id="hall"> 
@@ -270,6 +318,7 @@ include 'rs/css/css_hall_details.php';
     </form>
 
   </center>
+</div>
 </div>
 <!--------------------------------------------------------------------------------------UPDATE HALL DETAILS  DIV END-->
               </td>
@@ -348,12 +397,11 @@ window.onclick = function(event) {
   }
 }
 
-/*$(document).ready(function(){
+$(document).ready(function(){
   $("#hall").change(function(){
-    $("#show_halls").css("display","block");
-    $("#panel").slideDown("slow");
+     $("#side").width(800);
   });
-});*/
+});
 
  </script>
 
