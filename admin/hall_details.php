@@ -164,7 +164,7 @@ include 'rs/css/css_hall_details.php';
 <div class="row">
 
     <!--main-->
-    <div class="main" style=" background-color: black;">
+    <div class="main">
       <div style="  background-color: white;width: auto;height:750px;margin: 20px 20px 20px 20px;">
         <center>
 
@@ -190,7 +190,7 @@ include 'rs/css/css_hall_details.php';
 <!----------------------------------------------------------------------------------------VIEW HAll DETAILS DIV END-->
               </td>
 
-              <td id="side" style="max-width:800px;">
+              <td id="side" style="max-width:790px;">
  <div style="  background-color: transparent; max-height: 700px;overflow: auto; ">  
               
 <!------------------------------------------------------------INPUT HALL DETAILS FORM DIV START-------------------------->
@@ -235,7 +235,7 @@ include 'rs/css/css_hall_details.php';
               <td>
                 <center>
                   <i class="fa fa-key icon"></i>
-                  <select name="new_Hall_Type" class="input-field">
+                  <select name="new_Hall_Type" class="input-field" class="custom-select" >
                     <option value="Lecture Hall" style="color: black; background-color: #ddd;">Lecture Hall</option>
                     <option value="Lab" style="color: black; background-color: #ddd;">Lab</option>
                   </select>
@@ -272,7 +272,7 @@ include 'rs/css/css_hall_details.php';
   <br>
   <center>
     <div id="flip">
-      <select name="hall" id="hall"> 
+      <select name="hall" id="hall" class="dropdown"> 
         <option> Select Hall Name To Update</option> 
           <?php echo fill_hallname($connect); ?>  
         </select>
@@ -306,7 +306,7 @@ include 'rs/css/css_hall_details.php';
   <br>
     <form method="POST" enctype="multipart/form-data">
       <div id="flip2">
-        <select name="hall_del" id="hall"> 
+        <select name="hall_del" id="hall" class="dropdown"> 
           <option> Select Hall Name To Remove</option> 
             <?php echo fill_hallname($connect); ?>  
         </select> 
@@ -371,35 +371,10 @@ include 'rs/css/css_hall_details.php';
   }
 }
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
+//jquery function tht keeps the width of side div as it is
 $(document).ready(function(){
   $("#hall").change(function(){
-     $("#side").width(800);
+     $("#side").width(790);
   });
 });
 

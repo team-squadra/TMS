@@ -143,6 +143,7 @@ else {
 else{
     }
 
+
  $get_exist_Hall_name=''; 
  $output = ''; 
  if(isset($_POST["Hall_name"]))  

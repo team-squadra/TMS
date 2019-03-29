@@ -137,6 +137,16 @@ body  {
    border: 3px solid #f44336;
 }
 
+.dropdown{
+  width: 50%;
+  height: 25px;
+  border-radius: 10px 10px 10px 10px;
+  outline: none;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
 #uHall .edit{
    padding: 6px;
    height: 33px;
@@ -246,11 +256,17 @@ body  {
 }
 
 .cs_header td {
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     font-weight: bolder;
     padding-bottom:5px;
     padding-left: 15px;
 }
 
+.custom-select{
+  background-color: yellow;
+}
 
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
 </style>

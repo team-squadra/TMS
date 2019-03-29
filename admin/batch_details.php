@@ -5,6 +5,19 @@ include 'rs/all/all_php.php';
 include 'rs/php/php_batch_details.php';
 include 'rs/css/css_batch_details.php';
 
+//function tht fill hall names to option menu    
+ $connect = mysqli_connect("localhost", "root", "", "tmswebdb");  
+ function fill_batches($connect)  
+ {  
+      $sql = "SELECT Batch_name FROM batches";  
+      $result = mysqli_query($connect, $sql);  
+      while($row = mysqli_fetch_array($result))  
+      {  
+           $output .= '<option class="dropdown" value="'.$row["Batch_name"].'">'.$row["Batch_name"].'</option>';  
+      }  
+      return $output;  
+ } 
+
 ?>
 <!--------------> 
 
@@ -15,6 +28,9 @@ include 'rs/css/css_batch_details.php';
 
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
 <head>
@@ -112,11 +128,95 @@ include 'rs/css/css_batch_details.php';
 
     <!--main-->
     <div class="main">
-      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;">
-      </div>
+      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;overflow: auto;">
+        
+       <!-- button table --> 
+       <table>
+        <tr>
+         <td>
+          <button class="button" onclick="document.getElementById('id01').style.display='block'"><span>Add New Batch</span></button>
+          <button class="button" onclick="document.getElementById('id02').style.display='block'"><span>Edit Batch</span></button>
+        </td>
+      </tr>
+    </table>
+    <!-- button table end-->
+      
+<div id="id01" class="modal"><!-- model start -->
+  <form class="modal-content animate" method="POST">
+
+     <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+     </div>
+
+ <div class="container"><!-- container start -->
+      
+      <label for="psw"><b>Batch Name : </b></label>
+      <input type="text" placeholder="Enter Batch Name.." name="Batch_name" title="batch name is compulsory" required>
+
+      <label for="psw"><b>Enter Batch Headcount : </b></label>
+      <input type="text" name="head_count" placeholder="Enter the head count.." title="headcount is compulsory" required>
+
+      <label for="psw"><b>Choose the batch color : </b></label>
+      <input type="color" id="col" name="batch_col"  required>
+       <br><br> 
+
+      <button type="submit" id="insert" class="form_btn" name="insert">Save</button>
+
+ </div> <!-- container end -->
+
+    <div class="container" style="background-color:transparent;">
+      <button type="button"  onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
     </div>
 
-  </div>
+  </form><!-- form end -->
+</div><!-- model end -->
+
+
+<div id="id02" class="modal"><!-- model 2 start -->
+  <form class="modal-content animate" method="POST">
+
+     <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+     </div>
+<br>
+ <div class="container"><!-- container 2 start -->
+
+    <div id="flip">
+      <label for="psw"><b>Select batch name to update : </b></label>
+      <select name="batch" id="batch" class="dropdown"> 
+        <option class="dropdown">Select from here</option> 
+          <?php echo fill_batches($connect); ?>  
+        </select>
+
+    </div><!-- flip end --> 
+<br><br> 
+  <div id="show_batches">
+    <!-- the div tht in which display the batch details when select the batch name -->     
+  </div><!-- show batches end --> 
+
+ </div> <!-- container 2 end -->
+
+
+
+    <div class="container" style="background-color:transparent;">
+      <button type="button"  onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+
+  </form><!-- form 2 end -->
+</div><!-- model 2 end -->
+          
+
+    <!-- show all batch details in a table -->
+    <center>
+      <div ><?php echo $A_output ?></div>
+     </center> 
+      <!-- show all batch details in a table -->
+
+
+      </div><!-- main sub div end -->
+    </div><!-- main div end -->
+
+  </div><!-- row div end-->
 <!--------------------------------------------------------------------------------------Online_Users-->
 <?php
   $con=mysqli_connect($servername, $username, $password, $dbname);
@@ -147,12 +247,48 @@ include 'rs/css/css_batch_details.php';
   </table>
 </button>
 
-<div class="form-popup" id="online_Users_div"">
+<div class="form-popup" id="online_Users_div">
   <?php show_online_users($servername,$username,$password,$dbname,$get_admin_name); ?>
 </div>
 
 <script>
+ // Get the modal
+var modal = document.getElementById('id01');
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Get the modal 2
+var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+/*edit batch*/
+
+ $(document).ready(function(){  
+      $('#batch').change(function(){  
+           var Batch_name = $(this).val();  
+           $.ajax({  
+                url:"rs/php/php_batch_details.php",  
+                method:"POST",  
+                data:{Batch_name:Batch_name},  
+                success:function(data){  
+                     $('#show_batches').html(data);  
+                }   
+           });  
+      });  
+ });
+ 
+ /*online ppl*/
   $(document).ready(function(){  
       $('#open_button').click(function(){  
           document.getElementById("online_Users_div").style.display = "block";
@@ -166,7 +302,6 @@ include 'rs/css/css_batch_details.php';
           document.getElementById("open_button").style.display = "block";
       });  
  });
-
 </script>
 <!--------------------------------------------------------------------------------------Online_Users-->
 
