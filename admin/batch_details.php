@@ -17,6 +17,7 @@ include 'rs/css/css_batch_details.php';
       }  
       return $output;  
  } 
+ 
 
 ?>
 <!--------------> 
@@ -128,7 +129,7 @@ include 'rs/css/css_batch_details.php';
 
     <!--main-->
     <div class="main">
-      <div style="  background-color: white;width: auto;height: 700px;margin: 20px 20px 20px 20px;overflow: auto;">
+      <div style="  background-color: white;width: auto;height: auto;margin: 20px 20px 20px 20px;">
         
        <!-- button table --> 
        <table>
@@ -140,7 +141,7 @@ include 'rs/css/css_batch_details.php';
       </tr>
     </table>
     <!-- button table end-->
-      
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <div id="id01" class="modal"><!-- model start -->
   <form class="modal-content animate" method="POST">
 
@@ -149,6 +150,12 @@ include 'rs/css/css_batch_details.php';
      </div>
 
  <div class="container"><!-- container start -->
+
+  <label><b>Here is the batch id : </b></label>
+  <select class="dropdown" name="dropdown">
+  	<?php echo add_option_value($servername, $username, $password, $dbname); ?>
+  </select>
+    <br><br>
       
       <label for="psw"><b>Batch Name : </b></label>
       <input type="text" placeholder="Enter Batch Name.." name="Batch_name" title="batch name is compulsory" required>
@@ -160,7 +167,7 @@ include 'rs/css/css_batch_details.php';
       <input type="color" id="col" name="batch_col"  required>
        <br><br> 
 
-      <button type="submit" id="insert" class="form_btn" name="insert">Save</button>
+      <button type="submit" id="insert" class="form_btn" name="update_batch">Save</button>
 
  </div> <!-- container end -->
 
@@ -170,8 +177,9 @@ include 'rs/css/css_batch_details.php';
 
   </form><!-- form end -->
 </div><!-- model end -->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <div id="id02" class="modal"><!-- model 2 start -->
   <form class="modal-content animate" method="POST">
 
@@ -196,22 +204,19 @@ include 'rs/css/css_batch_details.php';
 
  </div> <!-- container 2 end -->
 
-
-
     <div class="container" style="background-color:transparent;">
       <button type="button"  onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
     </div>
 
   </form><!-- form 2 end -->
+
 </div><!-- model 2 end -->
-          
-
-    <!-- show all batch details in a table -->
-    <center>
-      <div ><?php echo $A_output ?></div>
-     </center> 
-      <!-- show all batch details in a table -->
-
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->        
+<center>
+<div>
+	<?php echo show_batchdata($servername, $username, $password, $dbname); ?>
+</div>
+</center>
 
       </div><!-- main sub div end -->
     </div><!-- main div end -->

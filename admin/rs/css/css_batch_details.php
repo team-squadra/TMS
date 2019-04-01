@@ -90,7 +90,6 @@ button {
   width: 100%;
   opacity: 0.9;
 }
-
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
@@ -102,7 +101,14 @@ input[type=text], input[type=password] {
   border: 2px solid #ccc;
   box-sizing: border-box;
 }
-
+input[type=color]{
+  border:none;
+  width: 25px;
+  height: 25px;
+  outline:none;
+  border-radius: 5px;
+  padding: 2px;
+}
 #col{
   width: 100%;
   height: 3%;
@@ -287,4 +293,27 @@ span.psw {
   text-align: center;
 }
 
+
+#show_batches_table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+#show_batches_table td, #show_batches_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#show_batches_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#show_batches_table tr:hover {background-color: #ddd;}
+
+#show_batches_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
 </style>

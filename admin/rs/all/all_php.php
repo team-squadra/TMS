@@ -21,8 +21,6 @@ function show_online_users($servername,$username,$password,$dbname,$get_admin_na
         }
     } else {}
 
-    //echo "<script>document.getElementById('open_btn_cunt').innerHTML='".$x."'</script>";
-    //echo "<script>document.getElementById('close_btn_cunt').innerHTML='".$x."'</script>";
 
     $sql = "SELECT * FROM signup WHERE activity ='active' && username !='$get_admin_name'  ORDER BY loged_in_time DESC ";
     $result = $conn->query($sql);
