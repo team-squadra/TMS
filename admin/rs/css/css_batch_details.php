@@ -18,7 +18,7 @@
   text-align: center;
   font-size: 15px;
   padding: 10px;
-  width: 210px;
+  width: 250px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 35px;
@@ -298,6 +298,7 @@ span.psw {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   margin: 20px;
+  width: 90%;
 }
 
 #show_batches_table td, #show_batches_table th {
@@ -307,13 +308,36 @@ span.psw {
 
 #show_batches_table tr:nth-child(even){background-color: #f2f2f2;}
 
-#show_batches_table tr:hover {background-color: #ddd;}
+#show_batches_table tr:hover {background-color: #A8D8EC;}
 
 #show_batches_table th {
+  font-weight: bolder;
+  font-size: 18px;
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
+  text-align: center;
+  background-color: #2196F3;
+  height: 50px;
   color: white;
+  letter-spacing: 3px;
 }
+
+#show_batches_table td input[type=text]{
+  font-size: 17px;
+  text-align: center;
+  font-weight: bold;
+  font-weight: 18px;
+  letter-spacing: 3px;
+}
+
+#show_batches_table td input[type=submit]{
+  font-size: 18px;
+  width: 50%;
+  height: 50px;
+}
+#show_batches_table td input[type=submit]:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 18px 0 rgba(0, 0, 0, 0.23);
+  letter-spacing: 6px;
+  font-weight: bolder;
+ } 
 </style>

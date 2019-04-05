@@ -136,7 +136,8 @@ include 'rs/css/css_batch_details.php';
         <tr>
          <td>
           <button class="button" onclick="document.getElementById('id01').style.display='block'"><span>Add New Batch</span></button>
-          <button class="button" onclick="document.getElementById('id02').style.display='block'"><span>Edit Batch</span></button>
+          <!-- <button class="button" onclick="document.getElementById('id02').style.display='block'"><span>Edit Batch</span></button> -->
+          <button class="button" id="edit_mode_btn"><span>Swith To Edit Mode</span></button>
         </td>
       </tr>
     </table>
@@ -180,14 +181,14 @@ include 'rs/css/css_batch_details.php';
 <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<div id="id02" class="modal"><!-- model 2 start -->
+<!-- <div id="id02" class="modal">
   <form class="modal-content animate" method="POST">
 
      <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
      </div>
 <br>
- <div class="container"><!-- container 2 start -->
+ <div class="container">
 
     <div id="flip">
       <label for="psw"><b>Select batch name to update : </b></label>
@@ -196,24 +197,24 @@ include 'rs/css/css_batch_details.php';
           <?php echo fill_batches($connect); ?>  
         </select>
 
-    </div><!-- flip end --> 
+    </div> 
 <br><br> 
   <div id="show_batches">
-    <!-- the div tht in which display the batch details when select the batch name -->     
-  </div><!-- show batches end --> 
+         
+  </div> 
 
- </div> <!-- container 2 end -->
+ </div>
 
     <div class="container" style="background-color:transparent;">
       <button type="button"  onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
     </div>
 
-  </form><!-- form 2 end -->
+  </form>
 
-</div><!-- model 2 end -->
+</div> -->
 <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->        
 <center>
-<div>
+<div style="max-height: 600px;overflow: auto;">
 	<?php echo show_batchdata($servername, $username, $password, $dbname); ?>
 </div>
 </center>
@@ -268,18 +269,18 @@ window.onclick = function(event) {
 }
 
 // Get the modal 2
-var modal = document.getElementById('id02');
+/*var modal = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+}*/
 
 /*edit batch*/
 
- $(document).ready(function(){  
+/* $(document).ready(function(){  
       $('#batch').change(function(){  
            var Batch_name = $(this).val();  
            $.ajax({  
@@ -291,7 +292,7 @@ window.onclick = function(event) {
                 }   
            });  
       });  
- });
+ });*/
  
  /*online ppl*/
   $(document).ready(function(){  

@@ -113,7 +113,7 @@ echo '<tr>
         <th>Batch ID</th>
         <th>Batch Name</th>
         <th>Head Count</th>
-        <th>batch Color</th>
+        <th>Batch Color</th>
       </tr>
     ';
 
@@ -121,9 +121,9 @@ if ($b1[0]!='') {
 echo '
     <tr>
       <td><center>B1</center></td>
-      <td><center><input type="text" name="b1_name" value="'.$b1[0].'" id="b1_name"></center></td>
-      <td><center><input type="text" name="b1_hc" value="'.$b1[1].' " id="b1_hc"></center></td>
-      <td><center><input type="color" name="b1_clr" value="'.$b1[2].'" id="b1_clr"></center></td>
+      <td><center><input type="text" name="b1_name" value="'.$b1[0].'" id="b1_name" disabled></center></td>
+      <td><center><input type="text" name="b1_hc" value="'.$b1[1].' " id="b1_hc" disabled></center></td>
+      <td><center><input type="color" name="b1_clr" value="'.$b1[2].'" id="b1_clr" disabled></center></td>
 
     </tr>
 ';
@@ -132,9 +132,9 @@ if ($b2[0]!='') {
 echo '
     <tr>
       <td><center>B2</center></td>
-      <td><center><input type="text" name="b2_name" value="'.$b2[0].'" id="b2_name"></center></td>
-      <td><center><input type="text" name="b2_hc" value="'.$b2[1].' " id="b2_hc"></center></td>
-      <td><center><input type="color" name="b2_clr" value="'.$b2[2].'" id="b2_clr"></center></td>
+      <td><center><input type="text" name="b2_name" value="'.$b2[0].'" id="b2_name" disabled></center></td>
+      <td><center><input type="text" name="b2_hc" value="'.$b2[1].' " id="b2_hc" disabled></center></td>
+      <td><center><input type="color" name="b2_clr" value="'.$b2[2].'" id="b2_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -142,9 +142,9 @@ if ($b3[0]!='') {
 echo '
     <tr>
       <td><center>B3</center></td>
-      <td><center><input type="text" name="b3_name" value="'.$b3[0].'" id="b3_name"></center></td>
-      <td><center><input type="text" name="b3_hc" value="'.$b3[1].' " id="b3_hc"></center></td>
-      <td><center><input type="color" name="b3_clr" value="'.$b3[2].'" id="b3_clr"></center></td>
+      <td><center><input type="text" name="b3_name" value="'.$b3[0].'" id="b3_name" disabled></center></td>
+      <td><center><input type="text" name="b3_hc" value="'.$b3[1].' " id="b3_hc" disabled></center></td>
+      <td><center><input type="color" name="b3_clr" value="'.$b3[2].'" id="b3_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -152,9 +152,9 @@ if ($b4[0]!='') {
 echo '
     <tr>
       <td><center>B4</center></td>
-      <td><center><input type="text" name="b4_name" value="'.$b4[0].'" id="b4_name"></center></td>
-      <td><center><input type="text" name="b4_hc" value="'.$b4[1].' " id="b4_hc"></center></td>
-      <td><center><input type="color" name="b4_clr" value="'.$b4[2].'" id="b4_clr"></center></td>
+      <td><center><input type="text" name="b4_name" value="'.$b4[0].'" id="b4_name" disabled></center></td>
+      <td><center><input type="text" name="b4_hc" value="'.$b4[1].' " id="b4_hc" disabled></center></td>
+      <td><center><input type="color" name="b4_clr" value="'.$b4[2].'" id="b4_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -162,9 +162,9 @@ if ($b5[0]!='') {
 echo '
     <tr>
       <td><center>B5</center></td>
-      <td><center><input type="text" name="b5_name" value="'.$b5[0].'" id="b5_name"></center></td>
-      <td><center><input type="text" name="b5_hc" value="'.$b5[1].' " id="b5_hc"></center></td>
-      <td><center><input type="color" name="b5_clr" value="'.$b5[2].'" id="b5_clr"></center></td>
+      <td><center><input type="text" name="b5_name" value="'.$b5[0].'" id="b5_name" disabled></center></td>
+      <td><center><input type="text" name="b5_hc" value="'.$b5[1].' " id="b5_hc" disabled></center></td>
+      <td><center><input type="color" name="b5_clr" value="'.$b5[2].'" id="b5_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -172,9 +172,9 @@ if ($b6[0]!='') {
 echo '
     <tr>
       <td><center>B6</center></td>
-      <td><center><input type="text" name="b6_name" value="'.$b6[0].'" id="b6_name"></center></td>
-      <td><center><input type="text" name="b6_hc" value="'.$b6[1].' " id="b6_hc"></center></td>
-      <td><center><input type="color" name="b6_clr" value="'.$b6[2].'" id="b6_clr"></center></td>
+      <td><center><input type="text" name="b6_name" value="'.$b6[0].'" id="b6_name" disabled></center></td>
+      <td><center><input type="text" name="b6_hc" value="'.$b6[1].' " id="b6_hc" disabled></center></td>
+      <td><center><input type="color" name="b6_clr" value="'.$b6[2].'" id="b6_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -182,9 +182,9 @@ if ($b7[0]!='') {
 echo '
     <tr>
       <td><center>B7</center></td>
-      <td><center><input type="text" name="b7_name" value="'.$b7[0].'" id="b7_name"></center></td>
-      <td><center><input type="text" name="b7_hc" value="'.$b7[1].' " id="b7_hc"></center></td>
-      <td><center><input type="color" name="b7_clr" value="'.$b7[2].'" id="b7_clr"></center></td>
+      <td><center><input type="text" name="b7_name" value="'.$b7[0].'" id="b7_name" disabled></center></td>
+      <td><center><input type="text" name="b7_hc" value="'.$b7[1].' " id="b7_hc" disabled></center></td>
+      <td><center><input type="color" name="b7_clr" value="'.$b7[2].'" id="b7_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -192,9 +192,9 @@ if ($b8[0]!='') {
 echo '
     <tr>
       <td><center>B8</center></td>
-      <td><center><input type="text" name="b8_name" value="'.$b8[0].'" id="b8_name"></center></td>
-      <td><center><input type="text" name="b8_hc" value="'.$b8[1].' " id="b8_hc"></center></td>
-      <td><center><input type="color" name="b8_clr" value="'.$b8[2].'" id="b8_clr"></center></td>
+      <td><center><input type="text" name="b8_name" value="'.$b8[0].'" id="b8_name" disabled></center></td>
+      <td><center><input type="text" name="b8_hc" value="'.$b8[1].' " id="b8_hc" disabled></center></td>
+      <td><center><input type="color" name="b8_clr" value="'.$b8[2].'" id="b8_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -202,9 +202,9 @@ if ($b9[0]!='') {
 echo '
     <tr>
       <td><center>B9</center></td>
-      <td><center><input type="text" name="b9_name" value="'.$b9[0].'" id="b9_name"></center></td>
-      <td><center><input type="text" name="b9_hc" value="'.$b9[1].' " id="b9_hc"></center></td>
-      <td><center><input type="color" name="b9_clr" value="'.$b9[2].'" id="b9_clr"></center></td>
+      <td><center><input type="text" name="b9_name" value="'.$b9[0].'" id="b9_name" disabled></center></td>
+      <td><center><input type="text" name="b9_hc" value="'.$b9[1].' " id="b9_hc" disabled></center></td>
+      <td><center><input type="color" name="b9_clr" value="'.$b9[2].'" id="b9_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -212,9 +212,9 @@ if ($b10[0]!='') {
 echo '
     <tr>
       <td><center>B10</center></td>
-      <td><center><input type="text" name="b10_name" value="'.$b10[0].'" id="b10_name"></center></td>
-      <td><center><input type="text" name="b10_hc" value="'.$b10[1].' " id="b10_hc"></center></td>
-      <td><center><input type="color" name="b10_clr" value="'.$b10[2].'" id="b10_clr"></center></td>
+      <td><center><input type="text" name="b10_name" value="'.$b10[0].'" id="b10_name" disabled></center></td>
+      <td><center><input type="text" name="b10_hc" value="'.$b10[1].' " id="b10_hc" disabled></center></td>
+      <td><center><input type="color" name="b10_clr" value="'.$b10[2].'" id="b10_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -222,9 +222,9 @@ if ($b11[0]!='') {
 echo '
     <tr>
       <td><center>B11</center></td>
-      <td><center><input type="text" name="b11_name" value="'.$b11[0].'" id="b11_name"></center></td>
-      <td><center><input type="text" name="b11_hc" value="'.$b11[1].' " id="b11_hc"></center></td>
-      <td><center><input type="color" name="b11_clr" value="'.$b11[2].'" id="b11_clr"></center></td>
+      <td><center><input type="text" name="b11_name" value="'.$b11[0].'" id="b11_name" disabled></center></td>
+      <td><center><input type="text" name="b11_hc" value="'.$b11[1].' " id="b11_hc" disabled></center></td>
+      <td><center><input type="color" name="b11_clr" value="'.$b11[2].'" id="b11_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -232,9 +232,9 @@ if ($b12[0]!='') {
 echo '
     <tr>
       <td><center>B12</center></td>
-      <td><center><input type="text" name="b12_name" value="'.$b12[0].'" id="b12_name"></center></td>
-      <td><center><input type="text" name="b12_hc" value="'.$b12[1].' " id="b12_hc"></center></td>
-      <td><center><input type="color" name="b12_clr" value="'.$b12[2].'" id="b12_clr"></center></td>
+      <td><center><input type="text" name="b12_name" value="'.$b12[0].'" id="b12_name" disabled></center></td>
+      <td><center><input type="text" name="b12_hc" value="'.$b12[1].' " id="b12_hc" disabled></center></td>
+      <td><center><input type="color" name="b12_clr" value="'.$b12[2].'" id="b12_clr" disabled></center></td>
     </tr>
 ';
 }
@@ -242,14 +242,14 @@ $conn->close();
 
 echo '
     <tr>
-      <td colspan="4"><center><input type="submit" name="save" value=Save></center></td>
+      <td colspan="4"><center><input type="submit" name="save" value=Save class="button"></center></td>
     </tr>
 ';
-echo '
+/*echo '
     <tr>
       <td colspan="4"><button>asfas</button></td>
     </tr>
-';
+';*/
 echo '</form>';
 echo "</table>";
 

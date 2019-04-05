@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (isset($_POST['ico']))
@@ -21,361 +22,203 @@ else
 }
 
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>NSBM TMS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
-<head>
-	<script type="text/javascript">
-		if (window.ytcsi) {window.ytcsi.tick("bs", null, '');}ytcfg.set('initialBodyClientWidth', document.body.clientWidth);window.ytcfg.set('SERVICE_WORKER_KILLSWITCH', false);
-	</script>
-<!--------------------------------------------------------------------------------------TITLE-START--> 
-<title>Timetable Management System</title>
-<link rel="icon" type="image/icon" href="resources/yy.ico">
-<!--------------------------------------------------------------------------------------TITLE-END--> 
-</head>
-<!--------------------------------------------------------------------------------------STYLE-CSS-START--> 
-<style type="text/css">
-* {
-  box-sizing: border-box;
-}
-body {
-    margin: 0;
-    padding: 0;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("resources/ll.jpg");
-    background-size: cover;
-    font-family: sans-serif;
-}
-#head {
-  color: white;
-  font-size: 40px;
-  font-family: "Century Gothic";
-  margin-bottom: 50px;
-  width: auto;
-  border: none;
-}
-.btn
-{
-    text-decoration: none;
-    font-family: "Century Gothic";
-    font-size: 30px;
-    border: 2px solid white;
-    color: white;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-.btn:hover
-{
-    color: white;
-    border: 5px solid #39b54a;
-    cursor: pointer;
-}
-#ico{
-  width: 200px;
-  height: 200px;
-  margin-top: 100px;
-  border-radius: 50%;
-  background-image: url(resources/tms.png);
-  background-size: cover;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  outline:none;
-}
-#ico:hover{
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
-}
-#nsbm{
-  background-image:url("resources/bw.png");
-  background-size:100% 100%;
-  background-position: center;
-  width: 250px;
-  height: 100px;
-  position: fixed;
-  bottom: 10px;
-  right:10px;
-  padding: 15px;
-}
-#nsbm:hover{
-background-image:url("resources/nsbm.png");
-}
-.main {   
-    flex: 30%;
-    padding: 20px;
-    width: auto;
-}
-.row {  
-    display: flex;
-    flex-wrap: wrap;
-}
-.side {
-    
-    width: 35%;
-    height: auto;
-    padding: 10px;
-    float: right;
-    min-height: 500px;
-}
-@media screen and (max-width: 100px) {
-    .row {   
-        flex-direction: column;
-    }
-}
-@media screen and (max-width: 400px) {
-    .navbar a {
-        float: none;
-        width:100%;
-    }
-}
-.mySlides {
-  display: none;
-}
-img {
-  vertical-align: middle;
-}
-.slideshow-container {
-  width: 500px;
-  height: 500px;
-}
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom:0px;
-  width: 100%;
-  text-align: center;
-  background-color: rgba(0,0,0,0.5);
-}
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  top: 0;
-}
-.dot {
-  height: 5px;
-  width: 5px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-#active {
-  background-color: orange;
-}
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-</style>
-<!--------------------------------------------------------------------------------------STYLE-CSS-END--> 
+    <style>
+      #log-btn{
+       width: 50%;
+       height: 60px;
+       letter-spacing: 4px;
+       font-size: 25px; 
+           }
 
+       #banner #log-btn:hover {
+        letter-spacing: 5px;
+        color: white;
+        font-weight: bolder; 
+       }    
+    </style>
+  </head>
+  <body >
 
-<!--------------------------------------------------------------------------------------BODY-START--> 
-<body>
-<center>
-<div style="margin-top: 10%;">
-	<div style="margin-bottom: 50px;" >
+    <!------------------------------------------------------------------------- Header ------------------------------------------------------------>
+      <header id="header">
+        <a class="logo" href="http://nsbm.lk/home">NSBM</a>
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
 
-<div class="row">
+    <!------------------------------------------------------------------------ Nav ---------------------------------------------------------------->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="http://lmsnew.nsbm.lk/">LMS</a></li>
+          
+          <li><a name="ico">LOGIN</a></li>
+        
 
-  <!--side-->
-  <div class="side">
-    <div class="slideshow-container" style="background-color: white; float: right;">
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/s1.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
-        <div class="text">
-          <h1>Tip 1</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot" id="active"></span> 
-            <span class="dot"></span>
-            <span class="dot"></span> 
-            <span class="dot"></span>  
-          </div>
-        </div>
-      </div>
-<!---------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/s3.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
-        <div class="text">
-          <h1>Tip 3</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot" id="active"></span>
-            <span class="dot"></span> 
-            <span class="dot"></span>  
-          </div>
-        </div>
-      </div>
-<!---------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/s5.jpg');background-size: 100% 100%;width: 100%;height: 100%;position: relative;">
-        <div class="text">
-          <h1>Tip 5</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot"></span>
-            <span class="dot" id="active"></span> 
-            <span class="dot"></span>  
-          </div>
-        </div>
-      </div>
-<!---------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides fade" style="background-image:url('resources/s7.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
-        <div class="text">
-          <h1>Tip 7</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot"></span>
-            <span class="dot"></span> 
-            <span class="dot" id="active"></span>  
-          </div>
-        </div>
-      </div>
-<!---------------------------------------------------------------------------------------->
+        </ul>
+      </nav>
 
-    </div>
-  </div>
+    <!-------------------------------------------------------------------- Banner ------------------------------------------------------------------>
+      <section id="banner">
+        <div class="inner">
+          <h1><b>T M S</b></h1>
+          <p>Welcome To The Next Generation <a href="http://nsbm.lk/">NSBM</a> Timetable & Hall Management System.</p>
+            <form action="" method="post">
+        <button name="ico" id="log-btn" >LOGIN</button>
 
-  <!--main-->
-  <div class="main">
-    <div id="head">
-      <form action="" method="post">
-        <button id="ico" name="ico"></button>
       </form>
-      Timetable Management<br> System
-		</div>
-	</div>
+        </div>
+        <video autoplay loop muted playsinline src="images/nsbmv.mp4"></video>
+      </section>
 
-  <!--side-->
-  <div class="side">
-    <div class="slideshow-container" style="background-color: white; float: left;">
-
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/s2.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
-        <div class="text">
-          <h1>Tip 2</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot" id="active"></span> 
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>   
+    <!----------------------------------------------------------------- Highlights -------------------------------------------------------------------->
+      <section class="wrapper">
+        <div class="inner">
+          <header class="special">
+            <h2>Important Links</h2>
+            <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
+          </header>
+          <div class="highlights">
+            <section>
+              <div class="content">
+                <header>
+                  <a href="#" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+                  <h3>Important Contact Details</h3>
+                </header>
+                <p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+              </div>
+            </section>
+            
+            <section>
+              <div class="content">
+                <header>
+                  <a href="http://lmsnew.nsbm.lk/" class="icon fa-files-o"><span class="label">Icon</span></a>
+                  <h3>Learning Management System</h3>
+                </header>
+                <p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+              </div>
+            </section>
+            <section>
+              <div class="content">
+                <header>
+                  <a href="TRANSPORT_SERVICE.php" class="icon fa-line-chart"><span class="label">Icon</span></a>
+                  <h3>Transport Service</h3>
+                </header>
+                <p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+              </div>
+            </section>
           </div>
         </div>
-      </div>
-<!---------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/s4.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
-        <div class="text">
-          <h1>Tip 4</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot" id="active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>   
+      </section>
+
+    <!--------------------------------------------------------------------------------- CTA ---------------------------------------------------------->
+      <section id="cta" class="wrapper">
+        <div class="inner">
+          <h2>Curabitur ullamcorper ultricies</h2>
+          <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+        </div>
+      </section>
+
+    <!------------------------------------------------------------------------ Testimonials ------------------------------------------------------------>
+      <section class="wrapper">
+        <div class="inner">
+          <header class="special">
+            <h2>Faucibus consequat lorem</h2>
+            <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
+          </header>
+          <div class="testimonials">
+            <section>
+              <div class="content">
+                <blockquote>
+                  <p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+                </blockquote>
+                <div class="author">
+                  <div class="image">
+                    <img src="images/picT.jpg" alt="" />
+                  </div>
+                  <p class="credit">- <strong>Thilini De Silva</strong> <span>Dean SOB.</span></p>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="content">
+                <blockquote>
+                  <p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+                </blockquote>
+                <div class="author">
+                  <div class="image">
+                    <img src="images/picC.jpg" alt="" />
+                  </div>
+                  <p class="credit">- <strong>Chaminda Wijesinghe</strong> <span>   Dean SOC.</span></p>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="content">
+                <blockquote>
+                  <p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+                </blockquote>
+                <div class="author">
+                  <div class="image">
+                    <img src="images/picCP.jpg" alt="" />
+                  </div>
+                  <p class="credit">- <strong>Chandana Perera</strong> <span>CEO - ABC Inc.</span></p>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
-      </div>
-<!---------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/s6.1.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
-        <div class="text">
-          <h1>Tip 6</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot"></span>
-            <span class="dot"id="active"></span>
-            <span class="dot"></span>   
+      </section>
+
+    <!------------------------------------------------------------------------ Footer ------------------------------------------------>
+      <footer id="footer">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Accumsan montes viverra</h3>
+              <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+            </section>
+            <section>
+              <h4>Sem turpis amet semper</h4>
+              <ul class="alt">
+                <li><a href="#">Dolor pulvinar sed etiam.</a></li>
+                <li><a href="#">Etiam vel lorem sed amet.</a></li>
+                <li><a href="#">Felis enim feugiat viverra.</a></li>
+                <li><a href="#">Dolor pulvinar magna etiam.</a></li>
+              </ul>
+            </section>
+            <section>
+              <h4>Magna sed ipsum</h4>
+              <ul class="plain">
+                <li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+                <li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+                <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+                <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            &copy; Untitled. Photos <a href="https://SQUADRA.co">SQUADRA</a>
           </div>
         </div>
-      </div>
-<!---------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------->
-      <div class="mySlides2 fade" style="background-image:url('resources/s8.jpg');background-size: 100% 100%;width: 100%;height: 100%; position: relative;">
-        <div class="text">
-          <h1>Tip 8</h1>
-          <p>Lorem ipsum carrots or curling but these, too. Phaedrum normally takes you two, since it is rightly seeking neglegentur. I lied to pursue with dignity, it first measures to be expanded.</p>
-          <div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot"></span>
-            <span class="dot"></span> 
-            <span class="dot" id="active"></span>  
-          </div>
-        </div>
-      </div>
-<!----------------------------------------------------------------------------------------> 
-    </div>
-  </div>
+      </footer>
 
-</div>
-</center>
-</body>
-<!--------------------------------------------------------------------------------------BODY-END-->
+    <!------------------------------------------------------------------------------------ Scripts ------------------------------------------>
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
 
-
-
-<!--------------------------------------------------------------------------------------FOOTER-START--> 
-<footer>
-  <a href="http://nsbm.lk/" target="blank"><div id="nsbm" title="Nsbm.lk" ></div></a>
-</footer>
-<!--------------------------------------------------------------------------------------FOOTER-END-->
-
+  </body>
 </html>
-
-
-<script>
-var slideIndex = 0;
-var slideIndex2 = 0;
-showSlides();
-showSlides2();
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  slides[slideIndex-1].style.display = "block";  
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-
-function showSlides2() {
-  var i;
-  var slides2 = document.getElementsByClassName("mySlides2");
-  for (i = 0; i < slides2.length; i++) {
-    slides2[i].style.display = "none";  
-  }
-  slideIndex2++;
-  if (slideIndex2 > slides2.length) {slideIndex2 = 1}    
-  slides2[slideIndex2-1].style.display = "block";  
-  setTimeout(showSlides2, 2000); // Change image every 2 seconds
-}
-</script>

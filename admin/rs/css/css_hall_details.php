@@ -138,6 +138,7 @@ body  {
 }
 
 .dropdown{
+  text-align: center;
   width: 50%;
   height: 25px;
   border-radius: 10px 10px 10px 10px;
