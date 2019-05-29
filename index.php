@@ -25,11 +25,16 @@ else
 
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>NSBM TMS</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+
+<head>
+<!--------------------------------------------------------------------------------------TITLE-START-->
+<title>Timetable Management System</title>
+<link rel="icon" type="image/png" href="resources/yy.ico">
+<!--------------------------------------------------------------------------------------TITLE-START-->
+</head>
 
     <style>
       #log-btn{
@@ -45,7 +50,7 @@ else
         font-weight: bolder; 
        }    
     </style>
-  </head>
+
   <body >
 
     <!------------------------------------------------------------------------- Header ------------------------------------------------------------>
